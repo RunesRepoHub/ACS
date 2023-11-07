@@ -1,8 +1,28 @@
 #!/bin/bash
 
-echo "Do you want to save all the files in the plex media folder or delete them?"
-echo "y = Keep plex media folder"
-echo "n = Delete plex media folder"
+##### Styles ######
+Black='\e[0;30m'
+DarkGray='\e[1;30m'
+Red='\e[0;31m'
+LightRed='\e[1;31m'
+Green='\e[0;32m'
+LightGreen='\e[1;32m'
+BrownOrange='\e[0;33m'
+Yellow='\e[1;33m'
+Blue='\e[0;34m'
+LightBlue='\e[1;34m'
+Purple='\e[0;35m'
+LightPurple='\e[1;35m'
+Cyan='\e[0;36m'
+LightCyan='\e[1;36m'
+LightGray='\e[0;37m'
+White='\e[1;37m'
+NC='\e[0m'  # Reset to default
+###################
+
+echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
+echo -e "${Green}y = Keep plex media folder${NC}"
+echo -e "${Red}n = Delete plex media folder${NC}"
 
 # Prompt the user for a yes/no answer
 read -p "Are you sure? (y/n): " answer
@@ -27,6 +47,7 @@ elif [[ $answer == "n" ]]; then
     echo -e "All folders and files has been removed, all dockers has been stopped"
 else
     # User entered an invalid response
-    echo "Invalid input!"
+    echo -e "${Red}Error code: 400${NC}"
+    echo -e "${Red}Invalid input!${NC}"
 fi
 
