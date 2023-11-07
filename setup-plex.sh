@@ -79,7 +79,7 @@ docker run -d \
   -e TZ=Europa/Copenhagen \
   -v ~/radarr:/config \
   -v ~/plex/media/movies:/movies \
-  -v ~/download/download_completed:/downloads \
+  -v ~/download/downloading_completed:/downloads \
   -p 7878:7878 \
   --restart unless-stopped \
   lscr.io/linuxserver/radarr:latest
