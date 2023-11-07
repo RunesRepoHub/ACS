@@ -35,7 +35,7 @@ if [[ $answer == "y" ]]; then
     sleep 2
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/radarr  ~/sonarr  ~/tautalli
-    echo -e "All folders and files has been removed except the plex media folder, all dockers has been stopped"
+    echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
 
     # Remove the line from the crontab file
     sudo sed -i '/Auto-YT-DL\/automated-check.sh/d' /etc/crontab
@@ -47,7 +47,7 @@ elif [[ $answer == "n" ]]; then
     sleep 2
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/plex  ~/radarr  ~/sonarr  ~/tautalli
-    echo -e "All folders and files has been removed, all dockers has been stopped"
+    echo -e "${Green}All folders and files has been removed, all dockers has been stopped${NC}"
 else
     # User entered an invalid response
     echo -e "${Red}Error code: 400${NC}"
