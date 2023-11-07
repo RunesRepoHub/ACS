@@ -120,12 +120,17 @@ fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-compose.yml > /dev/null
 
-if [ -e ~/Auto-YT-DL/stop.yml ]; then
-    rm ~/Auto-YT-DL/stop.yml
+if [ -e ~/Auto-YT-DL/stop.sh ]; then
+    rm ~/Auto-YT-DL/stop.sh
 fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/stop.sh > /dev/null
 
+if [ -e ~/Auto-YT-DL/uninstall.sh ]; then
+    rm ~/Auto-YT-DL/uninstall.sh
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/uninstall.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -163,7 +168,9 @@ echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''
 echo 'alias start-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
 echo 'alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"' >> ~/.bashrc
 echo 'alias stop-all="bash ~/Auto-YT-DL/stop.sh"' >> ~/.bashrc
+echo 'alias stop-all="bash ~/Auto-YT-DL/uninstall.sh"' >> ~/.bashrc
 
+alias stop-all="bash ~/Auto-YT-DL/uninstall.sh"
 alias stop-all="bash ~/Auto-YT-DL/stop.sh"
 alias get-overview="docker ps --filter 'ancestor=mikenye/youtube-dl'"
 alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"
