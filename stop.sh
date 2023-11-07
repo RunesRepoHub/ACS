@@ -2,10 +2,10 @@
 
 # Stop and remove any docker with the image mikenye/youtube-dl
 container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
-if [[ $container_count -gt 0 ]]; then
-    docker stop $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}")
-    docker rm $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}")
-fi
+for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
+    docker stop $container_id
+    docker rm $container_id
+done
 
 # Stop and remove the dockers
 docker stop plex jackett radarr sonarr tautulli deluge ombi
