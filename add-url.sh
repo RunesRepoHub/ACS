@@ -36,12 +36,14 @@ existing_urls=$(cat ~/plex/media/url_file.txt)
 for url in $input_urls; do
     # Check if the URL already exists in the file
     if [[ $existing_urls =~ (^|[[:space:]])$url($|[[:space:]]) ]]; then
-        echo -e "${Yellow}URL $url already exists, skipping...${NC}"
+        echo -e "${Yellow}URL $url already exists, input another link instead${NC}"
+        bash ~/Auto-YT-DL/add-url.sh
     else
         # Append the new URL to the file
         echo "$url" >> ~/plex/media/url_file.txt
         echo "$url" > ~/plex/media/.url
+        bash ~/Auto-YT-DL/download.sh
     fi
 done
 
-bash ~/Auto-YT-DL/download.sh
+

@@ -67,8 +67,6 @@ echo -e "${Purple}Downloading files...${NC}"
 
 curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
 
-curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/cleanup.sh > /dev/null
-
 curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
 
 curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
