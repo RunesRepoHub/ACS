@@ -30,9 +30,14 @@ echo -e "${Green}https://www.plex.tv/claim/${NC}"
 # Prompt the user for the Plex claim
 read -p "Enter the Plex claim: " PLEX_CLAIM
 
+# Create a network
+docker network create my_plex_network
+
+# Run the plex service
 docker run \
     -d \
     --name plex \
+    --network my_plex_network \
     -p 32400:32400/tcp \
     -p 3005:3005/tcp \
     -p 8324:8324/tcp \
@@ -51,5 +56,85 @@ docker run \
     -v ~/plex/media:/data \
     plexinc/pms-docker
 
-cd ~/Auto-YT-DL
-docker-compose up -d
+# Run the jackett service
+docker run -d \
+  --name jackett \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -e AUTO_UPDATE=true \
+  -v /jackett:/config \
+  -v /download/downloading:/downloads \
+  -p 9117:9117 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/jackett:latest
+
+# Run the radarr service
+docker run -d \
+  --name radarr \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -v /radarr:/config \
+  -v /plex/media/movies:/movies \
+  -v /download/download_completed:/downloads \
+  -p 7878:7878 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/radarr:latest
+
+# Run the sonarr service
+docker run -d \
+  --name sonarr \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -v /sonarr:/config \
+  -v /plex/media/Shows:/shows \
+  -v /download/downloading_completed:/downloads \
+  -p 8989:8989 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/sonarr:latest
+
+# Run the tautulli service
+docker run -d \
+  --name tautulli \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -v /tautalli:/config \
+  -p 8181:8181 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/tautulli:latest
+
+# Run the deluge service
+docker run -d \
+  --name deluge \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -e DELUGE_LOGLEVEL=error \
+  -v /deluge:/config \
+  -v /downloads:/downloads \
+  -p 8112:8112 \
+  -p 6881:6881 \
+  -p 6881:6881/udp \
+  --restart unless-stopped \
+  lscr.io/linuxserver/deluge:latest
+
+# Run the ombi service
+docker run -d \
+  --name ombi \
+  --network my_plex_network \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europa/Copenhagen \
+  -v /ombi:/config \
+  -p 3579:3579 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/ombi:latest
+
