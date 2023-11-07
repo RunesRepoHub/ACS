@@ -128,7 +128,11 @@ sleep 2
 
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
-bash ~/Auto-YT-DL/setup-plex.sh
+if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
+    bash ~/Auto-YT-DL/setup-plex.sh
+else
+    echo -e "${Green}Plex docker is already running${NC}"
+fi
 
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
