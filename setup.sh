@@ -22,13 +22,30 @@ NC='\e[0m'  # Reset to default
 Dev="Dev"
 export Dev=$Dev
 
-# Make the folder
+# Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
+echo -e "${Purple}Run apt-get update${NC}"
+apt-get update
+echo -e "${Purple}Run apt-get upgrade -y${NC}"
+apt-get upgrade -y
+
+# Check if sudo is installed
+echo -e "${Purple}Check if sudo is installed${NC}"
+if ! command -v sudo &> /dev/null; then
+    echo -e "${Purple}Sudo is not installed.${NC}"
+    echo -e "${Yellow}Installing sudo...${NC}"
+    apt-get install sudo -y
+    echo -e "${Green}Sudo has been installed.${NC}"
+else
+    echo -e "${Green}Sudo is already installed.${NC}"
+fi 
+
+# Make the folder
 echo -e "${Yellow}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/
 
-echo -e "${Purple}Check if curl is installed${NC}"
 # Check if curl is installed
+echo -e "${Purple}Check if curl is installed${NC}"
 if ! command -v curl &> /dev/null; then
     echo -e "${Purple}Curl is not installed.${NC}"
     echo -e "${Yellow}Installing curl...${NC}"
@@ -38,8 +55,8 @@ else
     echo -e "${Green}Curl is already installed.${NC}"
 fi
 
-echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 # Check if docker and docker-compose are installed
+echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 if ! command -v docker &> /dev/null; then
     echo -e "${Purple}Docker is not installed.${NC}"
     echo -e "${Yellow}Installing docker...${NC}"
@@ -63,23 +80,18 @@ fi
 
 sleep 2
 
+# Download files
 echo -e "${Purple}Downloading files...${NC}"
-
 curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
-
 curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
-
 curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
-
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
-
 echo -e "${Green}Downloading files complete${NC}"
 
 sleep 2
 
-echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
-
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
+echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
 if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ]; then
     # Create the folders if they don't exist
     mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library
@@ -90,19 +102,20 @@ if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/l
     break 2
 fi
 
+# Add the first url
 bash ~/Auto-YT-DL/add-url.sh
 
 sleep 2
 
+# Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
-
 bash ~/Auto-YT-DL/setup-plex.sh
 
-
+# Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
-
 alias add-url="bash ~/Auto-YT-DL/add-url.sh"
 
+# Add cronjob
 if ! crontab -l | grep "0 0 30 \* \* root bash ~/Auto-YT-DL/automated-check.sh" >/dev/null 2>&1; then
     echo "0 0 30 * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
     echo -e "${Green}Cron job added successfully.${NC}"
@@ -111,10 +124,10 @@ else
 fi
 
 sleep 2 
-
-echo -e "${Green}Done!${NC}"
-
+# Remove files
 rm ~/Auto-YT-DL/setup-plex.sh
 rm ~/Auto-YT-DL/docker.sh
 rm ~/Auto-YT-DL/Readme.md
 rm ~/Auto-YT-DL/setup.sh
+
+echo -e "${Green}Done!${NC}"
