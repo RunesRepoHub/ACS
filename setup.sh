@@ -143,6 +143,14 @@ if [ -e ~/Auto-YT-DL/docker-compose.yml ]; then
 fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-compose.yml > /dev/null
+
+if [ -e ~/Auto-YT-DL/stop.yml ]; then
+    rm ~/Auto-YT-DL/stop.yml
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/stop.yml > /dev/null
+
+
 echo -e "${Green}Downloading files complete${NC}"
 
 sleep 2
