@@ -179,14 +179,10 @@ alias add-url="bash ~/Auto-YT-DL/add-url.sh"
 # Load the updated shell configuration file
 source ~/.bashrc
 
-# Check if the cronjob already exists
-if crontab -l | grep -q "0 0 30 \* \* root bash ~/Auto-YT-DL/automated-check.sh"; then
-    echo -e "${Red}Cron job already exists.${NC}"
-else
-    # Add the cronjob
-    echo "0 0 30 * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
-    echo -e "${Green}Cron job added successfully.${NC}"
-fi
+
+# Add the cronjob
+echo "0 0 30 * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
+echo -e "${Green}Cron job added successfully.${NC}"
 
 sleep 2 
 # Remove files
