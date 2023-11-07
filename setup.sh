@@ -132,9 +132,13 @@ bash ~/Auto-YT-DL/setup-plex.sh
 
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
-alias add-url="bash ~/Auto-YT-DL/add-url.sh"
-alias get-overview="docker ps --filter 'ancestor=mikenye/youtube-dl'"
-alias trigger-download="bash ~/Auto-YT-DL/automated-check.sh"
+# Add aliases to the shell configuration file
+echo 'alias add-url="bash ~/Auto-YT-DL/add-url.sh"' >> ~/.bashrc
+echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
+echo 'alias trigger-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
+
+# Load the updated shell configuration file
+source ~/.bashrc
 
 # Add cronjob
 if ! crontab -l | grep "0 0 30 \* \* root bash ~/Auto-YT-DL/automated-check.sh" >/dev/null 2>&1; then
