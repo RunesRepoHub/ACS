@@ -24,9 +24,9 @@ export Dev=$Dev
 
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
-echo -e "${Purple}Run apt-get update${NC}"
+echo -e "${Yellow}Run apt-get update${NC}"
 apt-get update > /dev/null 2>&1
-echo -e "${Purple}Run apt-get upgrade -y${NC}"
+echo -e "${Yellow}Run apt-get upgrade -y${NC}"
 apt-get upgrade -y > /dev/null 2>&1
 
 # Check if sudo is installed
@@ -41,7 +41,7 @@ else
 fi 
 
 # Make the folder
-echo -e "${Yellow}Make the folder ~/Auto-YT-DL${NC}"
+echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/
 
 # Check if curl is installed
