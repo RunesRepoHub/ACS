@@ -18,3 +18,11 @@ bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Producti
 ``` 
 add-url
 ```
+
+# Error Codes
+
+Error codes used in this "software"
+
+## 302 — Found:
+
+> A 302 error code is that the requested resource already exists at the specified location.

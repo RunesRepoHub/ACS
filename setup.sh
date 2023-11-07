@@ -115,3 +115,6 @@ sleep 2
 echo -e "${Green}Done!${NC}"
 
 rm ~/Auto-YT-DL/setup-plex.sh
+rm ~/Auto-YT-DL/docker.sh
+rm ~/Auto-YT-DL/Readme.md
+rm ~/Auto-YT-DL/setup.sh
