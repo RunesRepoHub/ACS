@@ -43,7 +43,7 @@ echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 if ! command -v docker &> /dev/null; then
     echo -e "${Purple}Docker is not installed.${NC}"
     echo -e "${Yellow}Installing docker...${NC}"
-    curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/docker.sh > /dev/null
+    curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker.sh > /dev/null
     bash ~/Auto-YT-DL/docker.sh
     echo -e "${Green}Docker has been installed.${NC}"
 else
@@ -65,15 +65,15 @@ sleep 2
 
 echo -e "${Purple}Downloading files...${NC}"
 
-curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/automated-check.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
 
-curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/cleanup.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/cleanup.sh > /dev/null
 
-curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/add-url.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
 
-curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/setup-plex.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
 
-curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/download.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
