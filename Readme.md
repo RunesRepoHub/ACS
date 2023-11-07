@@ -1,7 +1,7 @@
 # Install command
 
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/setup.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
 ```
 
 
