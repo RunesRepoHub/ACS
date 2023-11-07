@@ -1,3 +1,36 @@
+# Auto-YT-DL
+
+The code is a Bash script that reads URLs from a text file, downloads videos from those URLs using the mikenye/youtube-dl Docker container, and manages the number of running containers to avoid exceeding a specified limit.
+
+How? The code follows these steps:
+
+* Reads the URLs from a text file located at ~/plex/media/url_file.txt.
+
+* Sets the output path for downloaded videos to ~/plex/media/youtube.
+
+* Defines the maximum number of running containers as 3 and initializes the current number of containers to 0.
+
+* Loops over each URL from the text file:
+
+* Sets the video file path based on the URL.
+
+* Creates the video folder if it doesn't exist.
+
+* Checks the number of running mikenye/youtube-dl Docker containers and waits if the maximum is reached.
+
+* Increments the current number of running containers.
+
+* Downloads the video using the mikenye/youtube-dl Docker container with various options.
+
+* Decrements the current number of running containers.
+
+## Coupling and Cohesion: 
+
+The code appears to have low coupling and high cohesion. The functions and variables are appropriately scoped and organized within the script.
+
+## Single Responsibility Principle: 
+The code follows the Single Responsibility Principle to some extent. However, the section responsible for managing the number of running containers could be extracted into a separate function to improve code modularity and readability.
+
 # Install command
 
 ```

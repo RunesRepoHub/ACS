@@ -33,7 +33,7 @@ current_containers=0
 while IFS= read -r url; do
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
-    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
+    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4" 
 
     # Create the video folder if it doesn't exist
     mkdir -p "${video_folder}"
