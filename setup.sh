@@ -47,18 +47,18 @@ mkdir -p ~/Auto-YT-DL/
 
 # Check if the folders exist and create them if they don't
 folders=(
-    "/jackett"
-    "/download/downloading"
-    "/radarr"
-    "/plex/media/movies"
-    "/download/download_completed"
-    "/sonarr"
-    "/plex/media/Shows"
-    "/download/downloading_completed"
-    "/tautalli"
-    "/deluge"
-    "/downloads"
-    "/ombi"
+    "~/jackett"
+    "~/download/downloading"
+    "~/radarr"
+    "~/plex/media/movies"
+    "~/download/download_completed"
+    "~/sonarr"
+    "~/plex/media/Shows"
+    "~/download/downloading_completed"
+    "~/tautalli"
+    "~/deluge"
+    "~/downloads"
+    "~/ombi"
 )
 
 for folder in "${folders[@]}"; do
