@@ -20,30 +20,24 @@ else
     fi
 fi
 
-# Install Docker and Docker Compose on Ubuntu
-install_docker_ubuntu() {
-    apt-get update > /dev/null 2>&1
-    apt-get install -y apt-transport-https ca-certificates curl software-properties-common > /dev/null 2>&1
-
-    # Add Docker GPG key and repository
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - > /dev/null 2>&1
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" > /dev/null 2>&1
-
-    apt-get update > /dev/null 2>&1
-    apt-get install -y docker-ce docker-ce-cli containerd.io > /dev/null 2>&1
-}
-
-# Install Docker and Docker Compose on Debian
+# Refactored function to install Docker and Docker Compose on Debian
 install_docker_debian() {
     apt-get update > /dev/null 2>&1
-    apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common > /dev/null 2>&1
+    apt-get install -y ca-certificates curl gnupg > /dev/null 2>&1
 
-    # Add Docker GPG key and repository
-    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg > /dev/null 2>&1
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list > /dev/null 2>&1
+    # Add Docker's official GPG key
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+    # Add the repository to Apt sources
+    echo \
+      "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+      \"$(. /etc/os-release && echo \"$VERSION_CODENAME\")\" stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
     apt-get update > /dev/null 2>&1
-    apt-get install -y docker-ce docker-ce-cli containerd.io > /dev/null 2>&1
+    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null 2>&1
 }
 
 # Check if Docker is already installed
@@ -67,7 +61,7 @@ else
     esac
 fi
 
-# Install Docker Compose
+# Check if Docker Compose is already installed
 if [ ! -f /usr/local/bin/docker-compose ]; then
     curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose > /dev/null 2>&1
     chmod +x /usr/local/bin/docker-compose > /dev/null 2>&1
