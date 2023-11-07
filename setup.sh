@@ -78,10 +78,22 @@ fi
 sleep 2
 
 # Download files
-echo -e "${Purple}Downloading files...${NC}"
+echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
+
+rm ~/Auto-YT-DL/automated-check.sh
+sleep 1
 curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
+
+rm ~/Auto-YT-DL/add-url.sh
+sleep 1
 curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
+
+rm ~/Auto-YT-DL/setup-plex.sh
+sleep 1
 curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
+
+rm ~/Auto-YT-DL/download.sh
+sleep 1
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -95,8 +107,7 @@ if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/l
     else
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
-    echo -e "${Red}If you want this script to work,then delete the folders ~/plex/media/youtube, ~/plex/transcode, and ~/plex/library${NC}"
-    break 2
+    echo -e "${Red}The installation might fail due to this error${NC}"
 fi
 
 # Add the first url
