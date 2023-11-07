@@ -178,7 +178,9 @@ echo 'alias add-url="bash ~/Auto-YT-DL/add-url.sh"' >> ~/.bashrc
 echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
 echo 'alias start-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
 echo 'alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"' >> ~/.bashrc
+echo 'alias stop-all="bash ~/Auto-YT-DL/stop.sh"' >> ~/.bashrc
 
+alias stop-all="bash ~/Auto-YT-DL/stop.sh"
 alias get-overview="docker ps --filter 'ancestor=mikenye/youtube-dl'"
 alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"
 alias start-download="bash ~/Auto-YT-DL/automated-check.sh"
