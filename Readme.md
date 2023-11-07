@@ -4,6 +4,12 @@
 bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
 ```
 
+### Docker is required
+
+Docker is required to run this software
+
+[Get Docker on Debian 12](https://linuxiac.com/how-to-install-docker-on-debian-12-bookworm/
+)
 
 # Easy command
 
