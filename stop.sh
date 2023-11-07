@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Stop and remove any docker with the image plexinc/pms-docker
-docker stop $(docker ps -a -q --filter="ancestor=plexinc/pms-docker")
-docker rm $(docker ps -a -q --filter="ancestor=plexinc/pms-docker")
+# Stop and remove 3 instances of the docker container with the image plexinc/pms-docker
+for i in {1..3}
+do
+    docker stop $(docker ps -a -q --filter="ancestor=plexinc/pms-docker")
+    docker rm $(docker ps -a -q --filter="ancestor=plexinc/pms-docker")
+done
 
 # Stop and remove the dockers
 docker stop plex jackett radarr sonarr tautulli deluge ombi

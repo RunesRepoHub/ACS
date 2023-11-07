@@ -44,30 +44,6 @@ fi
 echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/
 
-
-# Check if the folders exist and create them if they don't
-folders=(
-    "~/jackett"
-    "~/download/downloading"
-    "~/radarr"
-    "~/plex/media/movies"
-    "~/download/download_completed"
-    "~/sonarr"
-    "~/plex/media/Shows"
-    "~/download/downloading_completed"
-    "~/tautalli"
-    "~/deluge"
-    "~/downloads"
-    "~/ombi"
-)
-
-for folder in "${folders[@]}"; do
-    if [ ! -d "$folder" ]; then
-        echo "Creating folder: $folder"
-        mkdir -p "$folder"
-    fi
-done
-
 # Check if curl is installed
 echo -e "${Purple}Check if curl is installed${NC}"
 if ! command -v curl &> /dev/null; then
@@ -157,10 +133,10 @@ sleep 2
 
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
-if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ]; then
+if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/jackett ] || [ ! -d ~/download/downloading ] || [ ! -d ~/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/download/download_completed ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/download/downloading_completed ] || [ ! -d ~/tautalli ] || [ ! -d ~/deluge ] || [ ! -d ~/downloads ] || [ ! -d ~/ombi ]; then
     # Create the folders if they don't exist
-    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library
-    else
+    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/jackett ~/download/downloading ~/radarr ~/plex/media/movies ~/download/download_completed ~/sonarr ~/plex/media/Shows ~/download/downloading_completed ~/tautalli ~/deluge ~/downloads ~/ombi
+else
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
     echo -e "${Red}The installation might fail due to this error${NC}"
