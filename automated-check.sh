@@ -64,7 +64,7 @@ while IFS= read -r url; do
         --embed-subs \
         --convert-subs srt \
         --write-auto-sub \
-        --download-archive archive.txt \
+        --download-archive /Auto-YT-DL/archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
 
