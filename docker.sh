@@ -56,7 +56,13 @@ else
     echo "Docker is installing..."
     case $DISTRO in
         "Ubuntu") install_docker_ubuntu ;;
-        "Debian") install_docker_debian ;;
+        "Debian") 
+            case "$(lsb_release -cs)" in
+                "bullseye" | "bookworm" | "buster" | "stretch")
+                    install_docker_debian ;;
+                *) echo "Unsupported Debian version. Exiting."; exit 1 ;;
+            esac
+            ;;
         *) echo "Unsupported distribution. Exiting."; exit 1 ;;
     esac
 fi
