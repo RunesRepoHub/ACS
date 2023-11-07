@@ -48,7 +48,17 @@ Want to download a new video manually that has not yet been downloaded automatic
 Use this command
 
 ```
-trigger-download
+start-download
+```
+
+## Stop an download
+
+Want to stop an download, if you need it to abort a download
+
+Use this command
+
+```
+stop-download
 ```
 
 # Error Codes

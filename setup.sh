@@ -108,6 +108,13 @@ sleep 1
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
 echo -e "${Green}Downloading files complete${NC}"
 
+if [ -e ~/Auto-YT-DL/docker-stop.sh ]; then
+    rm ~/Auto-YT-DL/docker-stop.sh
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-stop.sh > /dev/null
+echo -e "${Green}Downloading files complete${NC}"
+
 sleep 2
 
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
@@ -139,7 +146,9 @@ echo -e "${Purple}Setup cronjob and alias${NC}"
 # Add aliases to the shell configuration file
 echo 'alias add-url="bash ~/Auto-YT-DL/add-url.sh"' >> ~/.bashrc
 echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
-echo 'alias trigger-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
+echo 'alias start-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
+echo 'alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"' >> ~/.bashrc
+
 
 # Load the updated shell configuration file
 source ~/.bashrc
