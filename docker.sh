@@ -23,18 +23,18 @@ fi
 # Refactored function to install Docker and Docker Compose on Debian
 install_docker_debian() {
     apt-get update > /dev/null 2>&1
-    apt-get install -y ca-certificates curl gnupg > /dev/null 2>&1
+    sudo apt install -y apt-transport-https ca-certificates curl gnupg > /dev/null 2>&1
 
     # Add Docker's official GPG key
     sudo install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
     # Add the repository to Apt sources
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
     apt-get update > /dev/null 2>&1
-    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null 2>&1
+    sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin > /dev/null 2>&1
 }
 
 # Check if Docker is already installed
