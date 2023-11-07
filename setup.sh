@@ -25,16 +25,16 @@ export Dev=$Dev
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Purple}Run apt-get update${NC}"
-apt-get update
+apt-get update > /dev/null 2>&1
 echo -e "${Purple}Run apt-get upgrade -y${NC}"
-apt-get upgrade -y
+apt-get upgrade -y > /dev/null 2>&1
 
 # Check if sudo is installed
 echo -e "${Purple}Check if sudo is installed${NC}"
 if ! command -v sudo &> /dev/null; then
     echo -e "${Purple}Sudo is not installed.${NC}"
     echo -e "${Yellow}Installing sudo...${NC}"
-    apt-get install sudo -y
+    apt-get install sudo -y > /dev/null 2>&1
     echo -e "${Green}Sudo has been installed.${NC}"
 else
     echo -e "${Green}Sudo is already installed.${NC}"
@@ -49,7 +49,7 @@ echo -e "${Purple}Check if curl is installed${NC}"
 if ! command -v curl &> /dev/null; then
     echo -e "${Purple}Curl is not installed.${NC}"
     echo -e "${Yellow}Installing curl...${NC}"
-    sudo apt-get install curl -y
+    sudo apt-get install curl -y > /dev/null 2>&1
     echo -e "${Green}Curl has been installed.${NC}"
 else
     echo -e "${Green}Curl is already installed.${NC}"
@@ -65,15 +65,18 @@ else
     echo -e "${Green}Docker is installed.${NC}"
 fi
 
-# Check if docker image is downloaded
-echo -e "${Purple}Downloading docker image${NC}"
-if ! docker image inspect mikenye/youtube-dl &> /dev/null; then
-    echo -e "${Yellow}Downloading docker image...${NC}"
-    docker pull mikenye/youtube-dl
-    echo -e "${Green}Docker image has been downloaded.${NC}"
-else
-    echo -e "${Green}Docker image is already downloaded.${NC}"
-fi
+# Check if docker images are downloaded
+echo -e "${Purple}Downloading docker images${NC}"
+images=("mikenye/youtube-dl" "plexinc/pms-docker")
+for image in "${images[@]}"; do
+    if ! docker image inspect "$image" &> /dev/null; then
+        echo -e "${Yellow}Downloading $image...${NC}"
+        docker pull "$image" > /dev/null 2>&1
+        echo -e "${Green}$image has been downloaded.${NC}"
+    else
+        echo -e "${Green}$image is already downloaded.${NC}"
+    fi
+done
 
 sleep 2
 
@@ -136,7 +139,5 @@ fi
 sleep 2 
 # Remove files
 rm ~/Auto-YT-DL/setup-plex.sh
-rm ~/Auto-YT-DL/Readme.md
-rm ~/Auto-YT-DL/setup.sh
 
 echo -e "${Green}Done!${NC}"
