@@ -58,19 +58,16 @@ fi
 # Check if docker and docker-compose are installed
 echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 if ! command -v docker &> /dev/null; then
-    echo -e "${Purple}Docker is not installed.${NC}"
-    echo -e "${Yellow}Installing docker...${NC}"
-    curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker.sh > /dev/null
-    bash ~/Auto-YT-DL/docker.sh
-    echo -e "${Green}Docker has been installed.${NC}"
+    echo -e "${Red}Docker is not installed.${NC}"
+    echo -e "${Yellow}Please install docker in order to install Auto-YT-DL${NC}"
+    break 2
 else
-    echo -e "${Green}Docker is already installed.${NC}"
+    echo -e "${Green}Docker is installed.${NC}"
 fi
 
 # Check if docker image is downloaded
-echo -e "${Purple}Check if docker image is downloaded${NC}"
+echo -e "${Purple}Downloading docker image${NC}"
 if ! docker image inspect mikenye/youtube-dl &> /dev/null; then
-    echo -e "${Purple}Docker image is not downloaded.${NC}"
     echo -e "${Yellow}Downloading docker image...${NC}"
     docker pull mikenye/youtube-dl
     echo -e "${Green}Docker image has been downloaded.${NC}"
