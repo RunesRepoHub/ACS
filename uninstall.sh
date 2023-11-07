@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "Do you want to save all the files in the plex media folder or delete them?"
+echo "y = Keep plex media folder"
+echo "n = Delete plex media folder"
 
 # Prompt the user for a yes/no answer
 read -p "Are you sure? (y/n): " answer
