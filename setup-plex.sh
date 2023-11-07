@@ -51,3 +51,5 @@ docker run \
     -v ~/plex/media:/data \
     plexinc/pms-docker
 
+cd ~/Auto-YT-DL
+docker-compose up -d

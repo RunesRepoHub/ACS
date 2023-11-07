@@ -44,6 +44,30 @@ fi
 echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/
 
+
+# Check if the folders exist and create them if they don't
+folders=(
+    "/jackett"
+    "/download/downloading"
+    "/radarr"
+    "/plex/media/movies"
+    "/download/download_completed"
+    "/sonarr"
+    "/plex/media/Shows"
+    "/download/downloading_completed"
+    "/tautalli"
+    "/deluge"
+    "/downloads"
+    "/ombi"
+)
+
+for folder in "${folders[@]}"; do
+    if [ ! -d "$folder" ]; then
+        echo "Creating folder: $folder"
+        mkdir -p "$folder"
+    fi
+done
+
 # Check if curl is installed
 echo -e "${Purple}Check if curl is installed${NC}"
 if ! command -v curl &> /dev/null; then
@@ -113,6 +137,12 @@ if [ -e ~/Auto-YT-DL/docker-stop.sh ]; then
 fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-stop.sh > /dev/null
+
+if [ -e ~/Auto-YT-DL/docker-compose.yml ]; then
+    rm ~/Auto-YT-DL/docker-compose.yml
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-compose.yml > /dev/null
 echo -e "${Green}Downloading files complete${NC}"
 
 sleep 2
