@@ -40,7 +40,7 @@ while IFS= read -r url; do
 
     # Check the number of running youtube-dl Docker containers
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
-        sleep 15
+        sleep 60
     done
 
     # Update the current number of running containers
