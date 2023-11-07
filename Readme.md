@@ -9,6 +9,12 @@ bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Producti
 
 After the install has finished you can use these commands for quick access and control
 
+Run this command to enable the custom commands
+
+```
+source ~/.bashrc
+```
+
 ## Add url 
 
 This is how you add more then one url
