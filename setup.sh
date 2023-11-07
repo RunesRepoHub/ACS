@@ -123,7 +123,6 @@ fi
 sleep 2 
 # Remove files
 rm ~/Auto-YT-DL/setup-plex.sh
-rm ~/Auto-YT-DL/docker.sh
 rm ~/Auto-YT-DL/Readme.md
 rm ~/Auto-YT-DL/setup.sh
 
