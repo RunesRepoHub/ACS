@@ -19,7 +19,7 @@ NC='\e[0m'  # Reset to default
 ###################
 
 # Set version (Prod or Dev)
-Dev="Dev"
+Dev="Production"
 export Dev=$Dev
 
 # Install needed tools for installation script to work
