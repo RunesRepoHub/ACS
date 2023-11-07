@@ -19,6 +19,26 @@ You can also modify the `~/plex/media/url_file.txt` this file contains all the u
 add-url
 ```
 
+## Get an easy overview
+
+Quickly get an overview of the downloading docker containers.
+
+Use this command
+
+```
+get-overview
+```
+
+## Trigger an manuel download
+
+Want to download a new video manually that has not yet been downloaded automatically.
+
+Use this command
+
+```
+trigger-download
+```
+
 # Error Codes
 
 Error codes used in this "software"
