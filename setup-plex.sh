@@ -119,7 +119,7 @@ docker run -d \
   -e TZ=Europa/Copenhagen \
   -e DELUGE_LOGLEVEL=error \
   -v ~/deluge:/config \
-  -v ~/downloads:/downloads \
+  -v ~/download:/downloads \
   -p 8112:8112 \
   -p 6881:6881 \
   -p 6881:6881/udp \
