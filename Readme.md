@@ -94,6 +94,26 @@ Use this command
 stop-download
 ```
 
+## Stop all running dockers
+
+Want to stop all the docker at ones 
+
+Use this command
+
+```
+stop-all
+```
+
+## Uninstall and delete
+
+Want to uninstall everything and delete everything or uninstall and delete everything but keep the plex media folder.
+
+Use this command
+
+```
+yt-uninstall
+```
+
 # Error Codes
 
 Error codes used in this "software"
