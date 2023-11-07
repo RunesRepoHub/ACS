@@ -91,7 +91,7 @@ fi
 
 # Check if docker images are downloaded
 echo -e "${Purple}Downloading docker images${NC}"
-images=("mikenye/youtube-dl" "plexinc/pms-docker")
+images=("mikenye/youtube-dl" "plexinc/pms-docker" "lscr.io/linuxserver/jackett:latest" "lscr.io/linuxserver/radarr:latest" "lscr.io/linuxserver/sonarr:latest" "lscr.io/linuxserver/tautulli:latest" "lscr.io/linuxserver/deluge:latest" "lscr.io/linuxserver/ombi:latest") 
 for image in "${images[@]}"; do
     if ! docker image inspect "$image" &> /dev/null; then
         echo -e "${Yellow}Downloading $image...${NC}"
@@ -130,7 +130,7 @@ if [ -e ~/Auto-YT-DL/download.sh ]; then
 fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
-echo -e "${Green}Downloading files complete${NC}"
+
 
 if [ -e ~/Auto-YT-DL/docker-stop.sh ]; then
     rm ~/Auto-YT-DL/docker-stop.sh
