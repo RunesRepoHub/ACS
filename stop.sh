@@ -4,7 +4,6 @@
 container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
 for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
     docker stop $container_id
-    docker rm $container_id
 done
 
 # Stop and remove the dockers
