@@ -83,19 +83,27 @@ sleep 2
 # Download files
 echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 
-rm ~/Auto-YT-DL/automated-check.sh
+if [ -e ~/Auto-YT-DL/automated-check.sh ]; then
+    rm ~/Auto-YT-DL/automated-check.sh
+fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
 
-rm ~/Auto-YT-DL/add-url.sh
+if [ -e ~/Auto-YT-DL/add-url.sh ]; then
+    rm ~/Auto-YT-DL/add-url.sh
+fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
 
-rm ~/Auto-YT-DL/setup-plex.sh
+if [ -e ~/Auto-YT-DL/setup-plex.sh ]; then
+    rm ~/Auto-YT-DL/setup-plex.sh
+fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
 
-rm ~/Auto-YT-DL/download.sh
+if [ -e ~/Auto-YT-DL/download.sh ]; then
+    rm ~/Auto-YT-DL/download.sh
+fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
 echo -e "${Green}Downloading files complete${NC}"
