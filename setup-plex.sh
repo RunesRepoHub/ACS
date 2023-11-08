@@ -24,8 +24,14 @@ NC='\e[0m'  # Reset to default
 IP=$(hostname -I | awk '{print $1}')
 TZ=$(timedatectl show --property=Timezone --value)
 
-# Create a network
-docker network create my_plex_network
+# Check if the network already exists
+if docker network inspect my_plex_network >/dev/null 2>&1; then
+    echo -e "${Green}The network my_plex_network already exists${NC}"
+    echo -e "${Red}The installation might fail due to this error${NC}"
+else
+    # Create the network
+    docker network create my_plex_network
+fi
 
 # Check if there is already a docker with the name plex running
 

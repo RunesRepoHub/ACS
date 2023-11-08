@@ -22,6 +22,9 @@ NC='\e[0m'  # Reset to default
 Dev="Production"
 export Dev=$Dev
 
+# Start clean
+clear 
+
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Yellow}Run apt-get update${NC}"
