@@ -153,6 +153,9 @@ else
     echo -e "${Red}The installation might fail due to this error${NC}"
 fi
 
+chmod 777 ~/plex/media/movies/
+chmod 777 ~/plex/media/Shows/
+
 # Add the first url
 bash ~/Auto-YT-DL/add-url.sh
 
