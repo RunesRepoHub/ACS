@@ -64,8 +64,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europa/Copenhagen \
   -e AUTO_UPDATE=true \
-  -v ~/jackett:/config \
-  -v ~/download/downloading:/downloads \
+  -v ~/Auto-YT-DL/jackett:/config \
+  -v ~/plex/media/download:/download \
   -p 9117:9117 \
   --restart unless-stopped \
   lscr.io/linuxserver/jackett:latest
@@ -76,9 +76,9 @@ docker run -d \
   --network my_plex_network \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
-  -v ~/radarr:/config \
+  -v ~/Auto-YT-DL/radarr:/config \
   -v ~/plex/media/movies:/movies \
-  -v ~/download/downloading_completed:/downloads \
+  -v ~/plex/media/download:/download \
   -p 7878:7878 \
   --restart unless-stopped \
   lscr.io/linuxserver/radarr:latest
@@ -89,9 +89,9 @@ docker run -d \
   --network my_plex_network \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
-  -v ~/sonarr:/config \
+  -v ~/Auto-YT-DL/sonarr:/config \
   -v ~/plex/media/Shows:/shows \
-  -v ~/download/downloading_completed:/downloads \
+  -v ~/plex/media/download:/download \
   -p 8989:8989 \
   --restart unless-stopped \
   lscr.io/linuxserver/sonarr:latest
@@ -103,7 +103,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europa/Copenhagen \
-  -v ~/tautalli:/config \
+  -v ~/Auto-YT-DL/tautalli:/config \
   -p 8181:8181 \
   --restart unless-stopped \
   lscr.io/linuxserver/tautulli:latest
@@ -115,8 +115,8 @@ docker run -d \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -e DELUGE_LOGLEVEL=error \
-  -v ~/deluge:/config \
-  -v ~/download:/downloads \
+  -v ~/Auto-YT-DL/deluge:/config \
+  -v ~/plex/media/download:/download \
   -p 8112:8112 \
   -p 6881:6881 \
   -p 6881:6881/udp \
