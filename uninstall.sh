@@ -20,6 +20,21 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
+# Stop and remove any docker with the image mikenye/youtube-dl
+echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
+container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
+for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
+    docker stop $container_id
+done
+echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+
+
+# Stop and remove the dockers
+echo -e "${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+docker stop plex jackett radarr sonarr tautulli deluge ombi
+docker rm plex jackett radarr sonarr tautulli deluge ombi
+echo -e "${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+
 echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
 echo -e "${Green}y = Keep plex media folder${NC}"
 echo -e "${Red}n = Delete plex media folder${NC}"
