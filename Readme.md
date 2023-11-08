@@ -2,8 +2,8 @@
 
 ## Index
 
-* [Jackett Javascript](jackett-javascript.md)
-* [Configure WebGUI's](Config-Web.md)
+* [Jackett Javascript](docs/jackett-javascript.md)
+* [Configure WebGUI's](docs/Config-Web.md)
 
 
 ### Docker is required
