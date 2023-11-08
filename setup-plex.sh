@@ -74,8 +74,7 @@ docker run -d \
 docker run -d \
   --name radarr \
   --network my_plex_network \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -v ~/radarr:/config \
   -v ~/plex/media/movies:/movies \
@@ -88,8 +87,7 @@ docker run -d \
 docker run -d \
   --name sonarr \
   --network my_plex_network \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -v ~/sonarr:/config \
   -v ~/plex/media/Shows:/shows \
@@ -114,8 +112,7 @@ docker run -d \
 docker run -d \
   --name deluge \
   --network my_plex_network \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -e DELUGE_LOGLEVEL=error \
   -v ~/deluge:/config \
