@@ -155,6 +155,7 @@ fi
 
 chmod 777 ~/plex/media/movies/
 chmod 777 ~/plex/media/Shows/
+chmod 777 ~/plex/media/download/
 
 # Add the first url
 bash ~/Auto-YT-DL/add-url.sh
