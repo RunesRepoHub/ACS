@@ -146,7 +146,7 @@ sleep 2
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
 if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/jackett ] || [ ! -d ~/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/download/downloading_completed ] || [ ! -d ~/tautalli ] || [ ! -d ~/deluge ] || [ ! -d ~/ombi ]; then
     # Create the folders if they don't exist
-    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/jackett ~/radarr ~/plex/media/movies ~/sonarr ~/plex/media/Shows ~/download/downloading_completed ~/tautalli ~/deluge ~/ombi
+    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/jackett ~/radarr ~/plex/media/movies ~/sonarr ~/plex/media/Shows ~/plex/media/download/ ~/tautalli ~/deluge ~/ombi
 else
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
