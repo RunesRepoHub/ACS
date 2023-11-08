@@ -31,7 +31,7 @@ echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${N
 
 # Stop and remove the dockers
 echo -e "${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
-docker stop plex jackett radarr sonarr tautulli deluge ombi
+docker stop jackett radarr sonarr tautulli deluge ombi
 docker rm jackett radarr sonarr tautulli deluge ombi
 echo -e "${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
 
@@ -63,6 +63,7 @@ elif [[ $answer == "n" ]]; then
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/plex  ~/radarr  ~/sonarr  ~/tautalli
     echo -e "${Green}All folders and files has been removed, all dockers has been stopped${NC}"
+    docker stop plex
     docker rm plex
 else
     # User entered an invalid response
