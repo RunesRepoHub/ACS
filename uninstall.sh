@@ -43,7 +43,7 @@ if [[ $answer == "y" ]]; then
 elif [[ $answer == "n" ]]; then
     # User answered "no"
     # run docker stop all
-    bash ~/Auto-YT-DL/stop.sh
+    bash ~/Auto-YT-DL/stop-remove.sh
     sleep 2
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/plex  ~/radarr  ~/sonarr  ~/tautalli
