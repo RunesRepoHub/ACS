@@ -49,6 +49,7 @@ else
         -d \
         --name plex \
         --network my_plex_network \
+        --memory 4g \
         -p 32400:32400/tcp \
         -p 3005:3005/tcp \
         -p 8324:8324/tcp \
@@ -72,6 +73,7 @@ fi
 docker run -d \
   --name jackett \
   --network my_plex_network \
+  --memory 2g \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europa/Copenhagen \
@@ -86,6 +88,7 @@ docker run -d \
 docker run -d \
   --name radarr \
   --network my_plex_network \
+  --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -v ~/Auto-YT-DL/radarr:/config \
@@ -99,6 +102,7 @@ docker run -d \
 docker run -d \
   --name sonarr \
   --network my_plex_network \
+  --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -v ~/Auto-YT-DL/sonarr:/config \
@@ -112,6 +116,7 @@ docker run -d \
 docker run -d \
   --name tautulli \
   --network my_plex_network \
+  --memory 1g \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europa/Copenhagen \
@@ -124,6 +129,7 @@ docker run -d \
 docker run -d \
   --name deluge \
   --network my_plex_network \
+  --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ=Europa/Copenhagen \
   -e DELUGE_LOGLEVEL=error \
