@@ -2,21 +2,9 @@
 
 ## Index
 
-[Jackett Javascript](jackett-javascript.md)
-[Configure WebGUI's](Config-Web.md)
+* [Jackett Javascript](jackett-javascript.md)
+* [Configure WebGUI's](Config-Web.md)
 
-## Coupling and Cohesion: 
-
-The code appears to have low coupling and high cohesion. The functions and variables are appropriately scoped and organized within the script.
-
-## Single Responsibility Principle: 
-The code follows the Single Responsibility Principle to some extent. However, the section responsible for managing the number of running containers could be extracted into a separate function to improve code modularity and readability.
-
-# Install command
-
-```
-bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
-```
 
 ### Docker is required
 
@@ -24,6 +12,12 @@ Docker is required to run this software
 
 [Get Docker on Debian 12](https://linuxiac.com/how-to-install-docker-on-debian-12-bookworm/
 )
+
+# Install command
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
+```
 
 # Easy command
 
