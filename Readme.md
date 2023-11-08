@@ -121,3 +121,18 @@ Error codes used in this "software"
 ## 302 — Found:
 
 * A 302 error code is that the requested resource already exists at the specified location.
+
+
+## Config 
+
+![Alt text](image.png)
+
+![Alt text](image-1.png)
+
+![Alt text](image-2.png)
+
+![Alt text](image-3.png)
+
+![Alt text](image-4.png)
+
+![Alt text](image-5.png)
