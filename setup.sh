@@ -159,6 +159,7 @@ fi
 chmod 777 ~/plex/media/movies/
 chmod 777 ~/plex/media/Shows/
 chmod 777 ~/plex/media/download/
+chmod 777 ~/plex/media/download/completed
 
 
 # Add the first url
