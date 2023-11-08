@@ -2,8 +2,8 @@
 
 ## Index
 
-* [Jackett Javascript](docs/jackett-javascript.md)
-* [Configure WebGUI's](docs/Config-Web.md)
+* [Jackett Javascript](https://github.com/RunesRepoHub/YT-Plex/blob/Production/Docs/Jackett-javascript.md)
+* [Configure WebGUI's](https://github.com/RunesRepoHub/YT-Plex/blob/Production/Docs/Config-Web.md)
 
 
 ### Docker is required
