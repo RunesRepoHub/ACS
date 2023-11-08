@@ -127,19 +127,25 @@ if [ -e ~/Auto-YT-DL/Scripts/stop.sh ]; then
     rm ~/Auto-YT-DL/Scripts/stop.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/stop.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop.sh > /dev/null
 
 if [ -e ~/Auto-YT-DL/Scripts/uninstall.sh ]; then
     rm ~/Auto-YT-DL/Scripts/uninstall.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/uninstall.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/uninstall.sh > /dev/null
 
 if [ -e ~/Auto-YT-DL/Scripts/stop-remove.sh ]; then
     rm ~/Auto-YT-DL/Scripts/stop-remove.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/stop-remove.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop-remove.sh > /dev/null
+
+if [ -e ~/Auto-YT-DL/Scripts/update.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/update.sh
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/Scripts/update.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
