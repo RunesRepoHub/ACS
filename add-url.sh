@@ -27,8 +27,6 @@ read -p "Enter the URL: " input_urls
 # Check if the file exists, and if not, create it
 if [ ! -f ~/plex/media/url_file.txt ]; then
     touch ~/plex/media/url_file.txt
-    else
-    echo -e "${Green}Url file already exists, skipping add a url${NC}"
 fi
 
 # Read the existing URLs from the file
