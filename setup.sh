@@ -86,60 +86,60 @@ sleep 2
 # Download files
 echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 
-if [ -e ~/Auto-YT-DL/automated-check.sh ]; then
-    rm ~/Auto-YT-DL/automated-check.sh
+if [ -e ~/Auto-YT-DL/Scripts/automated-check.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/automated-check.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/automated-check.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/YT-Plex/$Dev/automated-check.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/add-url.sh ]; then
-    rm ~/Auto-YT-DL/add-url.sh
+if [ -e ~/Auto-YT-DL/Scripts/add-url.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/add-url.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/add-url.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/setup-plex.sh ]; then
-    rm ~/Auto-YT-DL/setup-plex.sh
+if [ -e ~/Auto-YT-DL/Scripts/setup-plex.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/setup-plex.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/setup-plex.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/setup-plex.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/download.sh ]; then
-    rm ~/Auto-YT-DL/download.sh
+if [ -e ~/Auto-YT-DL/Scripts/download.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/download.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/download.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/download.sh > /dev/null
 
 
-if [ -e ~/Auto-YT-DL/docker-stop.sh ]; then
-    rm ~/Auto-YT-DL/docker-stop.sh
+if [ -e ~/Auto-YT-DL/Scripts/docker-stop.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/docker-stop.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-stop.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-stop.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/docker-compose.yml ]; then
-    rm ~/Auto-YT-DL/docker-compose.yml
+if [ -e ~/Auto-YT-DL/Scripts/docker-compose.yml ]; then
+    rm ~/Auto-YT-DL/Scripts/docker-compose.yml
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/docker-compose.yml > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-compose.yml > /dev/null
 
-if [ -e ~/Auto-YT-DL/stop.sh ]; then
-    rm ~/Auto-YT-DL/stop.sh
+if [ -e ~/Auto-YT-DL/Scripts/stop.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/stop.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/stop.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/stop.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/uninstall.sh ]; then
-    rm ~/Auto-YT-DL/uninstall.sh
+if [ -e ~/Auto-YT-DL/Scripts/uninstall.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/uninstall.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/uninstall.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/uninstall.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/stop-remove.sh ]; then
-    rm ~/Auto-YT-DL/stop-remove.sh
+if [ -e ~/Auto-YT-DL/Scripts/stop-remove.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/stop-remove.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/stop-remove.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/stop-remove.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -164,7 +164,7 @@ chmod 777 ~/plex/media/download/completed
 
 # Add the first url
 if [ ! -f ~/plex/media/url_file.txt ]; then
-    bash ~/Auto-YT-DL/add-url.sh
+    bash ~/Auto-YT-DL/Scripts/add-url.sh
 fi
 
 
@@ -181,33 +181,22 @@ fi
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
 # Add aliases to the shell configuration file
-echo 'alias add-url="bash ~/Auto-YT-DL/add-url.sh"' >> ~/.bashrc
+echo 'alias add-url="bash ~/Auto-YT-DL/Scripts/add-url.sh"' >> ~/.bashrc
 echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
-echo 'alias start-download="bash ~/Auto-YT-DL/automated-check.sh"' >> ~/.bashrc
-echo 'alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"' >> ~/.bashrc
-echo 'alias stop-all="bash ~/Auto-YT-DL/stop.sh"' >> ~/.bashrc
-echo 'alias yt-uninstall="bash ~/Auto-YT-DL/uninstall.sh"' >> ~/.bashrc
-echo 'alias remove-all="bash ~/Auto-YT-DL/stop-remove.sh"' >> ~/.bashrc
-
-
-alias remove-all="bash ~/Auto-YT-DL/stop-remove.sh"
-alias yt-uninstall="bash ~/Auto-YT-DL/uninstall.sh"
-alias stop-all="bash ~/Auto-YT-DL/stop.sh"
-alias get-overview="docker ps --filter 'ancestor=mikenye/youtube-dl'"
-alias stop-download="bash ~/Auto-YT-DL/docker-stop.sh"
-alias start-download="bash ~/Auto-YT-DL/automated-check.sh"
-alias add-url="bash ~/Auto-YT-DL/add-url.sh"
-# Load the updated shell configuration file
-source ~/.bashrc
+echo 'alias start-download="bash ~/Auto-YT-DL/Scripts/automated-check.sh"' >> ~/.bashrc
+echo 'alias stop-download="bash ~/Auto-YT-DL/Scripts/docker-stop.sh"' >> ~/.bashrc
+echo 'alias stop-all="bash ~/Auto-YT-DL/Scripts/stop.sh"' >> ~/.bashrc
+echo 'alias yt-uninstall="bash ~/Auto-YT-DL/Scripts/uninstall.sh"' >> ~/.bashrc
+echo 'alias remove-all="bash ~/Auto-YT-DL/Scripts/stop-remove.sh"' >> ~/.bashrc
 
 
 # Add the cronjob
-echo "0 0 30 * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
+echo "0 0 30 * * root bash ~/Auto-YT-DL/Scripts/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
 echo -e "${Green}Cron job added successfully.${NC}"
 
 sleep 2 
 # Remove files
-rm ~/Auto-YT-DL/setup-plex.sh
+rm ~/Auto-YT-DL/Scripts/setup-plex.sh
 
 
 echo 

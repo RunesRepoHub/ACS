@@ -127,20 +127,20 @@ Error codes used in this "software"
 
 ### Indexers
 
-![Alt text](image.png)
+![Alt text](Pictures/image.png)
 
-![Alt text](image-1.png)
+![Alt text](Pictures/image-1.png)
 
 ### Download client
 
-![Alt text](image-2.png)
+![Alt text](Pictures/image-2.png)
 
-![Alt text](image-3.png)
+![Alt text](Pictures/image-3.png)
 
 ### Episode naming
 
-![Alt text](image-4.png)
+![Alt text](Pictures/image-4.png)
 
 ### Download profile
 
-![Alt text](image-5.png)
+![Alt text](Pictures/image-5.png)

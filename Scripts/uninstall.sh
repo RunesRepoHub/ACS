@@ -53,12 +53,12 @@ if [[ $answer == "y" ]]; then
     echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
 
     # Remove the line from the crontab file
-    sudo sed -i '/Auto-YT-DL\/automated-check.sh/d' /etc/crontab
+    sudo sed -i '/Auto-YT-DL\/Scripts\/automated-check.sh/d' /etc/crontab
     
 elif [[ $answer == "n" ]]; then
     # User answered "no"
     # run docker stop all
-    bash ~/Auto-YT-DL/stop-remove.sh
+    bash ~/Auto-YT-DL/Scripts/stop-remove.sh
     sleep 2
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/plex  ~/radarr  ~/sonarr  ~/tautalli
