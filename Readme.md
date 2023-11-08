@@ -1,28 +1,9 @@
 # Auto-YT-DL
 
-The code is a Bash script that reads URLs from a text file, downloads videos from those URLs using the mikenye/youtube-dl Docker container, and manages the number of running containers to avoid exceeding a specified limit.
+## Index
 
-How? The code follows these steps:
-
-* Reads the URLs from a text file located at ~/plex/media/url_file.txt.
-
-* Sets the output path for downloaded videos to ~/plex/media/youtube.
-
-* Defines the maximum number of running containers as 3 and initializes the current number of containers to 0.
-
-* Loops over each URL from the text file:
-
-* Sets the video file path based on the URL.
-
-* Creates the video folder if it doesn't exist.
-
-* Checks the number of running mikenye/youtube-dl Docker containers and waits if the maximum is reached.
-
-* Increments the current number of running containers.
-
-* Downloads the video using the mikenye/youtube-dl Docker container with various options.
-
-* Decrements the current number of running containers.
+[Jackett Javascript](jackett-javascript.md)
+[Configure WebGUI's](Config-Web.md)
 
 ## Coupling and Cohesion: 
 
@@ -121,26 +102,3 @@ Error codes used in this "software"
 ## 302 — Found:
 
 * A 302 error code is that the requested resource already exists at the specified location.
-
-
-## Config 
-
-### Indexers
-
-![Alt text](Pictures/image.png)
-
-![Alt text](Pictures/image-1.png)
-
-### Download client
-
-![Alt text](Pictures/image-2.png)
-
-![Alt text](Pictures/image-3.png)
-
-### Episode naming
-
-![Alt text](Pictures/image-4.png)
-
-### Download profile
-
-![Alt text](Pictures/image-5.png)
