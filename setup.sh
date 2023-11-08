@@ -208,4 +208,8 @@ sleep 2
 # Remove files
 rm ~/Auto-YT-DL/setup-plex.sh
 
-echo -e "${Green}Done!${NC}"
+
+echo 
+echo -e "${Green}Installation completed${NC}"
+echo -e "${Yellow}In order for the custom commands to load run 'source ~/.bashrc'${NC}"
+echo -e "${Orange}Find all custom commands here https://github.com/RunesRepoHub/YT-Plex#easy-command${NC}"
