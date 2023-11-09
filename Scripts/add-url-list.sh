@@ -19,7 +19,7 @@ for url in $input_urls; do
     else
         # Append the new URL to the file
         echo "$url" >> ~/plex/media/url_file.txt
-        bash ~/Auto-YT-DL/Scripts/download.sh
+        bash ~/Auto-YT-DL/Scripts/automated-check.sh
     fi
 done
 
