@@ -26,10 +26,7 @@ export Dev=$Dev
 clear 
 
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
-if ! command -v docker &> /dev/null || \
-   ! command -v docker-ce-cli &> /dev/null || \
-   ! command -v containerd &> /dev/null || \
-   ! command -v docker-buildx-plugin &> /dev/null; then
+if ! command -v docker &> /dev/null; then
     echo -e "${Red}Error code: 404${NC}"
     echo -e "${Red}One or more dependencies are not installed.${NC}"
     echo -e "${Red}Aborting installation.${NC}"
