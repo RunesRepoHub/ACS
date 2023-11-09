@@ -41,6 +41,22 @@ if ! command -v docker-compose &> /dev/null; then
     exit 1
 fi
 
+# Check if containerd.io is installed
+if ! command -v containerd &> /dev/null; then
+    echo -e "${Red}Error code: 404${NC}"
+    echo -e "${Red}Containerd is not installed.${NC}"
+    echo -e "${Red}Aborting installation.${NC}"
+    exit 1
+fi
+
+# Check if docker-buildx-plugin
+if ! command -v docker-buildx-plugin &> /dev/null; then
+    echo -e "${Red}Error code: 404${NC}"
+    echo -e "${Red}Docker-buildx-plugin is not installed.${NC}"
+    echo -e "${Red}Aborting installation.${NC}"
+    exit 1
+fi
+
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Yellow}Run apt-get update${NC}"
