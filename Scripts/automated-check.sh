@@ -20,35 +20,31 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
-# Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/url_file.txt)
+# Define the maximum number of running containers
+max_containers=$(cat ~/Auto-YT-DL/.max_containers)
 
 output_path=~/plex/media/youtube
 
-# Define the maximum number of running containers
-max_containers=$(cat ~/Auto-YT-DL/.max_containers)
-current_containers=0
+# Read the URLs from the txt file
+input_urls=$(cat ~/plex/media/url_file.txt)
 
-# Create an empty array to store processed URLs
-processed_urls=()
+# Declare an array to store the video URLs
+declare -a video_urls
 
-# Loop over each URL from the txt file
+# Loop over each URL from the txt file and store it in the video_urls array
 while IFS= read -r url; do
-    # Extract the hostname from the URL
-    hostname=$(echo "$url" | awk -F/ '{print $3}')
+    video_urls+=("$url")
+done <<< "$input_urls"
 
-    # Update the current number of running containers
-    current_containers=$((current_containers+1))
+# Function to wait until the number of running containers is less than the maximum
+wait_for_available_container() {
+    while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
+        sleep 60
+    done
+}
 
-    # Check if the hostname has already been processed
-    if [[ " ${processed_urls[@]} " =~ " ${hostname} " ]]; then
-        echo "Skipping duplicate hostname: ${hostname}"
-        continue
-    fi
-
-    # Add the hostname to the processed URLs array
-    processed_urls+=("$hostname")
-
+# Loop over each video URL
+for url in "${video_urls[@]}"; do
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4" 
@@ -56,10 +52,11 @@ while IFS= read -r url; do
     # Create the video folder if it doesn't exist
     mkdir -p "${video_folder}"
 
-    # Check the number of running youtube-dl Docker containers
-    while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
-        sleep 60
-    done
+    # Wait for Docker to spin up
+    sleep 10
+
+    # Wait for available containers
+    wait_for_available_container
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
@@ -68,7 +65,6 @@ while IFS= read -r url; do
         -e PUID=$(id -u) \
         -v "$(pwd)":/workdir:rw \
         -v "${video_folder}":/output:rw \
-        --name "$(echo "${url}" | awk -F '=' '{print $2}')" \
         --cpus 1 \
         --memory 2g \
         mikenye/youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' \
@@ -82,8 +78,4 @@ while IFS= read -r url; do
         --download-archive /Auto-YT-DL/archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
-
-    # Decrement the current number of running containers
-    current_containers=$((current_containers-1))
-done < ~/plex/media/url_file.txt
-
+done
