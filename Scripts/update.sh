@@ -25,47 +25,26 @@ export Dev=$Dev
 # Download files
 echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 
+files=(
+    "automated-check.sh"
+    "add-url.sh"
+    "setup-plex.sh"
+    "download.sh"
+    "docker-stop.sh"
+    "docker-compose.yml"
+    "stop.sh"
+    "uninstall.sh"
+    "stop-remove.sh"
+    "update.sh"
+    "add-url-list.sh"
+)
 
-rm ~/Auto-YT-DL/Scripts/automated-check.sh
-
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/YT-Plex/$Dev/automated-check.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/add-url.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/setup-plex.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/setup-plex.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/download.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/download.sh > /dev/null
-
-
-rm ~/Auto-YT-DL/Scripts/docker-stop.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-stop.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/docker-compose.yml
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-compose.yml > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/stop.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/uninstall.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/uninstall.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/stop-remove.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop-remove.sh > /dev/null
-
-rm ~/Auto-YT-DL/Scripts/update.sh
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/update.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update.sh > /dev/null
+for file in "${files[@]}"; do
+    if [ -e "~/Auto-YT-DL/Scripts/$file" ]; then
+        rm "~/Auto-YT-DL/Scripts/$file"
+    fi
+    sleep 1
+    curl -s -o "~/Auto-YT-DL/Scripts/$file" "https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/$file" > /dev/null
+done
 
 echo -e "${Green}Downloading files complete${NC}"
