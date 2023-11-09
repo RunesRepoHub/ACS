@@ -184,6 +184,7 @@ else
     echo -e "${Red}Folders already exist${NC}"
     echo -e "${Red}The installation might fail due to this error${NC}"
 fi
+echo -e "${Green}Folders created${NC}"
 
 chmod 777 ~/plex/media/movies/
 chmod 777 ~/plex/media/Shows/
@@ -192,7 +193,7 @@ chmod 777 ~/plex/media/download/completed
 
 # Take user input and save it to a file
 echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
-echo -e "${Purple}These containers are used to download videos${NC}"
+echo -e "${Yellow}These containers are used to download videos${NC}"
 read -p "Max Containers: " userInput
 echo "$userInput" > ~/Auto-YT-DL/.max_containers
 
@@ -201,7 +202,7 @@ sleep 2
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
 if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
-    bash ~/Auto-YT-DL/Scripts/Auto-YT-DL/setup-plex.sh
+    bash ~/Auto-YT-DL/Scripts/setup-plex.sh
 else
     echo -e "${Green}Plex docker is already running${NC}"
 fi
