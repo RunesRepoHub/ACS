@@ -25,6 +25,14 @@ export Dev=$Dev
 # Start clean
 clear 
 
+# Check if folder ~/Auto-YT-DL/Scripts exists
+if [ -d ~/Auto-YT-DL/Scripts ]; then
+    echo -e "${Red}Error code: 404${NC}"
+    echo -e "${Red}Folder ~/Auto-YT-DL/Scripts exists. Exiting script.${NC}"
+    echo -e "${Red}Aborting installation.${NC}"
+    exit 1
+fi
+
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
 if ! command -v docker &> /dev/null; then
     echo -e "${Red}Error code: 404${NC}"
@@ -54,6 +62,7 @@ fi
 # Make the folder
 echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/Scripts
+echo -e "${Green}Folder created${NC}"
 
 # Check if curl is installed
 echo -e "${Purple}Check if curl is installed${NC}"
