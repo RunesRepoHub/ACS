@@ -149,7 +149,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europa/Copenhagen \
-  -v ~/ombi:/config \
+  -v ~/Auto-YT-DL/ombi:/config \
   -p 3579:3579 \
   --restart always \
   lscr.io/linuxserver/ombi:latest
