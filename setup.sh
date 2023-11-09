@@ -109,12 +109,6 @@ fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/automated-check.sh > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/add-url.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/add-url.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url.sh > /dev/null
-
 if [ -e ~/Auto-YT-DL/Scripts/setup-plex.sh ]; then
     rm ~/Auto-YT-DL/Scripts/setup-plex.sh
 fi
@@ -133,12 +127,6 @@ if [ -e ~/Auto-YT-DL/Scripts/docker-stop.sh ]; then
 fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/Scripts/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-stop.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/docker-compose.yml ]; then
-    rm ~/Auto-YT-DL/Scripts/docker-compose.yml
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-compose.yml > /dev/null
 
 if [ -e ~/Auto-YT-DL/Scripts/stop.sh ]; then
     rm ~/Auto-YT-DL/Scripts/stop.sh
@@ -210,7 +198,6 @@ fi
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
 # Add aliases to the shell configuration file
-echo 'alias add-url="bash ~/Auto-YT-DL/Scripts/add-url.sh"' >> ~/.bashrc
 echo 'alias add-url="bash ~/Auto-YT-DL/Scripts/add-url-list.sh"' >> ~/.bashrc
 echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
 echo 'alias start-download="bash ~/Auto-YT-DL/Scripts/automated-check.sh"' >> ~/.bashrc
