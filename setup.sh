@@ -34,7 +34,7 @@ if ! command -v docker &> /dev/null; then
 fi
 
 # Check if docker cli is installed
-if ! command -v docker-compose &> /dev/null; then
+if ! command -v docker-ce-cli &> /dev/null; then
     echo -e "${Red}Error code: 404${NC}"
     echo -e "${Red}Docker CLI is not installed.${NC}"
     echo -e "${Red}Aborting installation.${NC}"
