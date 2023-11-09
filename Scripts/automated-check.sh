@@ -34,14 +34,17 @@ processed_urls=()
 
 # Loop over each URL from the txt file
 while IFS= read -r url; do
-    # Check if the URL has already been processed
-    if [[ " ${processed_urls[@]} " =~ " ${url} " ]]; then
-        echo "Skipping duplicate URL: ${url}"
+    # Extract the hostname from the URL
+    hostname=$(echo "$url" | awk -F/ '{print $3}')
+
+    # Check if the hostname has already been processed
+    if [[ " ${processed_urls[@]} " =~ " ${hostname} " ]]; then
+        echo "Skipping duplicate hostname: ${hostname}"
         continue
     fi
 
-    # Add the URL to the processed URLs array
-    processed_urls+=("$url")
+    # Add the hostname to the processed URLs array
+    processed_urls+=("$hostname")
 
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
@@ -57,13 +60,6 @@ while IFS= read -r url; do
 
     # Update the current number of running containers
     current_containers=$((current_containers+1))
-
-    # Create a lock file to ensure only one Docker container is set up at a time
-    lock_file="${output_path}/.docker_lock"
-    while [ -f "$lock_file" ]; do
-        sleep 5
-    done
-    touch "$lock_file"
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
@@ -89,9 +85,5 @@ while IFS= read -r url; do
 
     # Decrement the current number of running containers
     current_containers=$((current_containers-1))
-
-    # Remove the lock file
-    rm "$lock_file"
-
 done < ~/plex/media/url_file.txt
 
