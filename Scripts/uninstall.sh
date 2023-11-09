@@ -20,6 +20,15 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
+
+echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
+echo -e "${Green}y = Keep plex media folder${NC}"
+echo -e "${Red}n = Delete plex media folder${NC}"
+
+# Prompt the user for a yes/no answer
+read -p "Are you sure? (y/n): " answer
+
+
 # Stop and remove any docker with the image mikenye/youtube-dl
 echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
 container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
@@ -31,16 +40,11 @@ echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${N
 
 # Stop and remove the dockers
 echo -e "${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
-docker stop jackett radarr sonarr tautulli deluge ombi
-docker rm jackett radarr sonarr tautulli deluge ombi
+docker stop jackett radarr sonarr tautulli deluge ombi > /dev/null 2>&1
+docker rm jackett radarr sonarr tautulli deluge ombi > /dev/null 2>&1
 echo -e "${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
 
-echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
-echo -e "${Green}y = Keep plex media folder${NC}"
-echo -e "${Red}n = Delete plex media folder${NC}"
 
-# Prompt the user for a yes/no answer
-read -p "Are you sure? (y/n): " answer
 
 # Check the user's response
 if [[ $answer == "y" ]]; then
