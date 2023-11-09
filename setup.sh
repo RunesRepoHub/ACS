@@ -144,22 +144,7 @@ for folder in "${folders[@]}"; do
     fi
 done
 
-if 
-[ -z "$(ls -A ~/plex/media/youtube)" ] || 
-[ -z "$(ls -A ~/plex/transcode)" ] || 
-[ -z "$(ls -A ~/plex/library)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/jackett)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/radarr)" ] || 
-[ -z "$(ls -A ~/plex/media/movies)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/sonarr)" ] || 
-[ -z "$(ls -A ~/plex/media/Shows)" ] || 
-[ -z "$(ls -A ~/plex/media/download)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/tautalli)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/deluge)" ] || 
-[ -z "$(ls -A ~/Auto-YT-DL/ombi)" ] || 
-[ -z "$(ls -A ~/plex/media/download/completed)" ]; 
-
-then
+if [ -z "$(ls -A ~/plex/media/youtube)" ] || [ -z "$(ls -A ~/plex/transcode)" ] || [ -z "$(ls -A ~/plex/library)" ] || [ -z "$(ls -A ~/Auto-YT-DL/jackett)" ] || [ -z "$(ls -A ~/Auto-YT-DL/radarr)" ] || [ -z "$(ls -A ~/plex/media/movies)" ] || [ -z "$(ls -A ~/Auto-YT-DL/sonarr)" ] || [ -z "$(ls -A ~/plex/media/Shows)" ] || [ -z "$(ls -A ~/plex/media/download)" ] || [ -z "$(ls -A ~/Auto-YT-DL/tautalli)" ] || [ -z "$(ls -A ~/Auto-YT-DL/deluge)" ] || [ -z "$(ls -A ~/Auto-YT-DL/ombi)" ] || [ -z "$(ls -A ~/plex/media/download/completed)" ]; then
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
     echo -e "${Red}The installation might fail due to this error${NC}"
