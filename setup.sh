@@ -45,7 +45,7 @@ fi
 
 # Make the folder
 echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
-mkdir -p ~/Auto-YT-DL/
+mkdir -p ~/Auto-YT-DL/Scripts
 
 # Check if curl is installed
 echo -e "${Purple}Check if curl is installed${NC}"
@@ -179,7 +179,7 @@ sleep 2
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
 if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
-    bash ~/Auto-YT-DL/setup-plex.sh
+    bash ~/Auto-YT-DL/Scripts/setup-plex.sh
 else
     echo -e "${Green}Plex docker is already running${NC}"
 fi
