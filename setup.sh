@@ -107,7 +107,7 @@ if [ -e ~/Auto-YT-DL/Scripts/automated-check.sh ]; then
     rm ~/Auto-YT-DL/Scripts/automated-check.sh
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/YT-Plex/$Dev/automated-check.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/automated-check.sh > /dev/null
 
 if [ -e ~/Auto-YT-DL/Scripts/add-url.sh ]; then
     rm ~/Auto-YT-DL/Scripts/add-url.sh
@@ -195,11 +195,6 @@ echo -e "${Purple}Enter the maximum number of containers to run for the youtube 
 echo -e "${Purple}These containers are used to download videos${NC}"
 read -p "Max Containers: " userInput
 echo "$userInput" > ~/Auto-YT-DL/.max_containers
-
-# Add the first url
-if [ ! -f ~/plex/media/url_file.txt ]; then
-    bash ~/Auto-YT-DL/Scripts/add-url.sh
-fi
 
 sleep 2
 
