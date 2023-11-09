@@ -58,6 +58,13 @@ while IFS= read -r url; do
     # Update the current number of running containers
     current_containers=$((current_containers+1))
 
+    # Create a lock file to ensure only one Docker container is set up at a time
+    lock_file="${output_path}/.docker_lock"
+    while [ -f "$lock_file" ]; do
+        sleep 5
+    done
+    touch "$lock_file"
+
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
         --rm -d \
@@ -82,5 +89,9 @@ while IFS= read -r url; do
 
     # Decrement the current number of running containers
     current_containers=$((current_containers-1))
+
+    # Remove the lock file
+    rm "$lock_file"
+
 done < ~/plex/media/url_file.txt
 
