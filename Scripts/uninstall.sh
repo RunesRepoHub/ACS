@@ -31,6 +31,7 @@ read -p "Are you sure? (y/n): " answer
 # Check the user's response
 if [[ $answer == "y" ]]; then
     # User answered "yes"
+    
     # Stop and remove any docker with the image mikenye/youtube-dl
     echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
     container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
@@ -38,11 +39,18 @@ if [[ $answer == "y" ]]; then
         docker stop $container_id
     done
     echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+    
     # Stop and remove the dockers
     echo -e "${Red}Stopping jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
     docker stop jackett radarr sonarr tautulli deluge ombi 
     docker rm jackett radarr sonarr tautulli deluge ombi
     echo -e "${Green}All jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+
+        # Remove the network
+    echo -e "${Red}Removing the network my_plex_network${NC}"
+    docker network rm my_plex_network
+    echo -e "${Green}The network my_plex_network has been removed${NC}"
+
     # remove all folders and files
     rm -rf ~/Auto-YT-DL 
     echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
@@ -52,18 +60,26 @@ if [[ $answer == "y" ]]; then
     
 elif [[ $answer == "n" ]]; then
     # User answered "no"
-        # Stop and remove any docker with the image mikenye/youtube-dl
+    
+    # Stop and remove any docker with the image mikenye/youtube-dl
     echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
     container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
     for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
         docker stop $container_id
     done
     echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+    
     # Stop and remove the dockers
     echo -e "${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
     docker stop plex jackett radarr sonarr tautulli deluge ombi 
     docker rm plex jackett radarr sonarr tautulli deluge ombi
     echo -e "${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+    
+    # Remove the network
+    echo -e "${Red}Removing the network my_plex_network${NC}"
+    docker network rm my_plex_network
+    echo -e "${Green}The network my_plex_network has been removed${NC}"
+
     # remove all folders and files
     rm -rf ~/Auto-YT-DL  ~/plex
     echo -e "${Green}All folders and files has been removed, all dockers has been stopped${NC}"
