@@ -7,6 +7,10 @@ if [ ! -f ~/plex/media/url_file.txt ]; then
     touch ~/plex/media/url_file.txt
 fi
 
+if [ ! -f ~/plex/media/archive_url_file.txt ]; then
+    touch ~/plex/media/archive_url_file.txt
+fi
+
 # Read the existing URLs from the file
 existing_urls=$(cat ~/plex/media/url_file.txt)
 
@@ -18,8 +22,9 @@ for url in $input_urls; do
         bash ~/Auto-YT-DL/Scripts/add-url-list.sh
     else
         # Append the new URL to the file
-        echo "$url" >> ~/plex/media/url_file.txt
-        bash ~/Auto-YT-DL/Scripts/automated-check.sh
+        echo "$url" > ~/plex/media/url_file.txt
+        echo "$url" >> ~/plex/media/archive_url_file.txt
+        bash ~/Auto-YT-DL/Scripts/download.sh
     fi
 done
 

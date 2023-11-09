@@ -26,7 +26,7 @@ max_containers=$(cat ~/Auto-YT-DL/.max_containers)
 output_path=~/plex/media/youtube
 
 # Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/url_file.txt)
+input_urls=$(cat ~/plex/media/archive_url_file.txt)
 
 # Declare an array to store the video URLs
 declare -a video_urls
@@ -44,19 +44,35 @@ wait_for_available_container() {
 }
 
 # Loop over each video URL
-for url in "${video_urls[@]}"; do
+while [ ${#video_urls[@]} -gt 0 ]; do
+    # Set the video URL to download
+    url="${video_urls[0]}"
+
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
-    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4" 
+    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
 
     # Create the video folder if it doesn't exist
     mkdir -p "${video_folder}"
+
+    # Get the hostname from the URL
+    hostname=$(echo "${url}" | awk -F '=' '{print $2}')
+
+    # Check if the container with the same hostname is already running
+    if [ "$(docker ps --filter "name=${hostname}" --format '{{.Names}}')" ]; then
+        # Remove the processed URL from the array
+        video_urls=("${video_urls[@]:1}")
+        continue
+    fi
 
     # Wait for Docker to spin up
     sleep 10
 
     # Wait for available containers
     wait_for_available_container
+
+    # Generate a unique container name based on the URL 
+    container_name="$(echo "${url}" | awk -F '=' '{print $2}')"
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
@@ -65,6 +81,7 @@ for url in "${video_urls[@]}"; do
         -e PUID=$(id -u) \
         -v "$(pwd)":/workdir:rw \
         -v "${video_folder}":/output:rw \
+        --name "${container_name}" \
         --cpus 1 \
         --memory 2g \
         mikenye/youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' \
@@ -78,4 +95,7 @@ for url in "${video_urls[@]}"; do
         --download-archive /Auto-YT-DL/archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
+
+    # Remove the processed URL from the array
+    video_urls=("${video_urls[@]:1}")
 done
