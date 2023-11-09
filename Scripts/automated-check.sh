@@ -37,6 +37,9 @@ while IFS= read -r url; do
     # Extract the hostname from the URL
     hostname=$(echo "$url" | awk -F/ '{print $3}')
 
+    # Update the current number of running containers
+    current_containers=$((current_containers+1))
+
     # Check if the hostname has already been processed
     if [[ " ${processed_urls[@]} " =~ " ${hostname} " ]]; then
         echo "Skipping duplicate hostname: ${hostname}"
@@ -57,9 +60,6 @@ while IFS= read -r url; do
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
         sleep 60
     done
-
-    # Update the current number of running containers
-    current_containers=$((current_containers+1))
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
