@@ -49,7 +49,7 @@ if [[ $answer == "y" ]]; then
     bash ~/Auto-YT-DL/stop.sh
     sleep 2
     # remove all folders and files
-    rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/radarr  ~/sonarr  ~/tautalli
+    rm -rf ~/Auto-YT-DL 
     echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
 
     # Remove the line from the crontab file
@@ -61,7 +61,7 @@ elif [[ $answer == "n" ]]; then
     bash ~/Auto-YT-DL/Scripts/stop-remove.sh
     sleep 2
     # remove all folders and files
-    rm -rf ~/Auto-YT-DL  ~/deluge  ~/download  ~/jackett  ~/ombi  ~/plex  ~/radarr  ~/sonarr  ~/tautalli
+    rm -rf ~/Auto-YT-DL  ~/plex
     echo -e "${Green}All folders and files has been removed, all dockers has been stopped${NC}"
     docker stop plex
     docker rm plex
