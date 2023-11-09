@@ -29,8 +29,20 @@ output_path=~/plex/media/youtube
 max_containers=$(cat ~/Auto-YT-DL/.max_containers)
 current_containers=0
 
+# Create an empty array to store processed URLs
+processed_urls=()
+
 # Loop over each URL from the txt file
 while IFS= read -r url; do
+    # Check if the URL has already been processed
+    if [[ " ${processed_urls[@]} " =~ " ${url} " ]]; then
+        echo "Skipping duplicate URL: ${url}"
+        continue
+    fi
+
+    # Add the URL to the processed URLs array
+    processed_urls+=("$url")
+
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4" 
