@@ -43,13 +43,13 @@ fi
 
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
-echo -e "${Yellow}Run apt-get update${NC}"
-apt-get update > /dev/null 2>&1
-echo -e "${Yellow}Run apt-get upgrade -y${NC}"
+
+# Update and upgrade packages
+echo -e "${Yellow}Run apt-get update and upgrade${NC}"
+apt-get update -y > /dev/null 2>&1
 apt-get upgrade -y > /dev/null 2>&1
 
-# Check if sudo is installed
-echo -e "${Purple}Check if sudo is installed${NC}"
+# Install sudo if not already installed
 if ! command -v sudo &> /dev/null; then
     echo -e "${Purple}Sudo is not installed.${NC}"
     echo -e "${Yellow}Installing sudo...${NC}"
@@ -59,31 +59,22 @@ else
     echo -e "${Green}Sudo is already installed.${NC}"
 fi 
 
-# Make the folder
-echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
-mkdir -p ~/Auto-YT-DL/Scripts
-echo -e "${Green}Folder created${NC}"
-
-# Check if curl is installed
-echo -e "${Purple}Check if curl is installed${NC}"
+# Install curl if not already installed
 if ! command -v curl &> /dev/null; then
     echo -e "${Purple}Curl is not installed.${NC}"
     echo -e "${Yellow}Installing curl...${NC}"
-    sudo apt-get install curl -y > /dev/null 2>&1
+    apt-get install curl -y > /dev/null 2>&1
     echo -e "${Green}Curl has been installed.${NC}"
 else
     echo -e "${Green}Curl is already installed.${NC}"
 fi
 
-# Check if docker and docker-compose are installed
-echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
-if ! command -v docker &> /dev/null; then
-    echo -e "${Red}Docker is not installed.${NC}"
-    echo -e "${Yellow}Please install docker in order to install Auto-YT-DL${NC}"
-    break 2
-else
-    echo -e "${Green}Docker is installed.${NC}"
-fi
+# Make the folder
+echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
+mkdir -p ~/Auto-YT-DL/Scripts
+echo -e "${Green}Folder created${NC}"
+
+
 
 # Check if docker images are downloaded
 echo -e "${Purple}Downloading docker images${NC}"
@@ -103,72 +94,27 @@ sleep 2
 # Download files
 echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 
-if [ -e ~/Auto-YT-DL/Scripts/automated-check.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/automated-check.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/automated-check.sh > /dev/null
+files=(
+    "automated-check.sh"
+    "add-url.sh"
+    "setup-plex.sh"
+    "download.sh"
+    "docker-stop.sh"
+    "docker-compose.yml"
+    "stop.sh"
+    "uninstall.sh"
+    "stop-remove.sh"
+    "update.sh"
+    "add-url-list.sh"
+)
 
-if [ -e ~/Auto-YT-DL/Scripts/add-url.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/add-url.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/setup-plex.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/setup-plex.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/setup-plex.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/download.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/download.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/download.sh > /dev/null
-
-
-if [ -e ~/Auto-YT-DL/Scripts/docker-stop.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/docker-stop.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-stop.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/docker-compose.yml ]; then
-    rm ~/Auto-YT-DL/Scripts/docker-compose.yml
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-compose.yml https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-compose.yml > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/stop.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/stop.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/uninstall.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/uninstall.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/uninstall.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/stop-remove.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/stop-remove.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop-remove.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/update.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/update.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/update.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update.sh > /dev/null
-
-if [ -e ~/Auto-YT-DL/Scripts/add-url-list.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/add-url-list.sh
-fi
-sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/add-url-list.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url-list.sh > /dev/null
+for file in "${files[@]}"; do
+    if [ -e "~/Auto-YT-DL/Scripts/$file" ]; then
+        rm "~/Auto-YT-DL/Scripts/$file"
+    fi
+    sleep 1
+    curl -s -o "~/Auto-YT-DL/Scripts/$file" "https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/$file" > /dev/null
+done
 
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -176,10 +122,44 @@ sleep 2
 
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
-if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/Auto-YT-DL/jackett ] || [ ! -d ~/Auto-YT-DL/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/plex/media/download ] || [ ! -d ~/Auto-YT-DL/tautalli ] || [ ! -d ~/Auto-YT-DL/deluge ] || [ ! -d ~/Auto-YT-DL/ombi ] || [ ! -d ~/plex/media/download/completed ]; then
-    # Create the folders if they don't exist
-    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/Auto-YT-DL/jackett ~/Auto-YT-DL/radarr ~/plex/media/movies ~/Auto-YT-DL/sonarr ~/plex/media/Shows ~/plex/media/download ~/Auto-YT-DL/tautalli ~/Auto-YT-DL/deluge ~/Auto-YT-DL/ombi  ~/plex/media/download/completed
-else
+folders=(
+    "~/plex/media/youtube"
+    "~/plex/transcode"
+    "~/plex/library"
+    "~/Auto-YT-DL/jackett"
+    "~/Auto-YT-DL/radarr"
+    "~/plex/media/movies"
+    "~/Auto-YT-DL/sonarr"
+    "~/plex/media/Shows"
+    "~/plex/media/download"
+    "~/Auto-YT-DL/tautalli"
+    "~/Auto-YT-DL/deluge"
+    "~/Auto-YT-DL/ombi"
+    "~/plex/media/download/completed"
+)
+
+for folder in "${folders[@]}"; do
+    if [ ! -d "$folder" ]; then
+        mkdir -p "$folder"
+    fi
+done
+
+if 
+[ -z "$(ls -A ~/plex/media/youtube)" ] || 
+[ -z "$(ls -A ~/plex/transcode)" ] || 
+[ -z "$(ls -A ~/plex/library)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/jackett)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/radarr)" ] || 
+[ -z "$(ls -A ~/plex/media/movies)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/sonarr)" ] || 
+[ -z "$(ls -A ~/plex/media/Shows)" ] || 
+[ -z "$(ls -A ~/plex/media/download)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/tautalli)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/deluge)" ] || 
+[ -z "$(ls -A ~/Auto-YT-DL/ombi)" ] || 
+[ -z "$(ls -A ~/plex/media/download/completed)" ]; 
+
+then
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
     echo -e "${Red}The installation might fail due to this error${NC}"
