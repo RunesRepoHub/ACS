@@ -26,7 +26,7 @@ input_urls=$(cat ~/plex/media/.url)
 output_path=~/plex/media/youtube
 
 # Define the maximum number of running containers
-max_containers=3
+max_containers=$(cat ~/Auto-YT-DL/.max_containers)
 
 # Loop over each URL
 while read -r url; do

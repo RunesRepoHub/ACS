@@ -25,6 +25,22 @@ export Dev=$Dev
 # Start clean
 clear 
 
+# Check if docker is installed
+if ! command -v docker &> /dev/null; then
+    echo -e "${Red}Error code: 404${NC}"
+    echo -e "${Red}Docker is not installed.${NC}"
+    echo -e "${Red}Aborting installation.${NC}"
+    exit 1
+fi
+
+# Check if docker cli is installed
+if ! command -v docker-compose &> /dev/null; then
+    echo -e "${Red}Error code: 404${NC}"
+    echo -e "${Red}Docker CLI is not installed.${NC}"
+    echo -e "${Red}Aborting installation.${NC}"
+    exit 1
+fi
+
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Yellow}Run apt-get update${NC}"
@@ -147,13 +163,19 @@ fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/Scripts/update.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update.sh > /dev/null
 
+if [ -e ~/Auto-YT-DL/Scripts/add-url-list.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/add-url-list.sh
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/Scripts/add-url-list.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url-list.sh > /dev/null
+
 echo -e "${Green}Downloading files complete${NC}"
 
 sleep 2
 
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
-if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/jackett ] || [ ! -d ~/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/plex/media/download ] || [ ! -d ~/tautalli ] || [ ! -d ~/deluge ] || [ ! -d ~/ombi ] || [ ! -d ~/plex/media/download/completed ]; then
+if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/Auto-YT-DL/jackett ] || [ ! -d ~/Auto-YT-DL/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/plex/media/download ] || [ ! -d ~/Auto-YT-DL/tautalli ] || [ ! -d ~/Auto-YT-DL/deluge ] || [ ! -d ~/Auto-YT-DL/ombi ] || [ ! -d ~/plex/media/download/completed ]; then
     # Create the folders if they don't exist
     mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/Auto-YT-DL/jackett ~/Auto-YT-DL/radarr ~/plex/media/movies ~/Auto-YT-DL/sonarr ~/plex/media/Shows ~/plex/media/download ~/Auto-YT-DL/tautalli ~/Auto-YT-DL/deluge ~/Auto-YT-DL/ombi  ~/plex/media/download/completed
 else
@@ -167,12 +189,16 @@ chmod 777 ~/plex/media/Shows/
 chmod 777 ~/plex/media/download/
 chmod 777 ~/plex/media/download/completed
 
+# Take user input and save it to a file
+echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
+echo -e "${Purple}These containers are used to download videos${NC}"
+read -p "Max Containers: " userInput
+echo "$userInput" > ~/Auto-YT-DL/.max_containers
 
 # Add the first url
 if [ ! -f ~/plex/media/url_file.txt ]; then
     bash ~/Auto-YT-DL/Scripts/add-url.sh
 fi
-
 
 sleep 2
 
@@ -188,6 +214,7 @@ fi
 echo -e "${Purple}Setup cronjob and alias${NC}"
 # Add aliases to the shell configuration file
 echo 'alias add-url="bash ~/Auto-YT-DL/Scripts/add-url.sh"' >> ~/.bashrc
+echo 'alias add-url="bash ~/Auto-YT-DL/Scripts/add-url-list.sh"' >> ~/.bashrc
 echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
 echo 'alias start-download="bash ~/Auto-YT-DL/Scripts/automated-check.sh"' >> ~/.bashrc
 echo 'alias stop-download="bash ~/Auto-YT-DL/Scripts/docker-stop.sh"' >> ~/.bashrc

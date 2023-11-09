@@ -66,6 +66,7 @@ else
         -v ~/plex/library:/config \
         -v ~/plex/transcode/temp:/transcode \
         -v ~/plex/media:/data \
+        --restart always \
         plexinc/pms-docker
 fi
 
@@ -81,7 +82,7 @@ docker run -d \
   -v ~/Auto-YT-DL/jackett:/config \
   -v ~/plex/media/download:/download \
   -p 9117:9117 \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/jackett:latest
 
 # Run the radarr service
@@ -95,7 +96,7 @@ docker run -d \
   -v ~/plex/media/movies:/movies \
   -v ~/plex/media/download:/download \
   -p 7878:7878 \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/radarr:latest
 
 # Run the sonarr service
@@ -109,7 +110,7 @@ docker run -d \
   -v ~/plex/media/Shows:/shows \
   -v ~/plex/media/download:/download \
   -p 8989:8989 \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/sonarr:latest
 
 # Run the tautulli service
@@ -122,7 +123,7 @@ docker run -d \
   -e TZ=Europa/Copenhagen \
   -v ~/Auto-YT-DL/tautalli:/config \
   -p 8181:8181 \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/tautulli:latest
 
 # Run the deluge service
@@ -138,7 +139,7 @@ docker run -d \
   -p 8112:8112 \
   -p 6881:6881 \
   -p 6881:6881/udp \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/deluge:latest
 
 # Run the ombi service
@@ -150,6 +151,6 @@ docker run -d \
   -e TZ=Europa/Copenhagen \
   -v ~/ombi:/config \
   -p 3579:3579 \
-  --restart unless-stopped \
+  --restart always \
   lscr.io/linuxserver/ombi:latest
 
