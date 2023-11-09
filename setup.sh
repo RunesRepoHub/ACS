@@ -155,7 +155,7 @@ sleep 2
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
 if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ] || [ ! -d ~/jackett ] || [ ! -d ~/radarr ] || [ ! -d ~/plex/media/movies ] || [ ! -d ~/sonarr ] || [ ! -d ~/plex/media/Shows ] || [ ! -d ~/plex/media/download ] || [ ! -d ~/tautalli ] || [ ! -d ~/deluge ] || [ ! -d ~/ombi ] || [ ! -d ~/plex/media/download/completed ]; then
     # Create the folders if they don't exist
-    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/jackett ~/radarr ~/plex/media/movies ~/sonarr ~/plex/media/Shows ~/plex/media/download ~/tautalli ~/deluge ~/ombi  ~/plex/media/download/completed
+    mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/Auto-YT-DL/jackett ~/Auto-YT-DL/radarr ~/plex/media/movies ~/Auto-YT-DL/sonarr ~/plex/media/Shows ~/plex/media/download ~/Auto-YT-DL/tautalli ~/Auto-YT-DL/deluge ~/Auto-YT-DL/ombi  ~/plex/media/download/completed
 else
     echo -e "${Red}Error code: 302${NC}"
     echo -e "${Red}Folders already exist${NC}"
@@ -179,7 +179,7 @@ sleep 2
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
 if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
-    bash ~/Auto-YT-DL/Scripts/setup-plex.sh
+    bash ~/Auto-YT-DL/Scripts//Auto-YT-DLsetup-plex.sh
 else
     echo -e "${Green}Plex docker is already running${NC}"
 fi
