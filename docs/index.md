@@ -27,13 +27,17 @@ This script orchestrates the setup and configuration of various Docker services,
 3. Plex Service Setup:
 
 * Checks if a Docker container named "plex" is running and skips Plex claim if it is.
+
 * Prompts the user for the Plex claim if the container is not running.
+
 * Utilizes the plexinc/pms-docker image to run the Plex service.
 
-3. Other Docker Services:
+5. Other Docker Services:
 
 * Deploys several services (jackett, radarr, sonarr, tautulli, deluge, ombi) using Docker containers.
+
 * Configures each service with specific settings, volumes, and network configurations.
+
 * Sets services to restart always, ensuring automatic startup upon system restart.
 
 This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences.
@@ -51,9 +55,13 @@ This user-interactive script facilitates the management of the Plex media folder
 1. Keep Plex Media Folder Option:
 
 * Stops and removes Docker containers with the mikenye/youtube-dl image.
+
 * Stops and removes Docker containers for jackett, radarr, sonarr, tautulli, deluge, and ombi.
+
 * Removes the my_plex_network Docker network.
+
 * Clears all folders and files associated with the Auto-YT-DL application except for the Plex media folder.
+
 * Removes the line from the crontab file that runs the automated-check.sh script.
 
 2. Delete Plex Media Folder Option (In addition to the above):
@@ -77,6 +85,7 @@ This script enhances maintainability and functionality through the following ste
 2. Updating "download-update.sh" Script:
 
 * Removes the existing "download-update.sh" file.
+
 * Downloads the latest version from a GitHub repository, dynamically selecting the version based on the value of the "Dev" variable.
 
 3. User Notification:
