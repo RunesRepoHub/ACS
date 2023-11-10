@@ -28,6 +28,8 @@ output_path=~/plex/media/youtube
 # Read the URLs from the txt file
 input_urls=$(cat ~/plex/media/url_file.txt)
 
+total_lines=$(wc -l < ~/plex/media/url_file.txt)
+
 # Declare an array to store the video URLs
 declare -a video_urls
 
@@ -65,6 +67,10 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         continue
     fi
 
+    if [ $total_lines -eq 0 ]; then
+        exit
+    fi
+
     # Wait for Docker to spin up
     sleep 10
 
@@ -95,7 +101,10 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --download-archive /Auto-YT-DL/archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
-
+    
+    # Subtract 1 from the value of the variable total_lines
+    total_lines=$((total_lines - 1))
+    
     # Remove the processed URL from the array
     video_urls=("${video_urls[@]:1}")
 done
