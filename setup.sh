@@ -37,7 +37,16 @@ MUST_BE_ROOT="${Red}Must be root to run this.${NC}"
 
 ROOT_FOLDER=~/Auto-YT-DL/Scripts
 ALREADY_EXISTS_ROOT="${Red}Folder ~/Auto-YT-DL/Scripts already exists.${NC}"
+FOLDERS_EXISTS="${Red}Folders already exist.${NC}"
 
+AUTOMATED-CHECK="automated-check.sh"
+ADD-URL-LIST="add-url-list.sh"
+DOCKER-STOP="docker-stop.sh"
+STOP="stop.sh"
+STOP-REMOVE="stop-remove.sh"
+UNINSTALL="uninstall.sh"
+UPDATE="update.sh"
+UPDATE-DOWNLOAD="update-download.sh"
 
 
 
@@ -93,7 +102,7 @@ fi
 
 # Make the folder
 echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
-mkdir -p ~/Auto-YT-DL/Scripts
+mkdir -p $ROOT_FOLDER
 echo -e "${Green}Folder created${NC}"
 
 # Check if curl is installed
@@ -205,8 +214,8 @@ if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/l
     # Create the folders if they don't exist
     mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library ~/Auto-YT-DL/jackett ~/Auto-YT-DL/radarr ~/plex/media/movies ~/Auto-YT-DL/sonarr ~/plex/media/Shows ~/plex/media/download ~/Auto-YT-DL/tautalli ~/Auto-YT-DL/deluge ~/Auto-YT-DL/ombi  ~/plex/media/download/completed
 else
-    echo -e "${Red}Error code: 302${NC}"
-    echo -e "${Red}Folders already exist${NC}"
+    echo -e "$ALREADY_EXISTS"
+    echo -e "$FOLDERS_EXISTS"
     echo -e "${Red}The installation might fail due to this error${NC}"
 fi
 echo -e "${Green}Folders created${NC}"
