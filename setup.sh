@@ -27,33 +27,55 @@ PERMISSION_DENIED="${Red}Error code: 4 (Permission denied)${NC}"
 NOT_INSTALLED="${Red}Error code: 5 (Not installed)${NC}"
 UNKNOWN_ERROR="${Red}Error code: 99 (Unknown error)${NC}"
 
-# Define Text
-
+# User checks before installation
 ABORT_INSTALL="${Red}Aborting installation.${NC}"
 INSTALL_SUCCESSFUL="${Green}Installation successful.${NC}"
 INSTALL_FAILED="${Red}Installation failed.${NC}"
 INSTALLATION_NEEDED="${Red}Install Docker and Docker-CLI before running Auto-YT-DL.${NC}"
 MUST_BE_ROOT="${Red}Must be root to run this.${NC}"
 
+# Make the Root folder
 ROOT_FOLDER=~/Auto-YT-DL/Scripts
 ALREADY_EXISTS_ROOT="${Red}Folder ~/Auto-YT-DL/Scripts already exists.${NC}"
 FOLDERS_EXISTS="${Red}Folders already exist.${NC}"
+MAKE_ROOT_FOLDER="${Purple}Make the folder ~/Auto-YT-DL${NC}"
+FOLDER_CREATED="${Green}Folder created${NC}"
 
-AUTOMATED-CHECK="automated-check.sh"
-ADD-URL-LIST="add-url-list.sh"
-DOCKER-STOP="docker-stop.sh"
+# Github repo link
+GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production"
+
+
+# All script names
+AUTOMATED_CHECK="automated-check.sh"
+ADD_URL_LIST="add-url-list.sh"
+DOCKER_STOP="docker-stop.sh"
 STOP="stop.sh"
-STOP-REMOVE="stop-remove.sh"
+STOP_REMOVE="stop-remove.sh"
 UNINSTALL="uninstall.sh"
 UPDATE="update.sh"
-UPDATE-DOWNLOAD="update-download.sh"
+UPDATE_DOWNLOAD="update-download.sh"
+SETUP_PLEX="setup-plex.sh"
+DOWNLOAD="download.sh"
 
+# Setting up Auto-YT-DL
+SETTING_UP_AUTO="${Purple}Setting up Auto-YT-DL...${NC}"
+RUN_UPDATE="${Yellow}Run apt-get update${NC}"
+RUN_UPGRADE="${Yellow}Run apt-get upgrade -y${NC}"
 
-
-
-# Set version (Prod or Dev)
-Dev="Production"
-export Dev=$Dev
+# Make folders for Auto-YT-DL
+YOUTUBE=~/plex/media/youtube 
+TRANSCODE=~/plex/transcode 
+LIBRARY=~/plex/library 
+JACKETT=~/Auto-YT-DL/jackett 
+RADARR=~/Auto-YT-DL/radarr 
+MOVIES=~/plex/media/movies 
+SONARR=~/Auto-YT-DL/sonarr 
+SHOWS=~/plex/media/Shows 
+MEDIA_DOWNLOAD=~/plex/media/download 
+TAUTALLI=~/Auto-YT-DL/tautalli 
+DELUGE=~/Auto-YT-DL/deluge 
+OMBI=~/Auto-YT-DL/ombi  
+DOWNLOAD_COMPLETED=~/plex/media/download/completed
 
 # Start clean
 clear 
@@ -83,10 +105,10 @@ if ! command -v docker &> /dev/null; then
 fi
 
 # Install needed tools for installation script to work
-echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
-echo -e "${Yellow}Run apt-get update${NC}"
+echo -e "$SETTING_UP_AUTO"
+echo -e "$RUN_UPDATE"
 apt-get update > /dev/null 2>&1
-echo -e "${Yellow}Run apt-get upgrade -y${NC}"
+echo -e "$RUN_UPGRADE"
 apt-get upgrade -y > /dev/null 2>&1
 
 # Check if sudo is installed
@@ -99,11 +121,6 @@ if ! command -v sudo &> /dev/null; then
 else
     echo -e "${Green}Sudo is already installed.${NC}"
 fi 
-
-# Make the folder
-echo -e "${Purple}Make the folder ~/Auto-YT-DL${NC}"
-mkdir -p $ROOT_FOLDER
-echo -e "${Green}Folder created${NC}"
 
 # Check if curl is installed
 echo -e "${Purple}Check if curl is installed${NC}"
@@ -141,68 +158,73 @@ done
 
 sleep 2
 
+# Make the folder
+echo -e "$MAKE_ROOT_FOLDER"
+mkdir -p $ROOT_FOLDER
+echo -e "$FOLDER_CREATED"
+
 # Download files
 echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 
-if [ -e ~/Auto-YT-DL/Scripts/automated-check.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/automated-check.sh
+if [ -e $ROOT_FOLDER/$AUTOMATED_CHECK ]; then
+    rm $ROOT_FOLDER/$AUTOMATED_CHECK
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/automated-check.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$AUTOMATED_CHECK $GIHUB_LINK/Scripts/$AUTOMATED_CHECK > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/setup-plex.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/setup-plex.sh
+if [ -e $ROOT_FOLDER/$SETUP_PLEX ]; then
+    rm $ROOT_FOLDER/$SETUP_PLEX
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/setup-plex.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$SETUP_PLEX $GIHUB_LINK/Scripts/$SETUP_PLEX > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/download.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/download.sh
+if [ -e $ROOT_FOLDER/$DOWNLOAD ]; then
+    rm $ROOT_FOLDER/$DOWNLOAD
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/download.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$DOWNLOAD $GIHUB_LINK/Scripts/$DOWNLOAD > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/docker-stop.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/docker-stop.sh
+if [ -e $ROOT_FOLDER/$DOCKER_STOP ]; then
+    rm $ROOT_FOLDER/$DOCKER_STOP
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/docker-stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/docker-stop.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$DOCKER_STOP $GIHUB_LINK/Scripts/$DOCKER_STOP > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/stop.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/stop.sh
+if [ -e $ROOT_FOLDER/$STOP ]; then
+    rm $ROOT_FOLDER/$STOP
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$STOP $GIHUB_LINK/Scripts/$STOP > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/uninstall.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/uninstall.sh
+if [ -e $ROOT_FOLDER/$UNINSTALL ]; then
+    rm $ROOT_FOLDER/$UNINSTALL
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/uninstall.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/uninstall.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$UNINSTALL $GIHUB_LINK/Scripts/$UNINSTALL > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/stop-remove.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/stop-remove.sh
+if [ -e $ROOT_FOLDER/$STOP_REMOVE ]; then
+    rm $ROOT_FOLDER/$STOP_REMOVE
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/stop-remove.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/stop-remove.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$STOP_REMOVE $GIHUB_LINK/Scripts/$STOP_REMOVE > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/update.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/update.sh
+if [ -e $ROOT_FOLDER/$UPDATE ]; then
+    rm $ROOT_FOLDER/$UPDATE
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/update.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$UPDATE $GIHUB_LINK/Scripts/$UPDATE > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/add-url-list.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/add-url-list.sh
+if [ -e $ROOT_FOLDER/$ADD_URL_LIST ]; then
+    rm $ROOT_FOLDER/$ADD_URL_LIST
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/add-url-list.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url-list.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$ADD_URL_LIST $GIHUB_LINK/Scripts/$ADD_URL_LIST > /dev/null
 
-if [ -e ~/Auto-YT-DL/Scripts/update-download.sh ]; then
-    rm ~/Auto-YT-DL/Scripts/update-download.sh
+if [ -e $ROOT_FOLDER/$UPDATE_DOWNLOAD ]; then
+    rm $ROOT_FOLDER/$UPDATE_DOWNLOAD
 fi
 sleep 1
-curl -s -o ~/Auto-YT-DL/Scripts/update-download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update-download.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/Scripts/$UPDATE_DOWNLOAD > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -220,10 +242,10 @@ else
 fi
 echo -e "${Green}Folders created${NC}"
 
-chmod 777 ~/plex/media/movies/
-chmod 777 ~/plex/media/Shows/
-chmod 777 ~/plex/media/download/
-chmod 777 ~/plex/media/download/completed
+chmod 777 $MOVIES
+chmod 777 $SHOWS
+chmod 777 $MEDIA_DOWNLOAD
+chmod 777 $DOWNLOAD_COMPLETED
 
 # Take user input and save it to a file
 echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
