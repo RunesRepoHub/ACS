@@ -1,3 +1,11 @@
+# YT-plex Installation
+
+# Install command
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
+```
+
 # Setup jackett indexers
 
 From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears.
@@ -128,3 +136,25 @@ function EnableAllUnconfiguredIndexersList() {
     UnconfiguredIndexersDialog.modal("show");
 }
 ```
+
+# Config 
+
+## Indexers
+
+![Alt text](../Pictures/image.png)
+
+![Alt text](../Pictures/image-1.png)
+
+## Download client
+
+![Alt text](../Pictures/image-2.png)
+
+![Alt text](../Pictures/image-3.png)
+
+## Episode naming
+
+![Alt text](../Pictures/image-4.png)
+
+## Download profile
+
+![Alt text](../Pictures/image-5.png)
