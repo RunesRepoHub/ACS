@@ -1,17 +1,17 @@
-site_name: CnC-WebGUI Wiki
+site_name: YT-Plex Wiki
 site_url: https://runesrepohub.github.io/RPH-Docs/
 repo_name: Github/runesrepohub
 repo_url: https://github.com/orgs/runesrepohub/repositories
 edit_uri: https://github.com/orgs/runesrepohub/RPH-Docs/edit/main/docs/
 use_directory_urls: false
 nav:
-    - CnC-WebGUI Documentation:
-      - Getting Started With CnC-WebGUI:
-        - What is CnC-WebGUI?: 'index.md'
-        - Requirements CnC-WebGUI: 'requirement.md'
-        - How to Install CnC-WebGUI: 'install.md'
+    - YT-Plex Documentation:
+      - Getting Started With YT-Plex:
+        - What is YT-Plex?: 'index.md'
+        - Requirements YT-Plex: 'requirement.md'
+        - How to Install YT-Plex: 'install.md'
       - Understand The Source Code:
-        - The CRUD API Docker: 'source.md'
+        - Description of Source Code: 'source.md'
 theme:
   icon:
       logo: fontawesome/brands/gitkraken
