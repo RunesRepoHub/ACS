@@ -72,7 +72,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     fi
 
     # Wait for Docker to spin up
-    sleep 10
+    sleep 5
 
     # Wait for available containers
     wait_for_available_container

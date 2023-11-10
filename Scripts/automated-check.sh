@@ -72,7 +72,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     fi
 
     # Wait for Docker to spin up
-    sleep 10
+    sleep 5
 
     # Wait for available containers
     wait_for_available_container
@@ -104,7 +104,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
 
     # Subtract 1 from the value of the variable total_lines
     total_lines=$((total_lines - 1))
-    
+
     # Remove the processed URL from the array
     video_urls=("${video_urls[@]:1}")
 done
