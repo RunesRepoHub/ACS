@@ -18,27 +18,27 @@ This script orchestrates the setup and configuration of various Docker services,
 
 1. Environment Configuration:
 
-* Sets IP address and time zone variables.
+    * Sets IP address and time zone variables.
 
 2. Docker Network Management:
 
-* Checks for the existence of the "my_plex_network" Docker network and creates it if absent.
+    * Checks for the existence of the "my_plex_network" Docker network and creates it if absent.
 
 3. Plex Service Setup:
 
-* Checks if a Docker container named "plex" is running and skips Plex claim if it is.
+    * Checks if a Docker container named "plex" is running and skips Plex claim if it is.
 
-* Prompts the user for the Plex claim if the container is not running.
+    * Prompts the user for the Plex claim if the container is not running.
 
-* Utilizes the plexinc/pms-docker image to run the Plex service.
+    * Utilizes the plexinc/pms-docker image to run the Plex service.
 
 5. Other Docker Services:
 
-* Deploys several services (jackett, radarr, sonarr, tautulli, deluge, ombi) using Docker containers.
+    * Deploys several services (jackett, radarr, sonarr, tautulli, deluge, ombi) using Docker containers.
 
-* Configures each service with specific settings, volumes, and network configurations.
+    * Configures each service with specific settings, volumes, and network configurations.
 
-* Sets services to restart always, ensuring automatic startup upon system restart.
+    * Sets services to restart always, ensuring automatic startup upon system restart.
 
 This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences.
 
@@ -54,23 +54,23 @@ This user-interactive script facilitates the management of the Plex media folder
 
 1. Keep Plex Media Folder Option:
 
-* Stops and removes Docker containers with the mikenye/youtube-dl image.
+    * Stops and removes Docker containers with the mikenye/youtube-dl image.
 
-* Stops and removes Docker containers for jackett, radarr, sonarr, tautulli, deluge, and ombi.
+    * Stops and removes Docker containers for jackett, radarr, sonarr, tautulli, deluge, and ombi.
 
-* Removes the my_plex_network Docker network.
+    * Removes the my_plex_network Docker network.
 
-* Clears all folders and files associated with the Auto-YT-DL application except for the Plex media folder.
+    * Clears all folders and files associated with the Auto-YT-DL application except for the Plex media folder.
 
-* Removes the line from the crontab file that runs the automated-check.sh script.
+    * Removes the line from the crontab file that runs the automated-check.sh script.
 
 2. Delete Plex Media Folder Option (In addition to the above):
 
-* Removes the Plex media folder.
+    * Removes the Plex media folder.
 
 3. Invalid Response Handling:
 
-* Displays an error message for invalid responses, guiding the user to provide a valid input.
+    * Displays an error message for invalid responses, guiding the user to provide a valid input.
 
 This modular and responsive design ensures that the script caters to user preferences while maintaining clarity and control over the automated cleanup process.
 
@@ -80,21 +80,21 @@ This script enhances maintainability and functionality through the following ste
 
 1. Environment Configuration:
 
-* Sets the "Dev" variable to "Production" and exports it as an environment variable.
+    * Sets the "Dev" variable to "Production" and exports it as an environment variable.
 
 2. Updating "download-update.sh" Script:
 
-* Removes the existing "download-update.sh" file.
+    * Removes the existing "download-update.sh" file.
 
-* Downloads the latest version from a GitHub repository, dynamically selecting the version based on the value of the "Dev" variable.
+    * Downloads the latest version from a GitHub repository, dynamically selecting the version based on the value of the "Dev" variable.
 
 3. User Notification:
 
-* Displays a message notifying the user that the "download-update.sh" script has been updated.
+    * Displays a message notifying the user that the "download-update.sh" script has been updated.
 
 4. Executing Updated Script:
 
-* Runs the updated "download-update.sh" script using the "bash" command.
+    * Runs the updated "download-update.sh" script using the "bash" command.
 
 This sequence of actions ensures that the script is always utilizing the latest version of the "download-update.sh" script from the specified GitHub repository, enhancing efficiency and adaptability in response to potential updates or changes.
 
@@ -104,33 +104,33 @@ This script facilitates the management of YouTube playlist URLs with user intera
 
 1. User Interaction:
 
-* Displays a message instructing the user to enter YouTube playlist URLs, prompting them to separate URLs with spaces.
+    * Displays a message instructing the user to enter YouTube playlist URLs, prompting them to separate URLs with spaces.
 
 2. File Checks and Creation:
 
-* Checks if "url_file.txt" and "archive_url_file.txt" exist in the "~/plex/media" directory.
+    * Checks if "url_file.txt" and "archive_url_file.txt" exist in the "~/plex/media" directory.
 
-* Creates these files if they do not exist.
+    * Creates these files if they do not exist.
 
 3. Reading Existing URLs:
 
-* Reads existing URLs from the "url_file.txt" file.
+    * Reads existing URLs from the "url_file.txt" file.
 
 4. User Input Processing:
 
-* Loops over each URL entered by the user.
+    * Loops over each URL entered by the user.
 
 5. URL Validation:
 
-* Checks if the URL already exists in the "url_file.txt" file using the grep command.
+    * Checks if the URL already exists in the "url_file.txt" file using the grep command.
 
-* If the URL already exists, prompts the user to input another link and calls the "add-url-list.sh" script.
+    * If the URL already exists, prompts the user to input another link and calls the "add-url-list.sh" script.
 
 6. URL Handling:
 
-* If the URL does not exist, appends the new URL to both "url_file.txt" and "archive_url_file.txt" files.
+    * If the URL does not exist, appends the new URL to both "url_file.txt" and "archive_url_file.txt" files.
 
-* Calls the "download.sh" script.
+    * Calls the "download.sh" script.
 
 This script provides a user-friendly way to manage and download YouTube playlist URLs, preventing duplicates and maintaining a record of URLs for future reference in the "archive_url_file.txt" file.
 
@@ -140,17 +140,17 @@ This script efficiently stops all containers running the "mikenye/youtube-dl" im
 
 1. User Notification:
 
-* Displays a message indicating that it is stopping all "mikenye/youtube-dl" containers.
+    * Displays a message indicating that it is stopping all "mikenye/youtube-dl" containers.
 
 2. Retrieving Container IDs:
 
-* Uses the docker ps command with appropriate filters to retrieve the IDs of containers running the "mikenye/youtube-dl" image.
+    * Uses the docker ps command with appropriate filters to retrieve the IDs of containers running the "mikenye/youtube-dl" image.
 
 3. Container Stopping:
 
-* Iterates over each container ID.
+    * Iterates over each container ID.
 
-* Sends a stop command to each container using the docker stop command.
+    * Sends a stop command to each container using the docker stop command.
 
 This systematic approach ensures the graceful termination of all containers associated with the "mikenye/youtube-dl" image, facilitating efficient management and control.
 
@@ -160,24 +160,24 @@ This script orchestrates the efficient shutdown and removal of specified Docker 
 
 1. Stopping and Removing "mikenye/youtube-dl" Containers:
 
-* Iterates over container IDs running the "mikenye/youtube-dl" image.
+    * Iterates over container IDs running the "mikenye/youtube-dl" image.
 
-* Sends a stop command to each container using the docker stop command.
+    * Sends a stop command to each container using the docker stop command.
 
-* Removes each container using the docker rm command.
+    * Removes each container using the docker rm command.
 
-* Displays a message confirming the successful stopping and removal of all "mikenye/youtube-dl" containers.
+    * Displays a message confirming the successful stopping and removal of all "mikenye/youtube-dl" containers.
 
 2. Stopping and Removing Other Containers:
 
-* Stops and removes Docker containers for plex, jackett, radarr, sonarr, tautulli, deluge, and ombi.
+    * Stops and removes Docker containers for plex, jackett, radarr, sonarr, tautulli, deluge, and ombi.
 
-* Displays a message indicating the successful stopping and removal of these specified containers.
+    * Displays a message indicating the successful stopping and removal of these specified containers.
 
 3. Removing Docker Network:
 
-* Removes the Docker network "my_plex_network" using the docker network rm command.
+    * Removes the Docker network "my_plex_network" using the docker network rm command.
 
-* Displays a message indicating the successful removal of the network.
+    * Displays a message indicating the successful removal of the network.
 
 This script provides a systematic and user-friendly approach to shutting down and cleaning up Docker containers and networks associated with specified images, enhancing the manageability and reliability of the environment.
