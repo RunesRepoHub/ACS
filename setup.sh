@@ -158,6 +158,12 @@ fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/Scripts/add-url-list.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/add-url-list.sh > /dev/null
 
+if [ -e ~/Auto-YT-DL/Scripts/update-download.sh ]; then
+    rm ~/Auto-YT-DL/Scripts/update-download.sh
+fi
+sleep 1
+curl -s -o ~/Auto-YT-DL/Scripts/update-download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/update-download.sh > /dev/null
+
 echo -e "${Green}Downloading files complete${NC}"
 
 sleep 2
