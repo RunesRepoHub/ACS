@@ -55,6 +55,9 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
 
     # Create the video folder if it doesn't exist
+    if [ -d "${video_folder}" ]; then
+        exit
+    fi
     mkdir -p "${video_folder}"
 
     # Get the hostname from the URL
