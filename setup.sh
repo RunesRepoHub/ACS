@@ -121,7 +121,6 @@ fi
 sleep 1
 curl -s -o ~/Auto-YT-DL/Scripts/download.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/$Dev/Scripts/download.sh > /dev/null
 
-
 if [ -e ~/Auto-YT-DL/Scripts/docker-stop.sh ]; then
     rm ~/Auto-YT-DL/Scripts/docker-stop.sh
 fi
