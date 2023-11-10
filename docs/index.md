@@ -1,10 +1,16 @@
 # Auto-YT-DL
 
-Redefining media server management, our user-friendly software combines a sleek interface with powerful automation. Ideal for users with robust servers, it effortlessly downloads movies, shows, and YouTube videos, while intuitively configuring and maintaining Plex, Ombi, Jackett, Sonarr, Radarr, Deluge, Tautulli, and Mikenye/YouTube-dl Docker containers. Enjoy the simplicity of organized folders and files, making setup and maintenance a breeze. Elevate your media server experience with an innovative solution that seamlessly integrates ease of use with advanced capabilities.
+Redefining media server management, our user-friendly software combines a sleek interface with powerful automation. Ideal for users with robust servers, it effortlessly downloads movies, shows, and YouTube videos, while intuitively configuring and maintaining Plex, Ombi, Jackett, Sonarr, Radarr, Deluge, Tautulli, and Mikenye/YouTube-dl Docker containers. 
+
+Enjoy the simplicity of organized folders and files, making setup and maintenance a breeze. Elevate your media server experience with an innovative solution that seamlessly integrates ease of use with advanced capabilities.
 
 ## Setup.sh
 
-This script streamlines the setup of the Auto-YT-DL application with a comprehensive set of actions. It defines color variables for terminal output, sets the app version, and ensures a clean environment. Checking for necessary dependencies like Docker, sudo, and curl, the script installs and configures them as needed. It downloads Docker images, shell scripts from GitHub, and establishes essential folders with proper permissions. User interaction is facilitated through prompts for configuration settings, including the maximum number of containers for YouTube downloading. The script automates Plex setup, adds aliases and cron jobs, and concludes with a user-friendly completion message and instructions for utilizing custom commands. This user interface-centric approach enhances both functionality and ease of maintenance.
+This script streamlines the setup of the Auto-YT-DL application with a comprehensive set of actions. It defines color variables for terminal output, sets the app version, and ensures a clean environment. Checking for necessary dependencies like Docker, sudo, and curl, the script installs and configures them as needed. 
+
+It downloads Docker images, shell scripts from GitHub, and establishes essential folders with proper permissions. User interaction is facilitated through prompts for configuration settings, including the maximum number of containers for YouTube downloading. 
+
+The script automates Plex setup, adds aliases and cron jobs, and concludes with a user-friendly completion message and instructions for utilizing custom commands. This user interface-centric approach enhances both functionality and ease of maintenance.
 
 ## Setup-plex.sh
 
@@ -21,24 +27,22 @@ This script orchestrates the setup and configuration of various Docker services,
 3. Plex Service Setup:
 
 * Checks if a Docker container named "plex" is running and skips Plex claim if it is.
-
 * Prompts the user for the Plex claim if the container is not running.
-
 * Utilizes the plexinc/pms-docker image to run the Plex service.
 
 3. Other Docker Services:
 
 * Deploys several services (jackett, radarr, sonarr, tautulli, deluge, ombi) using Docker containers.
-
 * Configures each service with specific settings, volumes, and network configurations.
-
 * Sets services to restart always, ensuring automatic startup upon system restart.
 
 This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences.
 
 ## Download.sh 
 
-The script efficiently manages the mikenye/youtube-dl Docker image, first checking for its presence and displaying a corresponding message if it exists. If the image is not already downloaded, the script utilizes the "docker pull" command to fetch the mikenye/youtube-dl Docker image. A confirmation message is then displayed, informing the user that the image has been successfully downloaded. This ensures that the latest version of the image is readily available for use in the Auto-YT-DL application, enhancing the script's functionality and user communication.
+The script efficiently manages the mikenye/youtube-dl Docker image, first checking for its presence and displaying a corresponding message if it exists. If the image is not already downloaded, the script utilizes the "docker pull" command to fetch the mikenye/youtube-dl Docker image. 
+
+A confirmation message is then displayed, informing the user that the image has been successfully downloaded. This ensures that the latest version of the image is readily available for use in the Auto-YT-DL application, enhancing the script's functionality and user communication.
 
 ## Uninstall.sh
 
@@ -73,7 +77,6 @@ This script enhances maintainability and functionality through the following ste
 2. Updating "download-update.sh" Script:
 
 * Removes the existing "download-update.sh" file.
-
 * Downloads the latest version from a GitHub repository, dynamically selecting the version based on the value of the "Dev" variable.
 
 3. User Notification:
