@@ -133,3 +133,51 @@ This script facilitates the management of YouTube playlist URLs with user intera
 * Calls the "download.sh" script.
 
 This script provides a user-friendly way to manage and download YouTube playlist URLs, preventing duplicates and maintaining a record of URLs for future reference in the "archive_url_file.txt" file.
+
+## Docker-stop.sh
+
+This script efficiently stops all containers running the "mikenye/youtube-dl" image with the following steps:
+
+1. User Notification:
+
+* Displays a message indicating that it is stopping all "mikenye/youtube-dl" containers.
+
+2. Retrieving Container IDs:
+
+* Uses the docker ps command with appropriate filters to retrieve the IDs of containers running the "mikenye/youtube-dl" image.
+
+3. Container Stopping:
+
+* Iterates over each container ID.
+
+* Sends a stop command to each container using the docker stop command.
+
+This systematic approach ensures the graceful termination of all containers associated with the "mikenye/youtube-dl" image, facilitating efficient management and control.
+
+## Stop-remove.sh
+
+This script orchestrates the efficient shutdown and removal of specified Docker containers and networks. The process unfolds as follows:
+
+1. Stopping and Removing "mikenye/youtube-dl" Containers:
+
+* Iterates over container IDs running the "mikenye/youtube-dl" image.
+
+* Sends a stop command to each container using the docker stop command.
+
+* Removes each container using the docker rm command.
+
+* Displays a message confirming the successful stopping and removal of all "mikenye/youtube-dl" containers.
+
+2. Stopping and Removing Other Containers:
+
+* Stops and removes Docker containers for plex, jackett, radarr, sonarr, tautulli, deluge, and ombi.
+
+* Displays a message indicating the successful stopping and removal of these specified containers.
+
+3. Removing Docker Network:
+
+* Removes the Docker network "my_plex_network" using the docker network rm command.
+
+* Displays a message indicating the successful removal of the network.
+
+This script provides a systematic and user-friendly approach to shutting down and cleaning up Docker containers and networks associated with specified images, enhancing the manageability and reliability of the environment.
