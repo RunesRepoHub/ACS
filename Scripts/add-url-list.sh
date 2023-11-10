@@ -22,7 +22,7 @@ for url in $input_urls; do
         bash ~/Auto-YT-DL/Scripts/add-url-list.sh
     else
         # Append the new URL to the file
-        echo "$url" >> ~/plex/media/url_file.txt
+        echo "$url" > ~/plex/media/url_file.txt
         echo "$url" >> ~/plex/media/archive_url_file.txt
         bash ~/Auto-YT-DL/Scripts/download.sh
     fi
