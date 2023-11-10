@@ -10,70 +10,84 @@ source ~/.bashrc
 
 ## Add url 
 
-This is how you add more then one url
+??? info "Add url"
 
-You can also modify the `~/plex/media/url_file.txt` this file contains all the urls
+    This is how you add more then one url
 
-``` 
-add-url
-```
+    You can also modify the `~/plex/media/url_file.txt` this file contains all the urls
+
+    ``` 
+    add-url
+    ```
 
 ## Get an easy overview
 
-Quickly get an overview of the downloading docker containers.
+??? info "Get an easy overview"
 
-Use this command
+    Quickly get an overview of the downloading docker containers.
 
-```
-get-overview
-```
+    Use this command
+
+    ```
+    get-overview
+    ```
 
 ## Trigger an manuel download
 
-Want to download a new video manually that has not yet been downloaded automatically.
+??? info "Trigger an manuel download"
 
-Use this command
+    Want to download a new video manually that has not yet been downloaded automatically.
 
-```
-start-download
-```
+    Use this command
+
+    ```
+    start-download
+    ```
 
 ## Stop an download
 
-Want to stop an download, if you need it to abort a download
+??? info "Stop an download"
 
-Use this command
+    Want to stop an download, if you need it to abort a download
 
-```
-stop-download
-```
+    Use this command
+
+    ```
+    stop-download
+    ```
 
 ## Stop all running dockers
 
-Want to stop all the docker at ones 
+??? info "Stop all running dockers"
 
-Use this command
+    Want to stop all the docker at ones 
 
-```
-stop-all
-```
+    Use this command
+
+    ```
+    stop-all
+    ```
 
 ## Uninstall and delete
 
-Want to uninstall everything and delete everything or uninstall and delete everything but keep the plex media folder.
+??? info "Uninstall and delete"
 
-Use this command
+    Want to uninstall everything and delete everything or uninstall and delete everything but keep the plex media folder.
 
-```
-yt-uninstall
-```
+    Use this command
+
+    ```
+    yt-uninstall
+    ```
 
 ## Update
 
-Want to update everything to the newest versions.
+??? info "Update"
 
-Use this command
+    Want to update everything to the newest versions.
 
-```
-yt-update
-```
+    Use this command
+
+    ```
+    yt-update
+    ```
