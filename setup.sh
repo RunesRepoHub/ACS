@@ -18,6 +18,30 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
+# Define error codes
+SUCCESS="${Green}Error code: 0 (Success)${NC}"
+INVALID_ARGUMENTS="${Yellow}Error code: 1 (Invalid arguments)${NC}"
+FILE_NOT_FOUND="${Red}Error code: 2 (File not found)${NC}"
+FILE_ALREADY_EXISTS="${Red}Error code: 3 (File already exists)${NC}"
+PERMISSION_DENIED="${Red}Error code: 4 (Permission denied)${NC}"
+NOT_INSTALLED="${Red}Error code: 5 (Not installed)${NC}"
+UNKNOWN_ERROR="${Red}Error code: 99 (Unknown error)${NC}"
+
+# Define Text
+
+ABORT_INSTALL="${Red}Aborting installation.${NC}"
+INSTALL_SUCCESSFUL="${Green}Installation successful.${NC}"
+INSTALL_FAILED="${Red}Installation failed.${NC}"
+INSTALLATION_NEEDED="${Red}One or more dependencies are not installed.${NC}"
+MUST_BE_ROOT="${Red}Must be root to run this.${NC}"
+
+ROOT_FOLDER=~/Auto-YT-DL/Scripts
+ALREADY_EXISTS_ROOT="${Red}Folder ~/Auto-YT-DL/Scripts already exists.${NC}"
+
+
+
+
+
 # Set version (Prod or Dev)
 Dev="Production"
 export Dev=$Dev
@@ -25,19 +49,27 @@ export Dev=$Dev
 # Start clean
 clear 
 
+# Check if user is root, if not then exit script
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "$PERMISSION_DENIED"
+    echo -e "$MUST_BE_ROOT"
+    echo -e "$ABORT_INSTALL"
+    exit 1
+fi
+
 # Check if folder ~/Auto-YT-DL/Scripts exists
-if [ -d ~/Auto-YT-DL/Scripts ]; then
-    echo -e "${Red}Error code: 404${NC}"
-    echo -e "${Red}Folder ~/Auto-YT-DL/Scripts exists. Exiting script.${NC}"
-    echo -e "${Red}Aborting installation.${NC}"
+if [ -d $ROOT_FOLDER ]; then
+    echo -e "$ALREADY_EXISTS"
+    echo -e "$ALREADY_EXISTS_ROOT"
+    echo -e "$ABORT_INSTALL"
     exit 1
 fi
 
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
 if ! command -v docker &> /dev/null; then
-    echo -e "${Red}Error code: 404${NC}"
-    echo -e "${Red}One or more dependencies are not installed.${NC}"
-    echo -e "${Red}Aborting installation.${NC}"
+    echo -e "$NOT_INSTALLED"
+    echo -e "$INSTALLATION_NEEDED"
+    echo -e "$ABORT_INSTALL"
     exit 1
 fi
 

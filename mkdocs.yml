@@ -10,6 +10,7 @@ nav:
         - What is YT-Plex?: 'index.md'
         - Requirements YT-Plex: 'requirement.md'
         - How to Install YT-Plex: 'install.md'
+        - Easy Commands: 'commands.md'
       - Understand The Source Code:
         - Description of Source Code: 'source.md'
         - Error Codes: 'errorcode.md'

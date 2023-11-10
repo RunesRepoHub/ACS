@@ -2,10 +2,20 @@
 
 Error codes used in this "software"
 
-## 302 — Found:
+## Error Code "0"
+SUCCESS=0
 
-* A 302 error code is that the requested resource already exists at the specified location.
+## Error Code "1"
+INVALID_ARGUMENTS=1
 
-## 404 — Not Found:
+## Error Code "2"
+FILE_NOT_FOUND=2
 
-* A 404 error code is that the server can not find the requested resource.
+## Error Code "3"
+FILE_ALREADY_EXISTS=3
+
+## Error Code "4"
+PERMISSION_DENIED=4
+
+## Error Code "99"
+UNKNOWN_ERROR=99
