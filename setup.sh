@@ -32,7 +32,7 @@ UNKNOWN_ERROR="${Red}Error code: 99 (Unknown error)${NC}"
 ABORT_INSTALL="${Red}Aborting installation.${NC}"
 INSTALL_SUCCESSFUL="${Green}Installation successful.${NC}"
 INSTALL_FAILED="${Red}Installation failed.${NC}"
-INSTALLATION_NEEDED="${Red}One or more dependencies are not installed.${NC}"
+INSTALLATION_NEEDED="${Red}Install Docker and Docker-CLI before running Auto-YT-DL.${NC}"
 MUST_BE_ROOT="${Red}Must be root to run this.${NC}"
 
 ROOT_FOLDER=~/Auto-YT-DL/Scripts

@@ -7,6 +7,9 @@
 **OS Supported:**
 
 * Debian 12 (Tested) 
+* Debian 11 (Tested)
+* Ubuntu 22.04 (Tested)
+
 
 >***This has been setup as root on fresh installs***
 
