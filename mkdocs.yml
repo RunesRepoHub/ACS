@@ -12,6 +12,7 @@ nav:
         - How to Install YT-Plex: 'install.md'
       - Understand The Source Code:
         - Description of Source Code: 'source.md'
+        - Error Codes: 'errorcode.md'
 theme:
   icon:
       logo: fontawesome/brands/gitkraken
