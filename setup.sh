@@ -204,6 +204,7 @@ echo 'alias start-download="bash ~/Auto-YT-DL/Scripts/automated-check.sh"' >> ~/
 echo 'alias stop-download="bash ~/Auto-YT-DL/Scripts/docker-stop.sh"' >> ~/.bashrc
 echo 'alias stop-all="bash ~/Auto-YT-DL/Scripts/stop.sh"' >> ~/.bashrc
 echo 'alias yt-uninstall="bash ~/Auto-YT-DL/Scripts/uninstall.sh"' >> ~/.bashrc
+echo 'alias yt-update="bash ~/Auto-YT-DL/Scripts/update.sh"' >> ~/.bashrc
 echo 'alias remove-all="bash ~/Auto-YT-DL/Scripts/stop-remove.sh"' >> ~/.bashrc
 
 

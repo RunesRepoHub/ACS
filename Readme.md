@@ -89,6 +89,16 @@ Use this command
 yt-uninstall
 ```
 
+## Update
+
+Want to update everything to the newest versions.
+
+Use this command
+
+```
+yt-update
+```
+
 # Error Codes
 
 Error codes used in this "software"
