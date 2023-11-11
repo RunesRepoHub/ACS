@@ -1,3 +1,5 @@
+##########################################################################
+#  Set variables  #
 ##### Styles ######
 Black='\e[0;30m'
 DarkGray='\e[1;30m'
@@ -41,7 +43,6 @@ CUSTOM_COMMANDS_HELP="${Orange}Find all custom commands here https://runesrepohu
 MUST_BE_ROOT="${Red}Must be root to run this.${NC}"
 # Docker check
 INSTALLATION_NEEDED="${Red}Install Docker and Docker-CLI before running Auto-YT-DL.${NC}"
-
 
 # Setting up Auto-YT-DL
 SETTING_UP_AUTO="${Purple}Setting up Auto-YT-DL...${NC}"
@@ -95,6 +96,7 @@ UPDATE="update.sh"
 UPDATE_DOWNLOAD="update-download.sh"
 SETUP_PLEX="setup-plex.sh"
 DOWNLOAD="download.sh"
+
 # Make folders for Auto-YT-DL
 YOUTUBE=~/plex/media/youtube 
 TRANSCODE=~/plex/transcode 
@@ -110,14 +112,13 @@ DELUGE=~/Auto-YT-DL/deluge
 OMBI=~/Auto-YT-DL/ombi  
 DOWNLOAD_COMPLETED=~/plex/media/download/completed
 
+# Container max
 CONTAINER_MAX_TEXT="${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
 CONTAINER_INFO="${Yellow}These containers are used to download videos${NC}"
-
 CONTAINER_MAX_FILE=~/Auto-YT-DL/.max_containers
 
-CRONJOB_TEXT="${Purple}Setup cronjob and alias${NC}"
-
 # Cronjob
+CRONJOB_TEXT="${Purple}Setup cronjob and alias${NC}"
 # Cron timer
 CRON_TIMER="0 0 30 * *"
 # Cron job completed
@@ -128,7 +129,7 @@ SETUP_PLEX_TEXT="${Purple}Making plex folders...${NC}"
 SETUP_PLEX_COMPLETED="${Green}Setup plex completed${NC}"
 SETUP_PLEX_FAILED="${Green}Plex docker is already running${NC}"
 
-
+##########################################################################
 # Start clean
 clear 
 
@@ -318,7 +319,6 @@ echo 'alias yt-uninstall="bash '$ROOT_FOLDER'/'$UNINSTALL'"' >> ~/.bashrc
 echo 'alias yt-update="bash '$ROOT_FOLDER'/'$UPDATE'"' >> ~/.bashrc
 echo 'alias remove-all="bash '$ROOT_FOLDER'/'$STOP_REMOVE'"' >> ~/.bashrc
 
-
 # Add the cronjob
 echo "$CRON_TIMER root bash $ROOT_FOLDER/$AUTOMATED_CHECK" | sudo tee -a /etc/crontab >/dev/null
 echo -e "$CRON_COMPLETED"
@@ -326,7 +326,6 @@ echo -e "$CRON_COMPLETED"
 sleep 2 
 # Remove files
 rm $ROOT_FOLDER/$SETUP_PLEX
-
 
 echo 
 echo -e "$INSTALL_COMPLETED"
