@@ -2,7 +2,7 @@
 
 !!! warning "Root"
 
-    This software has to run as root. YOU CAN NOT RUN IT AS A NORMAL USER.
+    This software has to run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
 
 !!! warning "Important"
 
