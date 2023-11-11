@@ -207,3 +207,16 @@ CLEANUP_ALL_COMPLETED="${Green}All folders and files has been removed except the
 CLEANUP_NOTPLEX="${Red}Stopping jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
 CLEANUP_NOTPLEX_COMPLETED="${Green}All jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
 CLEANUP_DONT_DELETE_PLEX="${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
+
+##########################################################################
+###### Set variables  # For setup-plex.sh # Made for @runesrepohub #######
+##########################################################################
+
+DOCKER_ROOT_FOLDER=~/Auto-YT-DL
+DOCKER_PLEX_FOLDER="plex"
+DOCKER_OMBI_FOLDER="ombi"
+DOCKER_JACKETT_FOLDER="jackett"
+DOCKER_RADARR_FOLDER="radarr"
+DOCKER_SONARR_FOLDER="sonarr"
+DOCKER_TAUTULLI_FOLDER="tautulli"
+DOCKER_DELUGE_FOLDER="deluge"

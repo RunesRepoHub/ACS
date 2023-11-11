@@ -77,7 +77,7 @@ docker run -d \
   --memory 2g \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -e AUTO_UPDATE=true \
   -v ~/Auto-YT-DL/jackett:/config \
   -v ~/plex/media/download:/download \
@@ -91,7 +91,7 @@ docker run -d \
   --network my_plex_network \
   --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -v ~/Auto-YT-DL/radarr:/config \
   -v ~/plex/media/movies:/movies \
   -v ~/plex/media/download:/download \
@@ -105,7 +105,7 @@ docker run -d \
   --network my_plex_network \
   --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -v ~/Auto-YT-DL/sonarr:/config \
   -v ~/plex/media/Shows:/shows \
   -v ~/plex/media/download:/download \
@@ -120,7 +120,7 @@ docker run -d \
   --memory 1g \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -v ~/Auto-YT-DL/tautalli:/config \
   -p 8181:8181 \
   --restart always \
@@ -132,7 +132,7 @@ docker run -d \
   --network my_plex_network \
   --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -e DELUGE_LOGLEVEL=error \
   -v ~/Auto-YT-DL/deluge:/config \
   -v ~/plex/media/download:/download \
@@ -148,7 +148,7 @@ docker run -d \
   --network my_plex_network \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europa/Copenhagen \
+  -e TZ="$TZ" \
   -v ~/Auto-YT-DL/ombi:/config \
   -p 3579:3579 \
   --restart always \
