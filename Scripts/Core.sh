@@ -1,4 +1,7 @@
-
+##########################################################################
+#####  Set variables for YT-Plex  # Core.sh # Made for @runesrepohub #####
+########################## Made for @rune004 #############################
+##########################################################################
 ##### Styles ######
 Black='\e[0;30m'
 DarkGray='\e[1;30m'
@@ -20,7 +23,7 @@ NC='\e[0m'  # Reset to default
 ###################
 
 ##########################################################################
-#######  Set variables  # For Error codes # Made by @runesrepohub ########
+#######  Set variables  # For Error codes # Made for @runesrepohub #######
 ##########################################################################
 
 # Define error codes
@@ -33,7 +36,7 @@ NOT_INSTALLED="${Red}Error code: 5 (Not installed)${NC}"
 UNKNOWN_ERROR="${Red}Error code: 99 (Unknown error)${NC}"
 
 ##########################################################################
-#########  Set variables  # For setup.sh # Made by @runesrepohub #########
+#########  Set variables  # For setup.sh # Made for @runesrepohub ########
 ##########################################################################
 # Installer checks
 # User checks before installation
@@ -150,5 +153,5 @@ SETUP_PLEX_FAILED="${Green}Plex docker is already running${NC}"
 MAKE_PLEX_FOLDERS="${Purple}Making folders for plex. media, transcode, and library...${NC}"
 
 ##########################################################################
-#########  Set variables  # For ******** # Made by @runesrepohub #########
+#########  Set variables  # For ******** # Made for @runesrepohub ########
 ##########################################################################
