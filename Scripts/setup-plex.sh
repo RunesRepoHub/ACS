@@ -34,7 +34,7 @@ else
 
     echo -e "$DOCKER_CLAIM_PLEX_HOSTNAME_TEXT"    
     # Prompt the user for the hostname
-    read -p "Hostname for Plex-Server" PLEX_HOST
+    read -p "Hostname for Plex-Server: " PLEX_HOST
 
     # Run the plex service
     docker run \
