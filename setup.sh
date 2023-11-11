@@ -142,7 +142,7 @@ if [ -e $ROOT_FOLDER/$UPDATE_DOWNLOAD ]; then
     rm $ROOT_FOLDER/$UPDATE_DOWNLOAD
 fi
 sleep 1
-curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE_DOWNLOAD > /dev/null
+curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/download-update.sh > /dev/null
 
 echo -e "$DOWNLOADING_NEW_FILES"
 
