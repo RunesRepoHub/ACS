@@ -26,8 +26,8 @@ TZ=$(timedatectl show --property=Timezone --value)
 
 # Check if the network already exists
 if docker network inspect my_plex_network >/dev/null 2>&1; then
-    echo -e "${Green}The network my_plex_network already exists${NC}"
-    echo -e "${Red}The installation might fail due to this error${NC}"
+    echo -e "$DOCKER_NETWORK_ALREADY_EXIST"
+    echo -e "$INSTALL_MIGHT_FAIL"
 else
     # Create the network
     docker network create my_plex_network
@@ -36,13 +36,24 @@ fi
 # Check if there is already a docker with the name plex running
 
 if docker ps -a --format '{{.Names}}' | grep -q "^plex$"; then
-    echo -e "${Green}Plex is already running skipping plex claim${NC}"
+    echo -e "$DOCKER_CLAIM_PLEX_ALREADY"
 else
-    echo -e "${Green}Claim the Plex server${NC}"
-    echo -e "${Green}https://www.plex.tv/claim/${NC}"
+    echo -e "$DOCKER_CLAIM_PLEX_TEXT"
+    echo -e "$DOCKER_CLAIM_PLEX_URL"
 
     # Prompt the user for the Plex claim
     read -p "Enter the Plex claim: " PLEX_CLAIM
+
+    # Check if PLEX_CLAIM is empty
+    if [ -z "$PLEX_CLAIM" ]; then
+        echo -e "$INVALID_ARGUMENTS"
+        exit 1
+    fi
+
+
+    echo -e "$DOCKER_CLAIM_PLEX_HOSTNAME_TEXT"    
+    # Prompt the user for the hostname
+    read -p "Hostname for Plex-Server" PLEX_HOST
 
     # Run the plex service
     docker run \
@@ -62,11 +73,11 @@ else
         -e TZ="$TZ" \
         -e PLEX_CLAIM="$PLEX_CLAIM" \
         -e ADVERTISE_IP="http://$IP:32400/" \
-        -h YT-Plex-server \
-        -v ~/plex/library:/config \
-        -v ~/plex/transcode/temp:/transcode \
-        -v ~/plex/media:/data \
-        --restart always \
+        -h $PLEX_HOST \
+        -v $DOCKER_PLEX_LIBRARY_FOLDER:/$DOCKER_CONFIG_FOLDER \
+        -v $DOCKER_TRANSCODE_FOLDER:/$DOCKER_TRANSCODE_MOUNT \
+        -v $DOCKER_PLEX_MEDIA:/$DOCKER_PLEX_DATA \
+        --restart $DOCKER_RESTART_ALWAYS \
         plexinc/pms-docker
 fi
 
@@ -79,10 +90,10 @@ docker run -d \
   -e PGID=1000 \
   -e TZ="$TZ" \
   -e AUTO_UPDATE=true \
-  -v ~/Auto-YT-DL/jackett:/config \
-  -v ~/plex/media/download:/download \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_JACKETT_FOLDER:/$DOCKER_CONFIG_FOLDER \
+  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
   -p 9117:9117 \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/jackett:latest
 
 # Run the radarr service
@@ -92,11 +103,11 @@ docker run -d \
   --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ="$TZ" \
-  -v ~/Auto-YT-DL/radarr:/config \
-  -v ~/plex/media/movies:/movies \
-  -v ~/plex/media/download:/download \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_RADARR_FOLDER:/$DOCKER_CONFIG_FOLDER \
+  -v $DOCKER_HOST_MOVIES_FOLDER:/$DOCKER_MOVIES_FOLDER \
+  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
   -p 7878:7878 \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/radarr:latest
 
 # Run the sonarr service
@@ -106,11 +117,11 @@ docker run -d \
   --memory 2g \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ="$TZ" \
-  -v ~/Auto-YT-DL/sonarr:/config \
-  -v ~/plex/media/Shows:/shows \
-  -v ~/plex/media/download:/download \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_SONARR_FOLDER:/$DOCKER_CONFIG_FOLDER \
+  -v $DOCKER_HOST_SHOWS_FOLDER:/$DOCKER_SHOWS_FOLDER \
+  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
   -p 8989:8989 \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/sonarr:latest
 
 # Run the tautulli service
@@ -121,9 +132,9 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ="$TZ" \
-  -v ~/Auto-YT-DL/tautalli:/config \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_TAUTULLI_FOLDER:/$DOCKER_CONFIG_FOLDER \
   -p 8181:8181 \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/tautulli:latest
 
 # Run the deluge service
@@ -134,12 +145,12 @@ docker run -d \
   -e PUID=222 -e PGID=321 -e UMASK=002 \
   -e TZ="$TZ" \
   -e DELUGE_LOGLEVEL=error \
-  -v ~/Auto-YT-DL/deluge:/config \
-  -v ~/plex/media/download:/download \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_DELUGE_FOLDER:/$DOCKER_CONFIG_FOLDER \
+  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
   -p 8112:8112 \
   -p 6881:6881 \
   -p 6881:6881/udp \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/deluge:latest
 
 # Run the ombi service
@@ -149,8 +160,8 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ="$TZ" \
-  -v ~/Auto-YT-DL/ombi:/config \
+  -v $DOCKER_ROOT_FOLDER/$DOCKER_OMBI_FOLDER:/$DOCKER_CONFIG_FOLDER \
   -p 3579:3579 \
-  --restart always \
+  --restart $DOCKER_RESTART_ALWAYS \
   lscr.io/linuxserver/ombi:latest
 

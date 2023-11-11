@@ -212,7 +212,21 @@ CLEANUP_DONT_DELETE_PLEX="${Green}All folders and files has been removed except 
 ###### Set variables  # For setup-plex.sh # Made for @runesrepohub #######
 ##########################################################################
 
+DOCKER_NETWORK_ALREADY_EXIST="${Red}The network my_plex_network already exists${NC}"
+
+DOCKER_CLAIM_PLEX_ALREADY="${Green}Plex is already running skipping plex claim${NC}"
+
+DOCKER_CLAIM_PLEX_TEXT="${Green}Claim the Plex server${NC}"
+DOCKER_CLAIM_PLEX_URL="${Green}https://www.plex.tv/claim/${NC}"
+DOCKER_CLAIM_PLEX_HOSTNAME_TEXT="${Green}Enter the hostname that you want for the plex server in the plex settings${NC}"
+
 DOCKER_ROOT_FOLDER=~/Auto-YT-DL
+DOCKER_CONFIG_FOLDER="config"
+DOCKER_PLEX_LIBRARY_FOLDER=~/plex/library
+DOCKER_TRANSCODE_FOLDER=~/plex/transcode/temp
+DOCKER_TRANSCODE_MOUNT="transcode"
+DOCKER_PLEX_MEDIA=~/plex/media
+DOCKER_PLEX_DATA="data"
 DOCKER_PLEX_FOLDER="plex"
 DOCKER_OMBI_FOLDER="ombi"
 DOCKER_JACKETT_FOLDER="jackett"
@@ -220,3 +234,11 @@ DOCKER_RADARR_FOLDER="radarr"
 DOCKER_SONARR_FOLDER="sonarr"
 DOCKER_TAUTULLI_FOLDER="tautulli"
 DOCKER_DELUGE_FOLDER="deluge"
+DOCKER_DOWNLOAD_FOLDER=~/plex/media/download
+DOCKER_MOUNT_DOWNLOAD_FOLDER="download"
+DOCKER_HOST_SHOWS_FOLDER=~/plex/media/Shows
+DOCKER_SHOWS_FOLDER="shows"
+DOCKER_HOST_MOVIES_FOLDER=~/plex/media/movies
+DOCKER_MOVIES_FOLDER="movies"
+
+DOCKER_RESTART_ALWAYS="always"
