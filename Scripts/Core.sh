@@ -114,7 +114,7 @@ STOP="stop.sh"
 STOP_REMOVE="stop-remove.sh"
 UNINSTALL="uninstall.sh"
 UPDATE="update.sh"
-UPDATE_DOWNLOAD="update-download.sh"
+
 SETUP_PLEX="setup-plex.sh"
 DOWNLOAD="download.sh"
 #--------------------------------------------------------------------------
