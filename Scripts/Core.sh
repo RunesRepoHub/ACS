@@ -154,7 +154,7 @@ SETUP_PLEX_FAILED="${Green}Plex docker is already running${NC}"
 MAKE_PLEX_FOLDERS="${Purple}Making folders for plex. media, transcode, and library...${NC}"
 
 ##########################################################################
-#########  Set variables  # For Core.sh # Made for @runesrepohub #########
+#####  Set variables  # For add-url-list.sh # Made for @runesrepohub #####
 ##########################################################################
 
 # Folders and files
@@ -167,14 +167,16 @@ URL_ALREADY_EXISTS="${Yellow}URL $url already exists, input another link instead
 ENTER_URL="${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
 
 ##########################################################################
-#####  Set variables  # For docker-stop.sh # Made for @runesrepohub ######
+# Set variables  # For docker-stop.sh + stop.sh # Made for @runesrepohub #
 ##########################################################################
 
 YOUTUBE_DL_STOP="${Green}Stopping all mikenye/youtube-dl containers...${NC}"
 THIS_MAY_TAKE_A_WHILE="${Green}This may take a while...${NC}"
+YOUTUBE_DL_STOPPING_TEXT="${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+YOUTUBE_DL_STOP_COMPLETED="${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
 
 ##########################################################################
-#####  Set variables  # For stop.sh # Made for @runesrepohub ###########
+#####  Set variables  # For stop-remove.sh # Made for @runesrepohub ######
 ##########################################################################
 
 YOUTUBE_DL_STOP_REMOVE_TEXT="${Red}Stopping any and all mikenye/youtube-dl dockers then delete them${NC}"
@@ -185,7 +187,7 @@ DOCKER_NETWORK_STOP_REMOVE="${Red}Removing the network my_plex_network${NC}"
 DOCKER_NETWORK_STOP_REMOVE_COMPLETED="${Green}The network my_plex_network has been removed${NC}"
 
 ##########################################################################
-#####  Set variables  # For update.sh # Made for @runesrepohub ###########
+######### Set variables  # For update.sh # Made for @runesrepohub ########
 ##########################################################################
 
 UPDATE_AUTO_YT_DL="${Purple}Updating download-update.sh...${NC}"
