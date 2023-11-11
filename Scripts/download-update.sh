@@ -65,4 +65,10 @@ fi
 sleep 1
 curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE_DOWNLOAD > /dev/null
 
+if [ -e $ROOT_FOLDER/$START ]; then
+    rm $ROOT_FOLDER/$START
+fi
+sleep 1
+curl -s -o $ROOT_FOLDER/$START $GIHUB_LINK/$GITHUB_FOLDER/$START > /dev/null
+
 echo -e "$DOWNLOADING_NEW_FILES"

@@ -117,6 +117,7 @@ UPDATE="update.sh"
 UPDATE_DOWNLOAD="download-update.sh"
 SETUP_PLEX="setup-plex.sh"
 DOWNLOAD="download.sh"
+START="start.sh"
 #--------------------------------------------------------------------------
 
 # Make folders for Auto-YT-DL
@@ -171,6 +172,7 @@ ENTER_URL="${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
 ##########################################################################
 
 YOUTUBE_DL_STOP="${Green}Stopping all mikenye/youtube-dl containers...${NC}"
+YOUTUBE_DL_STOPPED="${Green}Stopped all mikenye/youtube-dl containers${NC}"
 THIS_MAY_TAKE_A_WHILE="${Green}This may take a while...${NC}"
 YOUTUBE_DL_STOPPING_TEXT="${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
 YOUTUBE_DL_STOP_COMPLETED="${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
@@ -243,5 +245,11 @@ DOCKER_MOVIES_FOLDER="movies"
 
 DOCKER_RESTART_ALWAYS="always"
 
+##########################################################################
+######### Set variables  # For start.sh # Made for @runesrepohub #########
+##########################################################################
 
-
+YOUTUBE_DL_START="${Purple}Starting any and all mikenye/youtube-dl dockers${NC}"
+YOUTUBE_DL_START_COMPLETED="${Green}All mikenye/youtube-dl dockers have been started${NC}"
+YOUTUBE_DL_STARTING_TEXT="${Red}Starting plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+YOUTUBE_DL_STARTING_TEXT_COMPLETED="${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi have been started${NC}"

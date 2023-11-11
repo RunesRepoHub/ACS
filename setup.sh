@@ -142,7 +142,13 @@ if [ -e $ROOT_FOLDER/$UPDATE_DOWNLOAD ]; then
     rm $ROOT_FOLDER/$UPDATE_DOWNLOAD
 fi
 sleep 1
-curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/download-update.sh > /dev/null
+curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE_DOWNLOAD > /dev/null
+
+if [ -e $ROOT_FOLDER/$START ]; then
+    rm $ROOT_FOLDER/$START
+fi
+sleep 1
+curl -s -o $ROOT_FOLDER/$START $GIHUB_LINK/$GITHUB_FOLDER/$START > /dev/null
 
 echo -e "$DOWNLOADING_NEW_FILES"
 
@@ -190,6 +196,7 @@ echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''
 echo 'alias start-download="bash '$ROOT_FOLDER'/'$AUTOMATED_CHECK'"' >> ~/.bashrc
 echo 'alias stop-download="bash '$ROOT_FOLDER'/'$DOCKER_STOP'"' >> ~/.bashrc
 echo 'alias stop-all="bash '$ROOT_FOLDER'/'$STOP'"' >> ~/.bashrc
+echo 'alias start-all="bash '$ROOT_FOLDER'/'$START'"' >> ~/.bashrc
 echo 'alias yt-uninstall="bash '$ROOT_FOLDER'/'$UNINSTALL'"' >> ~/.bashrc
 echo 'alias yt-update="bash '$ROOT_FOLDER'/'$UPDATE'"' >> ~/.bashrc
 echo 'alias remove-all="bash '$ROOT_FOLDER'/'$STOP_REMOVE'"' >> ~/.bashrc
