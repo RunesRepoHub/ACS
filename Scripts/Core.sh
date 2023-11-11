@@ -183,3 +183,10 @@ DOCKER_STOP_REMOVE_TEXT="${Red}Stopping and removing plex, jackett, radarr, sona
 DOCKER_STOP_REMOVE_COMPLETED="${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi have been stopped and removed${NC}"
 DOCKER_NETWORK_STOP_REMOVE="${Red}Removing the network my_plex_network${NC}"
 DOCKER_NETWORK_STOP_REMOVE_COMPLETED="${Green}The network my_plex_network has been removed${NC}"
+
+##########################################################################
+#####  Set variables  # For update.sh # Made for @runesrepohub ###########
+##########################################################################
+
+UPDATE_AUTO_YT_DL="${Purple}Updating download-update.sh...${NC}"
+UPDATE_AUTO_YT_DL_COMPLETED="${Green}Download-update.sh has been updated${NC}"
