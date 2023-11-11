@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -s -o ~/Core.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev/Scripts/Core.sh > /dev/null
+curl -s -o ~/Core.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/Core.sh > /dev/null
 sleep 2
 chmod +x ~/Core.sh
 source ~/Core.sh
