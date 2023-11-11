@@ -68,6 +68,19 @@ source ~/.bashrc
     stop-all
     ```
 
+## Start all running dockers
+
+??? info "start all running dockers"
+
+    Want to start all the docker at ones 
+
+    Use this command
+
+    ```
+    start-all
+    ```
+
+
 ## Uninstall and delete
 
 ??? info "Uninstall and delete"

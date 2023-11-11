@@ -1,6 +1,16 @@
 # YT-plex Installation
 
-??? warning "Docker is required"
+!!! warning "Root"
+
+    This software has to run as root. YOU CAN NOT RUN IT AS A NORMAL USER.
+
+!!! warning "Important"
+
+    This software is still in development.
+
+    Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
+
+!!! warning "Docker is required"
 
     Docker is required to run this software
 
