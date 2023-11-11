@@ -64,9 +64,9 @@ CURL_INSTALLING="${Yellow}Installing curl...${NC}"
 
 # Download docker images
 DOWNLOADING_DOCKER_IMAGES="${Purple}Downloading docker images${NC}"
-DOCKER_IMAGES_DOWNLOADING="${Yellow}Downloading $image...${NC}"
-DOCKER_IMAGES_DOWNLOADED="${Green}$image has been downloaded.${NC}"
-DOCKER_IMAGES_FOUND="${Green}$image is already downloaded.${NC}"
+DOCKER_IMAGES_DOWNLOADING="${Yellow}Downloading${NC}"
+DOCKER_IMAGES_DOWNLOADED="${Green}has been downloaded.${NC}"
+DOCKER_IMAGES_FOUND="${Green}is already downloaded.${NC}"
 
 # Make the Root folder
 ROOT_FOLDER=~/Auto-YT-DL/Scripts
@@ -189,11 +189,11 @@ echo -e "$DOWNLOADING_DOCKER_IMAGES"
 images=("mikenye/youtube-dl" "plexinc/pms-docker" "lscr.io/linuxserver/jackett:latest" "lscr.io/linuxserver/radarr:latest" "lscr.io/linuxserver/sonarr:latest" "lscr.io/linuxserver/tautulli:latest" "lscr.io/linuxserver/deluge:latest" "lscr.io/linuxserver/ombi:latest") 
 for image in "${images[@]}"; do
     if ! docker image inspect "$image" &> /dev/null; then
-        echo -e "$DOCKER_IMAGES_DOWNLOADING"
+        echo -e "$DOCKER_IMAGES_DOWNLOADING $image..."
         docker pull "$image" > /dev/null 2>&1
-        echo -e "$DOCKER_IMAGES_DOWNLOADED"
+        echo -e "$image $DOCKER_IMAGES_DOWNLOADED"
     else
-        echo -e "$DOCKER_IMAGES_FOUND"
+        echo -e "$image $DOCKER_IMAGES_FOUND"
     fi
 done
 
