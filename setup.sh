@@ -52,14 +52,14 @@ RUN_UPGRADE="${Yellow}Run apt-get upgrade -y${NC}"
 CHECK_SUDO="${Purple}Check if sudo is installed${NC}"
 SUDO_INSTALLED="${Green}Sudo has been installed${NC}"
 SUDO_NOT_INSTALLED="${Red}Sudo is not installed.${NC}"
-SUDO_IS_ALREADY_INSTALLED="${Red}Sudo is already installed.${NC}"
+SUDO_IS_ALREADY_INSTALLED="${Green}Sudo is already installed.${NC}"
 SUDO_INSTALLING="${Yellow}Installing sudo...${NC}"
 
 # Check if curl is installed, if nor install it.
 CHECK_CURL="${Purple}Check if curl is installed${NC}"
 CURL_INSTALLED="${Green}Curl has been installed${NC}"
 CURL_NOT_INSTALLED="${Red}Curl is not installed.${NC}"
-CURL_IS_ALREADY_INSTALLED="${Red}Curl is already installed.${NC}"
+CURL_IS_ALREADY_INSTALLED="${Green}Curl is already installed.${NC}"
 CURL_INSTALLING="${Yellow}Installing curl...${NC}"
 
 # Download docker images
@@ -74,6 +74,7 @@ ALREADY_EXISTS_ROOT="${Red}Folder ~/Auto-YT-DL/Scripts already exists.${NC}"
 FOLDERS_EXISTS="${Red}Folders already exist.${NC}"
 MAKE_ROOT_FOLDER="${Purple}Make the folder ~/Auto-YT-DL${NC}"
 FOLDER_CREATED="${Green}Folder created${NC}"
+FOLDERS_CREATED="${Green}Folders created${NC}"
 MAKE_PLEX_FOLDERS="${Purple}Making folders for plex. media, transcode, and library...${NC}"
 
 # Download other scripts
@@ -123,7 +124,7 @@ CRON_TIMER="0 0 30 * *"
 CRON_COMPLETED="${Green}Cron job completed${NC}"
 
 # Setup Plex
-SETUP_PLEX_TEXT="${Purple}Setting up plex...${NC}"
+SETUP_PLEX_TEXT="${Purple}Making plex folders...${NC}"
 SETUP_PLEX_COMPLETED="${Green}Setup plex completed${NC}"
 SETUP_PLEX_FAILED="${Green}Plex docker is already running${NC}"
 
