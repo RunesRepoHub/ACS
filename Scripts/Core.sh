@@ -192,3 +192,18 @@ DOCKER_NETWORK_STOP_REMOVE_COMPLETED="${Green}The network my_plex_network has be
 
 UPDATE_AUTO_YT_DL="${Purple}Updating download-update.sh...${NC}"
 UPDATE_AUTO_YT_DL_COMPLETED="${Green}Download-update.sh has been updated${NC}"
+
+##########################################################################
+######### Set variables  # For uninstall.sh # Made for @runesrepohub ########
+##########################################################################
+
+USER_TEXT_SAVE_PLEX="${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
+USER_ANSWER_SAVE_PLEX="${Green}y = Keep plex media folder${NC}"
+USER_ANSWER_DELETE_PLEX="${Red}n = Delete plex media folder${NC}"
+
+CLEANUP_ALL="${Purple}Cleanup all folders and files...${NC}"
+CLEANUP_ALL_COMPLETED="${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
+
+CLEANUP_NOTPLEX="${Red}Stopping jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+CLEANUP_NOTPLEX_COMPLETED="${Green}All jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+CLEANUP_DONT_DELETE_PLEX="${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"

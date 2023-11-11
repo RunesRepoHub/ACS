@@ -21,9 +21,9 @@ NC='\e[0m'  # Reset to default
 ###################
 
 
-echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
-echo -e "${Green}y = Keep plex media folder${NC}"
-echo -e "${Red}n = Delete plex media folder${NC}"
+echo -e "$USER_TEXT_SAVE_PLEX"
+echo -e "$USER_ANSWER_SAVE_PLEX"
+echo -e "$USER_ANSWER_DELETE_PLEX"
 
 # Prompt the user for a yes/no answer
 read -p "Are you sure? (y/n): " answer
@@ -33,27 +33,27 @@ if [[ $answer == "y" ]]; then
     # User answered "yes"
     
     # Stop and remove any docker with the image mikenye/youtube-dl
-    echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
+    echo -e "$YOUTUBE_DL_STOP"
     container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
     for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
         docker stop $container_id
     done
-    echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+    echo -e "$YOUTUBE_DL_STOP_REMOVE_COMPLETED"
     
     # Stop and remove the dockers
-    echo -e "${Red}Stopping jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+    echo -e "$CLEANUP_NOTPLEX"
     docker stop jackett radarr sonarr tautulli deluge ombi 
     docker rm jackett radarr sonarr tautulli deluge ombi
-    echo -e "${Green}All jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+    echo -e "$CLEANUP_NOTPLEX_COMPLETED"
 
         # Remove the network
-    echo -e "${Red}Removing the network my_plex_network${NC}"
+    echo -e "$DOCKER_NETWORK_STOP_REMOVE"
     docker network rm my_plex_network
-    echo -e "${Green}The network my_plex_network has been removed${NC}"
+    echo -e "$DOCKER_NETWORK_STOP_REMOVE_COMPLETED"
 
     # remove all folders and files
     rm -rf ~/Auto-YT-DL 
-    echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
+    echo -e "$CLEANUP_DONT_DELETE_PLEX"
 
     # Remove the line from the crontab file
     sudo sed -i '/Auto-YT-DL\/Scripts\/automated-check.sh/d' /etc/crontab
@@ -62,27 +62,28 @@ elif [[ $answer == "n" ]]; then
     # User answered "no"
     
     # Stop and remove any docker with the image mikenye/youtube-dl
-    echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers${NC}"
+    echo -e "$YOUTUBE_DL_STOP"
     container_count=$(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}" | wc -l)
     for container_id in $(docker ps -a --filter="ancestor=mikenye/youtube-dl" --format "{{.ID}}"); do
         docker stop $container_id
     done
-    echo -e "${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+    echo -e "$YOUTUBE_DL_STOP_REMOVE_COMPLETED"
     
     # Stop and remove the dockers
-    echo -e "${Red}Stopping plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+    echo -e "$DOCKER_STOP_REMOVE_TEXT"
     docker stop plex jackett radarr sonarr tautulli deluge ombi 
     docker rm plex jackett radarr sonarr tautulli deluge ombi
-    echo -e "${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi dockers have been stopped${NC}"
+    echo -e "$DOCKER_STOP_REMOVE_COMPLETED"
     
     # Remove the network
-    echo -e "${Red}Removing the network my_plex_network${NC}"
+    echo -e "$DOCKER_NETWORK_STOP_REMOVE"
     docker network rm my_plex_network
-    echo -e "${Green}The network my_plex_network has been removed${NC}"
+    echo -e "$DOCKER_NETWORK_STOP_REMOVE_COMPLETED"
 
     # remove all folders and files
+    echo -e "$CLEANUP_ALL"
     rm -rf ~/Auto-YT-DL  ~/plex
-    echo -e "${Green}All folders and files has been removed, all dockers has been stopped${NC}"
+    echo -e "$CLEANUP_ALL_COMPLETED"
 
     # Remove the line from the crontab file
     sudo sed -i '/Auto-YT-DL\/Scripts\/automated-check.sh/d' /etc/crontab
