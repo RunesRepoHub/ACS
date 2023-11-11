@@ -153,5 +153,25 @@ SETUP_PLEX_FAILED="${Green}Plex docker is already running${NC}"
 MAKE_PLEX_FOLDERS="${Purple}Making folders for plex. media, transcode, and library...${NC}"
 
 ##########################################################################
-#########  Set variables  # For ******** # Made for @runesrepohub ########
+#########  Set variables  # For Core.sh # Made for @runesrepohub #########
+##########################################################################
+
+# Folders and files
+MEDIA=~/plex/media
+URL_FILE="url_file.txt"
+ARCHIVE_URL_FILE="archive_url_file.txt"
+
+# Texts
+URL_ALREADY_EXISTS="${Yellow}URL $url already exists, input another link instead${NC}"
+ENTER_URL="${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
+
+##########################################################################
+#####  Set variables  # For docker-stop.sh # Made for @runesrepohub ######
+##########################################################################
+
+YOUTUBE_DL_STOP="${Green}Stopping all mikenye/youtube-dl containers...${NC}"
+THIS_MAY_TAKE_A_WHILE="${Green}This may take a while...${NC}"
+
+##########################################################################
+#####  Set variables  # For stop.sh # Made for @runesrepohub ###########
 ##########################################################################

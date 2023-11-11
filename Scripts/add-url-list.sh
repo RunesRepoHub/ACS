@@ -1,14 +1,4 @@
-# Folders and files
-MEDIA=~/plex/media
-URL_FILE="url_file.txt"
-ARCHIVE_URL_FILE="archive_url_file.txt"
-ROOT_FOLDER=~/Auto-YT-DL/Scripts
-DOWNLOAD="download.sh"
-ADD_URL_LIST="add-url-list.sh"
-
-# Texts
-URL_ALREADY_EXISTS="${Yellow}URL $url already exists, input another link instead${NC}"
-ENTER_URL="${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
+source ~/YT-Plex/Scripts/Core.sh
 
 echo -e "$ENTER_URL"
 # Prompt the user to enter the URLs
