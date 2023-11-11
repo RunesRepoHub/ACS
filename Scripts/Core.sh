@@ -242,3 +242,6 @@ DOCKER_HOST_MOVIES_FOLDER=~/plex/media/movies
 DOCKER_MOVIES_FOLDER="movies"
 
 DOCKER_RESTART_ALWAYS="always"
+
+
+
