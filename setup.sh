@@ -44,6 +44,9 @@ FOLDER_CREATED="${Green}Folder created${NC}"
 # Github repo link
 GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production"
 
+# Texts
+REMOVING_OLD_SYSTEM_FILES="${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
+DOWNLOADING_NEW_FILES="${Green}Downloading new files complete${NC}"
 
 # All script names
 AUTOMATED_CHECK="automated-check.sh"
@@ -164,7 +167,7 @@ mkdir -p $ROOT_FOLDER
 echo -e "$FOLDER_CREATED"
 
 # Download files
-echo -e "${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
+echo -e "$REMOVING_OLD_SYSTEM_FILES"
 
 if [ -e $ROOT_FOLDER/$AUTOMATED_CHECK ]; then
     rm $ROOT_FOLDER/$AUTOMATED_CHECK
@@ -226,7 +229,7 @@ fi
 sleep 1
 curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/Scripts/$UPDATE_DOWNLOAD > /dev/null
 
-echo -e "${Green}Downloading files complete${NC}"
+echo -e "$DOWNLOADING_NEW_FILES"
 
 sleep 2
 
