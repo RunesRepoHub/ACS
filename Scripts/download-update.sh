@@ -1,45 +1,5 @@
 #!/bin/bash
-##### Styles ######
-Black='\e[0;30m'
-DarkGray='\e[1;30m'
-Red='\e[0;31m'
-LightRed='\e[1;31m'
-Green='\e[0;32m'
-LightGreen='\e[1;32m'
-BrownOrange='\e[0;33m'
-Yellow='\e[1;33m'
-Blue='\e[0;34m'
-LightBlue='\e[1;34m'
-Purple='\e[0;35m'
-LightPurple='\e[1;35m'
-Cyan='\e[0;36m'
-LightCyan='\e[1;36m'
-LightGray='\e[0;37m'
-White='\e[1;37m'
-NC='\e[0m'  # Reset to default
-###################
-
-# Make the Root folder
-ROOT_FOLDER=~/Auto-YT-DL/Scripts
-
-# Github repo link
-GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev"
-
-# All script names
-AUTOMATED_CHECK="automated-check.sh"
-ADD_URL_LIST="add-url-list.sh"
-DOCKER_STOP="docker-stop.sh"
-STOP="stop.sh"
-STOP_REMOVE="stop-remove.sh"
-UNINSTALL="uninstall.sh"
-UPDATE="update.sh"
-UPDATE_DOWNLOAD="update-download.sh"
-SETUP_PLEX="setup-plex.sh"
-DOWNLOAD="download.sh"
-
-# Texts
-REMOVING_OLD_SYSTEM_FILES="${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
-DOWNLOADING_NEW_FILES="${Green}Downloading new files complete${NC}"
+source ~/Auto-YT-DL/Scripts/Core.sh
 
 # Download files
 echo -e "$REMOVING_OLD_SYSTEM_FILES"
