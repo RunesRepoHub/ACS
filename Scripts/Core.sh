@@ -100,6 +100,7 @@ MAKE_ROOT_FOLDER="${Purple}Make the folder ~/Auto-YT-DL${NC}"
 GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev"
 GITHUB_FOLDER="Scripts"
 #--------------------------------------------------------------------------
+
 # Texts
 REMOVING_OLD_SYSTEM_FILES="${Purple}Removing old system files for Auto-YT-DL and then downloading newest files...${NC}"
 DOWNLOADING_NEW_FILES="${Green}Downloading new files complete${NC}"
@@ -175,3 +176,10 @@ THIS_MAY_TAKE_A_WHILE="${Green}This may take a while...${NC}"
 ##########################################################################
 #####  Set variables  # For stop.sh # Made for @runesrepohub ###########
 ##########################################################################
+
+YOUTUBE_DL_STOP_REMOVE_TEXT="${Red}Stopping any and all mikenye/youtube-dl dockers then delete them${NC}"
+YOUTUBE_DL_STOP_REMOVE_COMPLETED="${Green}All mikenye/youtube-dl dockers have been stopped and removed${NC}"
+DOCKER_STOP_REMOVE_TEXT="${Red}Stopping and removing plex, jackett, radarr, sonarr, tautulli, deluge and ombi${NC}"
+DOCKER_STOP_REMOVE_COMPLETED="${Green}All plex, jackett, radarr, sonarr, tautulli, deluge and ombi have been stopped and removed${NC}"
+DOCKER_NETWORK_STOP_REMOVE="${Red}Removing the network my_plex_network${NC}"
+DOCKER_NETWORK_STOP_REMOVE_COMPLETED="${Green}The network my_plex_network has been removed${NC}"
