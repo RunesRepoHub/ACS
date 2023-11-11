@@ -64,11 +64,11 @@ echo -e "$DOWNLOADING_DOCKER_IMAGES"
 images=("mikenye/youtube-dl" "plexinc/pms-docker" "lscr.io/linuxserver/jackett:latest" "lscr.io/linuxserver/radarr:latest" "lscr.io/linuxserver/sonarr:latest" "lscr.io/linuxserver/tautulli:latest" "lscr.io/linuxserver/deluge:latest" "lscr.io/linuxserver/ombi:latest") 
 for image in "${images[@]}"; do
     if ! docker image inspect "$image" &> /dev/null; then
-        echo -e "$DOCKER_IMAGES_DOWNLOADING $image..."
+        echo -e "$DOCKER_IMAGES_DOWNLOADING ${Blue}$image...${NC}"
         docker pull "$image" > /dev/null 2>&1
-        echo -e "$image $DOCKER_IMAGES_DOWNLOADED"
+        echo -e "${Blue}$image${NC} $DOCKER_IMAGES_DOWNLOADED"
     else
-        echo -e "$image $DOCKER_IMAGES_FOUND"
+        echo -e "${LightBlue}$image${NC} $DOCKER_IMAGES_FOUND"
     fi
 done
 
