@@ -1,3 +1,4 @@
+#!/bin/bash
 # Set version (Prod or Dev)
 Dev="Production"
 export Dev=$Dev

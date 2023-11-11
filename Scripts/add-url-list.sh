@@ -1,3 +1,4 @@
+#!/bin/bash
 source ~/Auto-YT-DL/Scripts/Core.sh
 
 echo -e "$ENTER_URL"

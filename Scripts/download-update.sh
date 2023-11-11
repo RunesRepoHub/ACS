@@ -1,3 +1,4 @@
+#!/bin/bash
 ##### Styles ######
 Black='\e[0;30m'
 DarkGray='\e[1;30m'

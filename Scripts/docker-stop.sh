@@ -1,5 +1,4 @@
 #!/bin/bash
-# 
 # Stop and remove any docker with the image mikenye/youtube-dl
 source ~/Auto-YT-DL/Scripts/Core.sh
 
