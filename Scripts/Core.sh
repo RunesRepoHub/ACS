@@ -49,7 +49,7 @@ INSTALL_MIGHT_FAIL="${Red}The installation might fail due to this error${NC}"
 INSTALL_COMPLETED="${Green}Installation completed${NC}"
 # Custom Commands
 CUSTOM_COMMANDS="${Yellow}In order for the custom commands to load run 'source ~/.bashrc'${NC}"
-CUSTOM_COMMANDS_HELP="${Orange}Find all custom commands here https://runesrepohub.github.io/YT-Plex/commands.html${NC}"
+CUSTOM_COMMANDS_HELP="${BrownOrange}Find all custom commands here https://runesrepohub.github.io/YT-Plex/commands.html${NC}"
 # Folders
 FOLDER_CREATED="${Green}Folder created${NC}"
 FOLDERS_CREATED="${Green}Folders created${NC}"
