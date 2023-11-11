@@ -54,10 +54,10 @@ else
         -e TZ="$TZ" \
         -e PLEX_CLAIM="$PLEX_CLAIM" \
         -e ADVERTISE_IP="http://$IP:32400/" \
-        -h $PLEX_HOST \
-        -v $DOCKER_PLEX_LIBRARY_FOLDER:/$DOCKER_CONFIG_FOLDER \
-        -v $DOCKER_TRANSCODE_FOLDER:/$DOCKER_TRANSCODE_MOUNT \
-        -v $DOCKER_PLEX_MEDIA:/$DOCKER_PLEX_DATA \
+        -h "$PLEX_HOST" \
+        -v "$DOCKER_PLEX_LIBRARY_FOLDER:/$DOCKER_CONFIG_FOLDER" \
+        -v "$DOCKER_TRANSCODE_FOLDER:/$DOCKER_TRANSCODE_MOUNT" \
+        -v "$DOCKER_PLEX_MEDIA:/$DOCKER_PLEX_DATA" \
         --restart $DOCKER_RESTART_ALWAYS \
         plexinc/pms-docker
 fi
