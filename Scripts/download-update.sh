@@ -22,7 +22,7 @@ NC='\e[0m'  # Reset to default
 ROOT_FOLDER=~/Auto-YT-DL/Scripts
 
 # Github repo link
-GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production"
+GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev"
 
 # All script names
 AUTOMATED_CHECK="automated-check.sh"
