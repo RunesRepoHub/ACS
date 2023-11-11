@@ -1,4 +1,4 @@
-source ~/YT-Plex/Scripts/Core.sh
+source ~/Auto-YT-DL/Scripts/Core.sh
 
 echo -e "$ENTER_URL"
 # Prompt the user to enter the URLs

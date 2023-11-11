@@ -1,7 +1,7 @@
 #!/bin/bash
 # 
 # Stop and remove any docker with the image mikenye/youtube-dl
-source ~/YT-Plex/Scripts/Core.sh
+source ~/Auto-YT-DL/Scripts/Core.sh
 
 echo -e "$YOUTUBE_DL_STOP"
 echo -e "$THIS_MAY_TAKE_A_WHILE"
