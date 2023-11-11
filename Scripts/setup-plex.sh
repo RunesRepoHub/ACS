@@ -62,7 +62,7 @@ else
         -e TZ="$TZ" \
         -e PLEX_CLAIM="$PLEX_CLAIM" \
         -e ADVERTISE_IP="http://$IP:32400/" \
-        -h plex-server \
+        -h YT-Plex-server \
         -v ~/plex/library:/config \
         -v ~/plex/transcode/temp:/transcode \
         -v ~/plex/media:/data \
