@@ -198,11 +198,11 @@
     }
     ```
 
-## Config Sonarr and Radarr
+## Configure Sonarr and Radarr
 
 ??? example "Indexers"
 
-    ### Setting up indexers on sonarr
+    ### Setting up indexers on sonarr and radarr
 
     **Port 8989 for sonarr**
     
@@ -265,7 +265,7 @@
 
 ??? example "Episode Naming"
 
-    ### Episode naming
+    ### Episode Naming
 
     Enable renaming of the episode.
 
@@ -275,7 +275,7 @@
     ![Alt text](img/image-4.png)
     ![Alt text](img/radarr.png)
 
-    * You can change the name convention of the episode here #Optional
+    * You can change the name convention of the episode here (Optional)
 
 ??? example "Download profile"
 
@@ -294,9 +294,9 @@
     ![Alt text](img/image-5.png)
     ![Alt text](img/radarr6.png)
 
-## Config Ombi
+## Configure Ombi
 
-??? example "Ombi"
+??? example "Ombi setup"
 
     ### Ombi setup
 
@@ -365,9 +365,9 @@
 
     ![Alt text](img/ombi3.png)
 
-## Tautulli Config
+## Configure Tautulli 
 
-??? example "Tautulli"
+??? example "Tautulli setup"
 
     ### Tautulli setup
 
