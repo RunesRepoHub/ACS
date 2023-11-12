@@ -25,7 +25,7 @@
 
 ??? success "Install YT-Plex"
 
-    [See the requirements](/docs/requirement.md)
+    [See the requirements](/YT-Plex/docs/requirement.md)
 
     Use this command
 
