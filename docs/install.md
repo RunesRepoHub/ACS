@@ -245,6 +245,7 @@
     * Then click the plus to add a new one
     
     ![Alt text](img/image-2.png)
+    ![Alt text](img/radarr7.png)
 
     * Fill in the name of the client (Deluge)
     * Fill in the ip of the client
