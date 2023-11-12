@@ -266,3 +266,18 @@
     **You should make one for each**
 
     ![Alt text](img/image-5.png)
+
+## Config Ombi
+
+??? example "Ombi"
+
+    ### Ombi setup
+
+    * Go to settings 
+    * Media Server
+    * Login into plex
+    * Load your servers
+
+    ![Alt text](img/ombi.png)
+    ![Alt text](img/ombi2.png)
+    ![Alt text](img/ombi3.png)

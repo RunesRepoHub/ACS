@@ -55,3 +55,5 @@
     * The longer the playlists the longer the download. (At download item 86 of 156 it takes 30 mins of 400mb of data, THIS is NOT a networking limit)
 
     * Can cause a bit of slow down on plex itself if configured to update library on every change dectected in the folder.
+
+    
