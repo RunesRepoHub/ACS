@@ -273,6 +273,8 @@
 
     ### Ombi setup
 
+    #### Load Plex Server
+
     * Go to settings 
     * Media Server
     * Login into plex
@@ -280,6 +282,8 @@
     * And then submit/save
 
     ![Alt text](img/ombi.png)
+
+    #### Load Sonarr Server
 
     * Go to settings 
     * TV
@@ -292,17 +296,35 @@
     * Load and set the default root folder
     * Load language profiles
 
-    Get your sonarr api key
+    #### Get your sonarr api key
+    
     * Go to settings
     * General
     * Under security
     * Find your api key 
-    
+
     ![Alt text](img/sonarr-api.png)
 
     ![Alt text](img/ombi2.png)
 
+    #### Load Sonarr Server
 
+    * Go to settings 
+    * TV
+    * Enable it at the top 
+    * Enable "Scan for Availability"
+    * Enable "Add the user as a tag"
+    * Add the ip of the server
+    * Add the port of the server. (default: 8989)
+    * Load and set quality profiles
+    * Load and set the default root folder
+    * Load language profiles
 
+    #### Get your Sonarr api key
+    
+    * Go to settings
+    * General
+    * Under security
+    * Find your api key
 
     ![Alt text](img/ombi3.png)
