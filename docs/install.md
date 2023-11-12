@@ -342,3 +342,34 @@
     ![Alt text](img/ombi3.png)
 
     **Then Save/Submit**
+
+## Tautulli Config
+
+??? example "Tautulli"
+
+    ### Tautulli setup
+
+    * Go to the http://your-server-ip:8181
+    ![Alt text](tautulli.png)
+    * Click on "Next"
+    * Sign in with plex
+    ![Alt text](tautulli2.png)
+    ![Alt text](tautulli3.png)
+    ![Alt text](tautulli4.png)
+    * Click on "Next"
+    * Pick the plex server you want to use
+    * Input the plex port
+    ![Alt text](tautulli5.png)
+    * Click on "Next"
+    * **Activity Logging**
+    ![Alt text](tautulli6.png)
+    * Just set the "ignore interval" to 120
+    * Click on "Next"
+    * **Notifications**
+    ![Alt text](tautulli7.png)
+    * Click on "Next"
+    * **Database import**
+    ![Alt text](tautulli8.png)
+    * Click on "Finish"
+    ![Alt text](tautulli9.png)
+    ![Alt text](tautulli10.png)
