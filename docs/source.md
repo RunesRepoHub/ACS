@@ -2,7 +2,7 @@
 
 Get a better understanding of the source code by reading below.
 
-## All scripts and code used.
+## System.
 
 ??? abstract "Setup.sh"
 
@@ -45,6 +45,8 @@ Get a better understanding of the source code by reading below.
         * Sets services to restart always, ensuring automatic startup upon system restart.
 
     This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences. 
+
+## User interaction.
 
 ??? note "Download.sh"
 
