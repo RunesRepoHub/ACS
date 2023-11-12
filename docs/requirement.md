@@ -39,9 +39,31 @@
 
     **Docker**
 
-    * Apt-get update + upgrade.
     * Install Docker + Docker-compose on the server.
-    * Install FTP/SFTP on the server.
+
+    **Server**
+
+    * Has to have ~/.bashrc for custom commands
+    * Has to have bash installed
+    * Has to have a working internet connection
+    * Has to be a Debian based server
+    * Has to be up to date with the OS (apt-get update + apt-get upgrade)
+    * Should have a FTP/SFTP on the server.
+    
+    **Hardware**
+
+    * CPU : 4 cores
+    * Memory : 8GB
+    * Hard Disk : 100GB
+
+    **I have allocated 5 TB of storage of my server.**
+
+    **And I have 16GB of RAM.**
+
+    **Youbtube-dl**
+
+    * I would recommend using 3 youtube-dl containers with 8gb of RAM.
+    * And 5 youtube-dl containers with 16gb of RAM.
 
 
 ### Made With:
