@@ -1,10 +1,10 @@
 # YT-plex Installation
 
-## Important
+## Important Information
 
-!!! failure "Root"
+!!! failure "Root User Required"
 
-    ### Root
+    ### Root Root User Required
 
     This software has to run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
 
