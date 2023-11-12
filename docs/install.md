@@ -283,7 +283,7 @@
 
     ![Alt text](img/ombi.png)
 
-    #### Load Sonarr Server
+    #### Load Radarr Server
 
     * Go to settings 
     * TV
@@ -296,14 +296,14 @@
     * Load and set the default root folder
     * Load language profiles
 
-    #### Get your sonarr api key
+    #### Get your Radarr api key
     
     * Go to settings
     * General
     * Under security
     * Find your api key 
 
-    ![Alt text](img/sonarr-api.png)
+    ![Alt text](img/radarr-api.png)
 
     ![Alt text](img/ombi2.png)
 
@@ -326,5 +326,7 @@
     * General
     * Under security
     * Find your api key
+
+    ![Alt text](img/sonarr-api.png)
 
     ![Alt text](img/ombi3.png)
