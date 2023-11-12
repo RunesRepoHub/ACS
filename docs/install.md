@@ -297,6 +297,7 @@
     * General
     * Under security
     * Find your api key 
+    
     ![Alt text](img/sonarr-api.png)
 
     ![Alt text](img/ombi2.png)
