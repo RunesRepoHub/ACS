@@ -188,13 +188,41 @@
 
 ??? example "Indexers"
 
+    ### Setting up indexers on sonarr
+
+    * Go to settings 
+    * Indexers
+
     ![Alt text](img/image.png)
 
+    **All indexers is just another name of jackett**
+    *Access your jackett docker container and find your own information*
+
+    * Then click the plus to add a new one
+    * Fill in the name of the indexer
+    * Fill in the url of the indexer
+    * Fill in the api key of the indexer
+
     ![Alt text](img/image-1.png)
+
+    *I recommend that you use advanced settings while setting up the indexers.*
+
+    * Because all the yellow fields are "advanced settings"
+    * And one of them allow your to setup minimal amount of seeds before downloading
+    
+    **I used 10 for sonarr and 15 for radarr**
 
 ## Download client
 
 ??? example "Download Client"
+
+    ### Adding the deluge download client.
+
+    * Then click the plus to add a new one
+    * Fill in the name of the client (Deluge)
+    * Fill in the ip of the client
+    * Fill in the port of the client (Default: 8112)
+    * Fill in the password of the client (Deluge)
     
     ![Alt text](img/image-2.png)
 
@@ -204,10 +232,25 @@
 
 ??? example "Episode Naming"
 
+    ### Episode naming
+
+    Enable renaming of the episode.
+    * Then click the add root folder button
+    * Find the respective folder and click on it (Sonarr = shows, Radarr = movies)
+
     ![Alt text](img/image-4.png)
+
+    * You can change the name convention of the episode here #Optional
 
 ## Download profile
 
 ??? example "Download profile"
+
+    ### Download profile
+    
+    I like to make my own download profiles.
+    * Remove all default
+    * Add a standard profile for 720p
+    * Add a standard profile for 1080p
 
     ![Alt text](img/image-5.png)
