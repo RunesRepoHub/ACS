@@ -97,7 +97,7 @@ MAKE_ROOT_FOLDER="${Purple}Make the folder ~/Auto-YT-DL${NC}"
 
 # Download other scripts
 # Github repo link
-GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev"
+GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production"
 GITHUB_FOLDER="Scripts"
 #--------------------------------------------------------------------------
 
@@ -129,11 +129,11 @@ RADARR=~/Auto-YT-DL/radarr
 MOVIES=~/plex/media/movies 
 SONARR=~/Auto-YT-DL/sonarr 
 SHOWS=~/plex/media/Shows 
-MEDIA_DOWNLOAD=~/plex/media/download 
+MEDIA_DOWNLOAD=~/plex/media/downloads 
 TAUTALLI=~/Auto-YT-DL/tautalli 
 DELUGE=~/Auto-YT-DL/deluge 
 OMBI=~/Auto-YT-DL/ombi  
-DOWNLOAD_COMPLETED=~/plex/media/download/completed
+DOWNLOAD_COMPLETED=~/plex/media/downloads/completed
 #--------------------------------------------------------------------------
 
 # Container max
@@ -196,7 +196,7 @@ UPDATE_AUTO_YT_DL="${Purple}Updating download-update.sh...${NC}"
 UPDATE_AUTO_YT_DL_COMPLETED="${Green}Download-update.sh has been updated${NC}"
 
 ##########################################################################
-####### Set variables  # For uninstall.sh # Made for @runesrepohub #######
+######### Set variables  # For uninstall.sh # Made for @runesrepohub ########
 ##########################################################################
 
 USER_TEXT_SAVE_PLEX="${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
