@@ -46,7 +46,7 @@ Get a better understanding of the source code by reading below.
 
 ## Download.sh 
 
-??? abstract "Download.sh"
+??? note "Download.sh"
 
     The script efficiently manages the mikenye/youtube-dl Docker image, first checking for its presence and displaying a corresponding message if it exists. If the image is not already downloaded, the script utilizes the "docker pull" command to fetch the mikenye/youtube-dl Docker image. 
 
@@ -82,7 +82,7 @@ Get a better understanding of the source code by reading below.
 
 ## Update.sh
 
-??? abstract "Update.sh"
+??? note "Update.sh"
 
     This script enhances maintainability and functionality through the following steps:
 
