@@ -82,7 +82,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --embed-subs \
         --convert-subs srt \
         --write-auto-sub \
-        --download-archive /Auto-YT-DL/archive.txt \
+        --download-archive "$MEDIA/archive.txt" \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
     
