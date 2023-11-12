@@ -196,7 +196,7 @@ UPDATE_AUTO_YT_DL="${Purple}Updating download-update.sh...${NC}"
 UPDATE_AUTO_YT_DL_COMPLETED="${Green}Download-update.sh has been updated${NC}"
 
 ##########################################################################
-######### Set variables  # For uninstall.sh # Made for @runesrepohub ########
+####### Set variables  # For uninstall.sh # Made for @runesrepohub #######
 ##########################################################################
 
 USER_TEXT_SAVE_PLEX="${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
