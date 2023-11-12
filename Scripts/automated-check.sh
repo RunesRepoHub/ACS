@@ -1,34 +1,15 @@
 #!/bin/bash
-
-##### Styles ######
-Black='\e[0;30m'
-DarkGray='\e[1;30m'
-Red='\e[0;31m'
-LightRed='\e[1;31m'
-Green='\e[0;32m'
-LightGreen='\e[1;32m'
-BrownOrange='\e[0;33m'
-Yellow='\e[1;33m'
-Blue='\e[0;34m'
-LightBlue='\e[1;34m'
-Purple='\e[0;35m'
-LightPurple='\e[1;35m'
-Cyan='\e[0;36m'
-LightCyan='\e[1;36m'
-LightGray='\e[0;37m'
-White='\e[1;37m'
-NC='\e[0m'  # Reset to default
-###################
+source ~/Auto-YT-DL/Scripts/Core.sh
 
 # Define the maximum number of running containers
 max_containers=$(cat $CONTAINER_MAX_FILE)
 
-output_path=~/plex/media/youtube
+output_path="$YOUTUBE"
 
 # Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/archive_url_file.txt)
+input_urls=$(cat $MEDIA/$ARCHIVE_URL_FILE)
 
-total_lines=$(wc -l < ~/plex/media/archive_url_file.txt)
+total_lines=$(wc -l < $MEDIA/$ARCHIVE_URL_FILE)
 
 # Declare an array to store the video URLs
 declare -a video_urls
