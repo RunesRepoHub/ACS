@@ -1,4 +1,6 @@
-### Supported Platforms:
+# Requirements YT-Plex
+## YT-Plex 
+### Supported Platforms
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white) 
 
 ### Made With
