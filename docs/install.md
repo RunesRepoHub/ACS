@@ -26,7 +26,7 @@
 
     [Get Docker on Debian 11](https://docs.docker.com/engine/install/debian/)
 
-    [Get Docker on Ubuntu 20.04 and](https://docs.docker.com/engine/install/ubuntu/)
+    [Get Docker on Ubuntu 20.04](https://docs.docker.com/engine/install/ubuntu/)
 
 
 ## Install command
