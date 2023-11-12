@@ -16,7 +16,7 @@
 
 ## Add new url + Overview
 
-??? success "Add url"
+??? tip "Add url"
 
     ### Add url 
 
@@ -42,7 +42,7 @@
 
 ## Stop or start an download
 
-??? success "Trigger an manuel download"
+??? tip "Trigger an manuel download"
 
     ### Start an download
 
@@ -68,6 +68,18 @@
 
 ## Stop or start all running dockers
 
+??? tip "start all running dockers"
+
+    ### Start all running dockers
+
+    Want to start all the docker at ones 
+
+    Use this command
+
+    ```
+    start-all
+    ```
+
 ??? warning "Stop all running dockers"
 
     ### Stop all running dockers
@@ -80,19 +92,19 @@
     stop-all
     ```
 
-??? success "start all running dockers"
+## System
 
-    ### Start all running dockers
+??? tip "Update"
 
-    Want to start all the docker at ones 
+    ### Update
+
+    Want to update everything to the newest versions.
 
     Use this command
 
     ```
-    start-all
+    yt-update
     ```
-
-## System
 
 ??? danger "Uninstall and delete"
 
@@ -104,16 +116,4 @@
 
     ```
     yt-uninstall
-    ```
-
-??? warning "Update"
-
-    ### Update
-
-    Want to update everything to the newest versions.
-
-    Use this command
-
-    ```
-    yt-update
     ```
