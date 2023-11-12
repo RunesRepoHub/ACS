@@ -23,12 +23,12 @@ NC='\e[0m'  # Reset to default
 # Define the maximum number of running containers
 max_containers=$(cat $CONTAINER_MAX_FILE)
 
-output_path=$YOUTUBE
+output_path=~/plex/media/youtube
 
 # Read the URLs from the txt file
-input_urls=$(cat $MEDIA/$URL_FILE)
+input_urls=$(cat ~/plex/media/url_file.txt)
 
-total_lines=$(wc -l < $MEDIA/$URL_FILE)
+total_lines=$(wc -l < ~/plex/media/url_file.txt)
 
 # Declare an array to store the video URLs
 declare -a video_urls
