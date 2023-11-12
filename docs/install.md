@@ -198,6 +198,26 @@
     }
     ```
 
+## Configure Deluge 
+
+??? example "Deluge"
+
+    ### Setting up deluge
+
+    * Go to your http://your-server-ip:8112
+    * Go to preferences 
+    * Downloads tab
+    * Set download to /downloads
+    * Set download completed to /downloads/completed
+    
+    ![Alt text](img/deluge.png)
+
+    * Go to plugins
+    * Enable Label
+    * Press apply
+
+    ![Alt text](img/deluge2.png)
+
 ## Configure Sonarr and Radarr
 
 ??? example "Indexers"
