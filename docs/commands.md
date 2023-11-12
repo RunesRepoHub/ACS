@@ -1,6 +1,10 @@
-# Easy command
+# Easy Command
+
+## Getting Started With Easy Command
 
 !!! success "Easy command"
+
+    ### Setup Easy Command
 
     After the install has finished you can use these commands for quick access and control
 
@@ -10,9 +14,11 @@
     source ~/.bashrc
     ```
 
-## Add url 
+## Add new url + Overview
 
 ??? success "Add url"
+
+    ### Add url 
 
     This is how you add more then one url
 
@@ -22,9 +28,9 @@
     add-url
     ```
 
-## Get an easy overview
-
 ??? tip "Get an easy overview"
+
+    ## Get an easy overview
 
     Quickly get an overview of the downloading docker containers.
 
@@ -34,9 +40,11 @@
     get-overview
     ```
 
-## Trigger an manuel download
+## Stop or start an download
 
 ??? success "Trigger an manuel download"
+
+    ### Start an download
 
     Want to download a new video manually that has not yet been downloaded automatically.
 
@@ -46,9 +54,9 @@
     start-download
     ```
 
-## Stop an download
-
 ??? warning "Stop an download"
+
+    ### Stop an download
 
     Want to stop an download, if you need it to abort a download
 
@@ -58,9 +66,11 @@
     stop-download
     ```
 
-## Stop all running dockers
+## Stop or start all running dockers
 
 ??? warning "Stop all running dockers"
+
+    ### Stop all running dockers
 
     Want to stop all the docker at ones 
 
@@ -70,9 +80,9 @@
     stop-all
     ```
 
-## Start all running dockers
-
 ??? success "start all running dockers"
+
+    ## Start all running dockers
 
     Want to start all the docker at ones 
 
@@ -82,10 +92,11 @@
     start-all
     ```
 
-
-## Uninstall and delete
+## System
 
 ??? danger "Uninstall and delete"
+
+    ## Uninstall and delete
 
     Want to uninstall everything and delete everything or uninstall and delete everything but keep the plex media folder.
 
@@ -96,6 +107,8 @@
     ```
 
 ## Update
+
+    ### Update
 
 ??? warning "Update"
 
