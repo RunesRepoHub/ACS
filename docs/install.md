@@ -2,15 +2,21 @@
 
 !!! failure "Root"
 
+    ### Root
+
     This software has to run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
 
 !!! bug "Important"
+
+    ### Important
 
     This software is still in development.
 
     Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
 
 !!! danger "Docker is required"
+
+    ### Docker is required
 
     Docker is required to run this software
 
@@ -23,9 +29,9 @@
 
 ## Install command
 
-### Youtube-dl Performence
-
 !!! danger "Performence"
+
+    ### Youtube-dl Performence
 
     The Youtube-dl has some issues when it comes to downloading.
     Mainly because of long playlists and/or multiple downloads running at ones.
@@ -41,6 +47,8 @@
 
 ??? success "Install YT-Plex"
 
+    ### Install YT-Plex
+
     [See the requirements](https://runesrepohub.github.io/YT-Plex/requirement.html)
 
     Use this command
@@ -51,9 +59,9 @@
     
     After the install has finished you can use these commands for quick access and control
 
-## Setup jackett indexers
-
 ??? tip "From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears."
+
+    ## Setup jackett indexers
 
     You'll then need to open your browser's development toolbar (in Chrome just hit F12) and go to the JavaScript Console and enter the following:
 
@@ -184,8 +192,6 @@
 
 ## Config 
 
-### Indexers
-
 ??? example "Indexers"
 
     ### Setting up indexers on sonarr
@@ -213,8 +219,6 @@
     
     **I used 10 seeds for sonarr and 15 seeds for radarr**
 
-### Download client
-
 ??? example "Download Client"
 
     ### Adding the deluge download client.
@@ -230,8 +234,6 @@
 
     ![Alt text](img/image-3.png)
 
-### Episode naming
-
 ??? example "Episode Naming"
 
     ### Episode naming
@@ -244,8 +246,6 @@
     ![Alt text](img/image-4.png)
 
     * You can change the name convention of the episode here #Optional
-
-### Download profile
 
 ??? example "Download profile"
 
