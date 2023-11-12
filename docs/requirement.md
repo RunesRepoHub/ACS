@@ -43,7 +43,7 @@
 
     **Docker**
 
-    * Install Docker + Docker-compose on the server.
+    * Install Docker + Docker-cli on the server.
 
     **Server**
 
