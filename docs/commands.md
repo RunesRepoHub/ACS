@@ -1,11 +1,11 @@
 # Easy command
 
-!!! "success" "Easy command"
+!!! success "Easy command"
 
     After the install has finished you can use these commands for quick access and control
-    
+
     Run this command to enable the custom commands
-    
+
     ```
     source ~/.bashrc
     ```
