@@ -129,11 +129,11 @@ RADARR=~/Auto-YT-DL/radarr
 MOVIES=~/plex/media/movies 
 SONARR=~/Auto-YT-DL/sonarr 
 SHOWS=~/plex/media/Shows 
-MEDIA_DOWNLOAD=~/plex/media/downloads 
+MEDIA_DOWNLOAD=~/plex/media/download 
 TAUTALLI=~/Auto-YT-DL/tautalli 
 DELUGE=~/Auto-YT-DL/deluge 
 OMBI=~/Auto-YT-DL/ombi  
-DOWNLOAD_COMPLETED=~/plex/media/downloads/completed
+DOWNLOAD_COMPLETED=~/plex/media/download/completed
 #--------------------------------------------------------------------------
 
 # Container max
@@ -236,7 +236,7 @@ DOCKER_RADARR_FOLDER="radarr"
 DOCKER_SONARR_FOLDER="sonarr"
 DOCKER_TAUTULLI_FOLDER="tautulli"
 DOCKER_DELUGE_FOLDER="deluge"
-DOCKER_DOWNLOAD_FOLDER=~/plex/media/downloads
+DOCKER_DOWNLOAD_FOLDER=~/plex/media/download
 DOCKER_MOUNT_DOWNLOAD_FOLDER="downloads"
 DOCKER_HOST_SHOWS_FOLDER=~/plex/media/Shows
 DOCKER_SHOWS_FOLDER="shows"
