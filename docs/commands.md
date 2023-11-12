@@ -1,6 +1,6 @@
 # Easy Command
 
-## Getting Started With Easy Command
+## Getting Started
 
 !!! success "Easy command"
 
@@ -30,7 +30,7 @@
 
 ??? tip "Get an easy overview"
 
-    ## Get an easy overview
+    ### Get an easy overview
 
     Quickly get an overview of the downloading docker containers.
 
@@ -82,7 +82,7 @@
 
 ??? success "start all running dockers"
 
-    ## Start all running dockers
+    ### Start all running dockers
 
     Want to start all the docker at ones 
 
@@ -96,7 +96,7 @@
 
 ??? danger "Uninstall and delete"
 
-    ## Uninstall and delete
+    ### Uninstall and delete
 
     Want to uninstall everything and delete everything or uninstall and delete everything but keep the plex media folder.
 
