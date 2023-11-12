@@ -13,11 +13,11 @@
 
     This will result in these errors. (And possible more)
 
-    * Can cause a softlog error on proxmox when running it in  VM.
+    * Can cause a softlog error on proxmox when running it in an VM.
 
-    * The longer the playlists the longer the download. (At download 86 of 156 it takes 30 mins of 400mb of data, THIS is NOT a networking limit)
+    * The longer the playlists the longer the download. (At download item 86 of 156 it takes 30 mins of 400mb of data, THIS is NOT a networking limit)
 
-    * Can cause a but of slow down on plex itself if configured to update library on every change dectected in the folder.
+    * Can cause a bit of slow down on plex itself if configured to update library on every change dectected in the folder.
 
 ### Requriements 
 !!! question "Requirements"
