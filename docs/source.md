@@ -2,9 +2,11 @@
 
 Get a better understanding of the source code by reading below.
 
-## Setup.sh
+## All scripts and code used.
 
 ??? note "Setup.sh"
+
+    ### Setup.sh
 
     This script streamlines the setup of the Auto-YT-DL application with a comprehensive set of actions. It defines color variables for terminal output, sets the app version, and ensures a clean environment. Checking for necessary dependencies like Docker, sudo, and curl, the script installs and configures them as needed. 
 
@@ -12,9 +14,9 @@ Get a better understanding of the source code by reading below.
 
     The script automates Plex setup, adds aliases and cron jobs, and concludes with a user-friendly completion message and instructions for utilizing custom commands. This user interface-centric approach enhances both functionality and ease of maintenance.
 
-## Setup-plex.sh
-
 ??? abstract "Setup-plex.sh"
+
+    ### Setup-plex.sh
 
     This script orchestrates the setup and configuration of various Docker services, ensuring a streamlined and automated deployment. Key functionalities include:
 
@@ -42,19 +44,19 @@ Get a better understanding of the source code by reading below.
 
         * Sets services to restart always, ensuring automatic startup upon system restart.
 
-    This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences.
-
-## Download.sh 
+    This comprehensive script not only establishes a functional media server environment but also ensures the resilience of services through automatic restart configurations. The user interaction for Plex claim adds a layer of customization to suit individual preferences. 
 
 ??? note "Download.sh"
+
+    ### Download.sh
 
     The script efficiently manages the mikenye/youtube-dl Docker image, first checking for its presence and displaying a corresponding message if it exists. If the image is not already downloaded, the script utilizes the "docker pull" command to fetch the mikenye/youtube-dl Docker image. 
 
     A confirmation message is then displayed, informing the user that the image has been successfully downloaded. This ensures that the latest version of the image is readily available for use in the Auto-YT-DL application, enhancing the script's functionality and user communication.
 
-## Uninstall.sh
-
 ??? abstract "Uninstall.sh"
+
+    ### Uninstall.sh
 
     This user-interactive script facilitates the management of the Plex media folder based on user preferences. After prompting the user to choose between keeping or deleting the Plex media folder, the script dynamically adjusts its actions accordingly:
 
@@ -80,9 +82,9 @@ Get a better understanding of the source code by reading below.
 
     This modular and responsive design ensures that the script caters to user preferences while maintaining clarity and control over the automated cleanup process.
 
-## Update.sh
-
 ??? note "Update.sh"
+
+    ### Update.sh
 
     This script enhances maintainability and functionality through the following steps:
 
@@ -106,9 +108,9 @@ Get a better understanding of the source code by reading below.
 
     This sequence of actions ensures that the script is always utilizing the latest version of the "download-update.sh" script from the specified GitHub repository, enhancing efficiency and adaptability in response to potential updates or changes.
 
-## Add-url-list.sh
-
 ??? success "Add-url-list.sh"
+
+    ### Add-url-list.sh
 
     This script facilitates the management of YouTube playlist URLs with user interaction and file handling. The process unfolds as follows:
 
@@ -144,9 +146,9 @@ Get a better understanding of the source code by reading below.
 
     This script provides a user-friendly way to manage and download YouTube playlist URLs, preventing duplicates and maintaining a record of URLs for future reference in the "archive_url_file.txt" file.
 
-## Docker-stop.sh
-
 ??? warning "Docker-stop.sh"
+
+    ### Docker-stop.sh
 
     This script efficiently stops all containers running the "mikenye/youtube-dl" image with the following steps:
 
@@ -166,9 +168,9 @@ Get a better understanding of the source code by reading below.
 
     This systematic approach ensures the graceful termination of all containers associated with the "mikenye/youtube-dl" image, facilitating efficient management and control.
 
-## Stop-remove.sh
-
 ??? warning "Stop-remove.sh"
+
+    ### Stop-remove.shell
 
     This script orchestrates the efficient shutdown and removal of specified Docker containers and networks. The process unfolds as follows:
 
