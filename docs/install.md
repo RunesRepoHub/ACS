@@ -4,11 +4,11 @@
 
 !!! failure "Root User Required"
 
-    ### Root Root User Required
+    ### Root User Required
 
-    This software has to run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
+    This software will only run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
 
-!!! bug "Important"
+??? bug "Important"
 
     ### Important
 
@@ -31,7 +31,7 @@
 
 ## Install command
 
-!!! danger "Performence"
+??? danger "Performence"
 
     ### Youtube-dl Performence
 

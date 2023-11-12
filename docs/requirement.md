@@ -26,18 +26,19 @@
 
     **OS Supported:**
 
-    * Debian 12 (Tested) 
-    * Debian 11 (Tested)
-    * Ubuntu 22.04 (Tested)
-    * Zorin 16.3 Core (Tested) 
+    * Debian 12 CLI "Server"(Tested) 
+    * Debian 11 CLI "Server"(Tested)
+    * Ubuntu 22.04 Server (Tested - Requires user modification to run)
+    * Zorin 16.3 Core (Tested - Requires user modification to run) 
+    * Kali Linux 2023.3 (Tested - Requires user modification to run)
 
-    ***This has been setup as root on all server OS***
+    ***Root was installed on all tested OS and is required***
 
     **User**
 
     * Username: root (NOT OPTIONAL)
     * Set new password for the root user
-    * Enable SSH for root
+    * Enable SSH for root (Optional used for remote access)
     * Change to the root user with `su - root`
 
     **Docker**
@@ -46,12 +47,12 @@
 
     **Server**
 
-    * Has to have ~/.bashrc for custom commands
-    * Has to have bash installed
-    * Has to have a working internet connection
-    * Has to be a Debian based server
-    * Has to be up to date with the OS (apt-get update + apt-get upgrade)
-    * Should have a FTP/SFTP on the server.
+    * Need to have ~/.bashrc for custom commands
+    * Need to have bash installed
+    * Need to have a working internet connection
+    * Need to be a Debian based server
+    * Need to be up to date with the OS (apt-get update + apt-get upgrade)
+    * Should have a FTP/SFTP on the server. (Optional)
     
     **Hardware**
 
@@ -59,11 +60,10 @@
     * Memory : 8GB
     * Hard Disk : 100GB
 
-    **I have allocated 5 TB of storage to my server.**
-
-    **And I have 16GB of RAM.**
-
     **Youbtube-dl**
 
-    * I would recommend using 3 youtube-dl containers with 8gb of RAM.
-    * And 5 youtube-dl containers with 16gb of RAM.
+    **Recommended**
+
+    * Use 3 youtube-dl containers with 8gb of RAM for each server.
+    * Use 5 youtube-dl containers with 16gb of RAM for each server.
+
