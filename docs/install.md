@@ -61,9 +61,11 @@
     
     After the install has finished you can use these commands for quick access and control
 
+## Jackett Indexers Script
+
 ??? tip "From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears."
 
-    ## Setup jackett indexers
+    ### Setup jackett indexers
 
     You'll then need to open your browser's development toolbar (in Chrome just hit F12) and go to the JavaScript Console and enter the following:
 
