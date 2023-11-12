@@ -23,7 +23,7 @@ NC='\e[0m'  # Reset to default
 # Define the maximum number of running containers
 max_containers=$(cat $CONTAINER_MAX_FILE)
 
-output_path="$YOUTUBE"
+output_path=$YOUTUBE
 
 # Read the URLs from the txt file
 input_urls=$(cat $MEDIA/$URL_FILE)
