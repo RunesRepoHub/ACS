@@ -69,6 +69,9 @@
 
     * Go to your http://your-server-ip:9117
     * Click on add indexer
+
+    ![Alt text](jackett2.png)
+
     * You'll then need to open your browser's development toolbar (in Chrome just hit F12) 
     * Go to the JavaScript Console and enter the following:
     * And click "CTRL+Enter" to run the JavaScript
