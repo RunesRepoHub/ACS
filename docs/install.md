@@ -236,6 +236,7 @@
     ### Episode naming
 
     Enable renaming of the episode.
+
     * Then click the add root folder button
     * Find the respective folder and click on it (Sonarr = shows, Radarr = movies)
 
@@ -250,6 +251,7 @@
     ### Download profile
     
     I like to make my own download profiles.
+    
     * Remove all default
     * Add a standard profile for 720p
     * Add a standard profile for 1080p
