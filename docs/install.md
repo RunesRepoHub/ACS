@@ -170,7 +170,7 @@
 
 ## Indexers
 
-??? note "Indexers"
+??? example "Indexers"
 
     ![Alt text](img/image.png)
 
@@ -178,7 +178,7 @@
 
 ## Download client
 
-??? abstract "Download Client"
+??? example "Download Client"
     
     ![Alt text](img/image-2.png)
 
@@ -186,12 +186,12 @@
 
 ## Episode naming
 
-??? info "Episode Naming"
+??? example "Episode Naming"
 
     ![Alt text](img/image-4.png)
 
 ## Download profile
 
-??? abstract "Download profile"
+??? example "Download profile"
 
     ![Alt text](img/image-5.png)
