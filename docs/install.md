@@ -200,6 +200,10 @@
 
     ### Setting up indexers on sonarr
 
+    Port 8989 for sonarr
+    Port 7878 for radarr
+
+    * Go to your http://your-server-ip:8989
     * Go to settings 
     * Indexers
 
@@ -211,6 +215,7 @@
 
     *Access your jackett docker container and find your own information*
 
+    * Go to your http://your-server-ip:9117
     * Get the api key 
     * Then copy the "Torznab Feed" from the torrent indexer you want to use.
     
@@ -292,6 +297,7 @@
 
     #### Load Radarr Server
 
+    * Go to the http://your-server-ip:3579
     * Go to settings 
     * Movies
     * Enable it at the top 
@@ -311,14 +317,15 @@
     * Under security
     * Find your api key 
 
+    **Then Save/Submit**
+
     ![Alt text](img/radarr-api.png)
 
     ![Alt text](img/ombi2.png)
 
-    **Then Save/Submit**
-
     #### Load Sonarr Server
 
+    * Go to the http://your-server-ip:3579
     * Go to settings 
     * TV
     * Enable it at the top 
@@ -336,12 +343,12 @@
     * General
     * Under security
     * Find your api key
+    
+    **Then Save/Submit**
 
     ![Alt text](img/sonarr-api.png)
 
     ![Alt text](img/ombi3.png)
-
-    **Then Save/Submit**
 
 ## Tautulli Config
 
@@ -350,26 +357,26 @@
     ### Tautulli setup
 
     * Go to the http://your-server-ip:8181
-    ![Alt text](tautulli.png)
+    ![Alt text](img/tautulli.png)
     * Click on "Next"
     * Sign in with plex
-    ![Alt text](tautulli2.png)
-    ![Alt text](tautulli3.png)
-    ![Alt text](tautulli4.png)
+    ![Alt text](img/tautulli2.png)
+    ![Alt text](img/tautulli3.png)
+    ![Alt text](img/tautulli4.png)
     * Click on "Next"
     * Pick the plex server you want to use
     * Input the plex port
-    ![Alt text](tautulli5.png)
+    ![Alt text](img/tautulli5.png)
     * Click on "Next"
     * **Activity Logging**
-    ![Alt text](tautulli6.png)
+    ![Alt text](img/tautulli6.png)
     * Just set the "ignore interval" to 120
     * Click on "Next"
     * **Notifications**
-    ![Alt text](tautulli7.png)
+    ![Alt text](img/tautulli7.png)
     * Click on "Next"
     * **Database import**
-    ![Alt text](tautulli8.png)
+    ![Alt text](img/tautulli8.png)
     * Click on "Finish"
-    ![Alt text](tautulli9.png)
-    ![Alt text](tautulli10.png)
+    ![Alt text](img/tautulli9.png)
+    ![Alt text](img/tautulli10.png)
