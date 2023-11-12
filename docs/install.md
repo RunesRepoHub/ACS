@@ -25,9 +25,15 @@
 
 ??? success "Install YT-Plex"
 
+    [See the requirements](/docs/requirement.md)
+
+    Use this command
+
     ```
     bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
     ```
+    
+    After the install has finished you can use these commands for quick access and control
 
 # Setup jackett indexers
 
