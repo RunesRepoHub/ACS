@@ -21,9 +21,9 @@
     [Get Docker on Ubuntu 20.04 and](https://docs.docker.com/engine/install/ubuntu/)
 
 
-# Install command
+## Install command
 
-## Youtube-dl Performence
+### Youtube-dl Performence
 
 !!! danger "Performence"
 
@@ -51,7 +51,7 @@
     
     After the install has finished you can use these commands for quick access and control
 
-# Setup jackett indexers
+## Setup jackett indexers
 
 ??? tip "From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears."
 
@@ -182,9 +182,9 @@
     }
     ```
 
-# Config 
+## Config 
 
-## Indexers
+### Indexers
 
 ??? example "Indexers"
 
@@ -213,7 +213,7 @@
     
     **I used 10 seeds for sonarr and 15 seeds for radarr**
 
-## Download client
+### Download client
 
 ??? example "Download Client"
 
@@ -230,7 +230,7 @@
 
     ![Alt text](img/image-3.png)
 
-## Episode naming
+### Episode naming
 
 ??? example "Episode Naming"
 
@@ -245,7 +245,7 @@
 
     * You can change the name convention of the episode here #Optional
 
-## Download profile
+### Download profile
 
 ??? example "Download profile"
 
