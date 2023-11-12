@@ -220,12 +220,13 @@
     ### Adding the deluge download client.
 
     * Then click the plus to add a new one
+    
+    ![Alt text](img/image-2.png)
+
     * Fill in the name of the client (Deluge)
     * Fill in the ip of the client
     * Fill in the port of the client (Default: 8112)
     * Fill in the password of the client (Deluge)
-    
-    ![Alt text](img/image-2.png)
 
     ![Alt text](img/image-3.png)
 
@@ -251,9 +252,13 @@
     ### Download profile
     
     I like to make my own download profiles.
-    
+
     * Remove all default
     * Add a standard profile for 720p
     * Add a standard profile for 1080p
+
+    **I have added both to one to show which I would "mark"**
+    
+    **You should make one for each**
 
     ![Alt text](img/image-5.png)
