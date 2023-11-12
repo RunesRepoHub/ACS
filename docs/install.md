@@ -214,7 +214,7 @@
     * Get the api key 
     * Then copy the "Torznab Feed" from the torrent indexer you want to use.
     
-    * Follow the steps below
+    **Follow the steps below**
 
     * Then click the plus to add a new one
     * Fill in the name of the indexer
