@@ -106,11 +106,9 @@
     yt-uninstall
     ```
 
-## Update
+??? warning "Update"
 
     ### Update
-
-??? warning "Update"
 
     Want to update everything to the newest versions.
 
