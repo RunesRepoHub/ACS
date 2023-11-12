@@ -97,7 +97,7 @@ MAKE_ROOT_FOLDER="${Purple}Make the folder ~/Auto-YT-DL${NC}"
 
 # Download other scripts
 # Github repo link
-GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production"
+GIHUB_LINK="https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Dev"
 GITHUB_FOLDER="Scripts"
 #--------------------------------------------------------------------------
 
