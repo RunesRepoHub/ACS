@@ -1,16 +1,16 @@
 # YT-plex Installation
 
-!!! warning "Root"
+!!! failure "Root"
 
     This software has to run as root. ***YOU CAN NOT RUN IT AS A NORMAL USER***.
 
-!!! warning "Important"
+!!! bug "Important"
 
     This software is still in development.
 
     Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
 
-!!! warning "Docker is required"
+!!! danger "Docker is required"
 
     Docker is required to run this software
 
@@ -23,7 +23,7 @@
 
 # Install command
 
-??? info "Install YT-Plex"
+??? success "Install YT-Plex"
 
     ```
     bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
@@ -31,7 +31,7 @@
 
 # Setup jackett indexers
 
-??? info "From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears."
+??? tip "From the Jackett page, click the "add indexer" button so that the pop up window with the full list of indexers appears."
 
     You'll then need to open your browser's development toolbar (in Chrome just hit F12) and go to the JavaScript Console and enter the following:
 
@@ -164,7 +164,7 @@
 
 ## Indexers
 
-??? info "Indexers"
+??? note "Indexers"
 
     ![Alt text](img/image.png)
 
@@ -172,7 +172,7 @@
 
 ## Download client
 
-??? info "Download Client"
+??? abstract "Download Client"
     
     ![Alt text](img/image-2.png)
 
@@ -186,6 +186,6 @@
 
 ## Download profile
 
-??? info "Download profile"
+??? abstract "Download profile"
 
     ![Alt text](img/image-5.png)
