@@ -57,7 +57,7 @@
     * Memory : 8GB
     * Hard Disk : 100GB
 
-    **I have allocated 5 TB of storage of my server.**
+    **I have allocated 5 TB of storage to my server.**
 
     **And I have 16GB of RAM.**
 
