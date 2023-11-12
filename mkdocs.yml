@@ -1,8 +1,8 @@
 site_name: YT-Plex Wiki
-site_url: https://runesrepohub.github.io/RPH-Docs/
+site_url: https://runesrepohub.github.io/YT-Plex/
 repo_name: Github/runesrepohub
 repo_url: https://github.com/orgs/runesrepohub/repositories
-edit_uri: https://github.com/orgs/runesrepohub/RPH-Docs/edit/main/docs/
+edit_uri: https://github.com/orgs/runesrepohub/YT-Plex/edit/Dev/docs/
 use_directory_urls: false
 nav:
     - YT-Plex Documentation:
@@ -114,7 +114,7 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
-copyright: Copyright &copy; 2022 RP-Helpdesk 
+copyright: Copyright &copy; 2023 RP-Helpdesk 
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
