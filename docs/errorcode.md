@@ -1,7 +1,19 @@
 # Error Codes
 
-!!! failure "Error Codes"
+## Youtube-dl Performence
+!!! danger "Performence"
 
-    These are the error codes that can be returned by the server.
+    The Youtube-dl has some issues when it comes to downloading.
+    Mainly because of long playlists and/or multiple downloads running at ones.
+
+    This will result in these errors. (And possible more)
+
+    * Can cause a softlog error on proxmox when running it an VM.
+
+    * The longer the playlists the longer the download. (At download 86 of 156 it takes 30 mins of 400mb of data, THIS is NOT a networking limit)
+
+    * Can cause a but of slow down on plex itself if configured to update library on every change dectected in the folder.
+
+!!! failure "Error Codes"
 
     This is still under development.
