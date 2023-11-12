@@ -13,7 +13,7 @@
 
     This will result in these errors. (And possible more)
 
-    * Can cause a softlog error on proxmox when running it an VM.
+    * Can cause a softlog error on proxmox when running it in  VM.
 
     * The longer the playlists the longer the download. (At download 86 of 156 it takes 30 mins of 400mb of data, THIS is NOT a networking limit)
 
