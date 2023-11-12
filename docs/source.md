@@ -4,7 +4,7 @@ Get a better understanding of the source code by reading below.
 
 ## All scripts and code used.
 
-??? note "Setup.sh"
+??? abstract "Setup.sh"
 
     ### Setup.sh
 
@@ -54,7 +54,7 @@ Get a better understanding of the source code by reading below.
 
     A confirmation message is then displayed, informing the user that the image has been successfully downloaded. This ensures that the latest version of the image is readily available for use in the Auto-YT-DL application, enhancing the script's functionality and user communication.
 
-??? abstract "Uninstall.sh"
+??? note "Uninstall.sh"
 
     ### Uninstall.sh
 
