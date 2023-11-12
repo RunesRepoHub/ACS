@@ -194,7 +194,7 @@
     }
     ```
 
-## Config 
+## Config Sonarr and Radarr
 
 ??? example "Indexers"
 
