@@ -196,6 +196,7 @@
     ![Alt text](img/image.png)
 
     **All indexers is just another name of jackett**
+    
     *Access your jackett docker container and find your own information*
 
     * Then click the plus to add a new one
@@ -210,7 +211,7 @@
     * Because all the yellow fields are "advanced settings"
     * And one of them allow your to setup minimal amount of seeds before downloading
     
-    **I used 10 for sonarr and 15 for radarr**
+    **I used 10 seeds for sonarr and 15 seeds for radarr**
 
 ## Download client
 
