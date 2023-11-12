@@ -25,7 +25,7 @@
 
 ??? success "Install YT-Plex"
 
-    [See the requirements](/YT-Plex/docs/requirement.md)
+    [See the requirements](https://runesrepohub.github.io/YT-Plex/requirement.html)
 
     Use this command
 
