@@ -16,7 +16,7 @@
 
     Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
 
-!!! danger "Docker is required"
+??? danger "Docker is required"
 
     ### Docker is required
 
@@ -47,7 +47,7 @@
     * Can cause a bit of slow down on plex itself if configured to update library on every change dectected in the folder.
 
 
-??? success "Install YT-Plex"
+!!! success "Install YT-Plex"
 
     ### Install YT-Plex
 
