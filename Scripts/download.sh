@@ -69,7 +69,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --rm -d \
         -e PGID=$(id -g) \
         -e PUID=$(id -u) \
-        -v "$(pwd)":/workdir:rw \
+        -v "$MEDIA":/workdir:rw \
         -v "${video_folder}":/output:rw \
         --name "${container_name}" \
         --cpus 1 \
@@ -82,7 +82,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --embed-subs \
         --convert-subs srt \
         --write-auto-sub \
-        --download-archive "$MEDIA/archive.txt" \
+        --download-archive download-archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
     
