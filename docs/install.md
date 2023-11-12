@@ -200,14 +200,16 @@
 
     ### Setting up indexers on sonarr
 
-    Port 8989 for sonarr
-    Port 7878 for radarr
+    **Port 8989 for sonarr**
+    
+    **Port 7878 for radarr**
 
     * Go to your http://your-server-ip:8989
     * Go to settings 
     * Indexers
 
     ![Alt text](img/image.png)
+    ![Alt text](img/radarr2.png)
 
     **All indexers is just another name of jackett**
 
@@ -227,6 +229,7 @@
     * Fill in the api key of the indexer
 
     ![Alt text](img/image-1.png)
+    ![Alt text](img/radarr3.png)
 
     *I recommend that you use advanced settings while setting up the indexers.*
 
@@ -249,6 +252,11 @@
     * Fill in the password of the client (Deluge)
 
     ![Alt text](img/image-3.png)
+    ![Alt text](img/radarr4.png)
+
+    ##### This might be need on radarr
+
+    ![Alt text](img/radarr5.png)
 
 ??? example "Episode Naming"
 
@@ -260,6 +268,7 @@
     * Find the respective folder and click on it (Sonarr = shows, Radarr = movies)
 
     ![Alt text](img/image-4.png)
+    ![Alt text](img/radarr.png)
 
     * You can change the name convention of the episode here #Optional
 
@@ -278,6 +287,7 @@
     **You should make one for each**
 
     ![Alt text](img/image-5.png)
+    ![Alt text](img/radarr6.png)
 
 ## Config Ombi
 
