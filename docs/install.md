@@ -286,15 +286,16 @@
     #### Load Radarr Server
 
     * Go to settings 
-    * TV
+    * Movies
     * Enable it at the top 
     * Enable "Scan for Availability"
     * Enable "Add the user as a tag"
     * Add the ip of the server
-    * Add the port of the server. (default: 8989)
+    * Add the port of the server. (default: 7878)
     * Load and set quality profiles
     * Load and set the default root folder
     * Load language profiles
+    * Load Default minimum availability (Physical/Web)
 
     #### Get your Radarr api key
     
@@ -306,6 +307,8 @@
     ![Alt text](img/radarr-api.png)
 
     ![Alt text](img/ombi2.png)
+
+    **Then Save/Submit**
 
     #### Load Sonarr Server
 
@@ -330,3 +333,5 @@
     ![Alt text](img/sonarr-api.png)
 
     ![Alt text](img/ombi3.png)
+
+    **Then Save/Submit**
