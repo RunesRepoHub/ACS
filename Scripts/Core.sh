@@ -66,7 +66,7 @@ RUN_UPDATE="${Yellow}Run apt-get update${NC}"
 RUN_UPGRADE="${Yellow}Run apt-get upgrade -y${NC}"
 #--------------------------------------------------------------------------
 
-# Check if sudo is installed, if nor install it.
+# Check if sudo is installed, if not install it.
 CHECK_SUDO="${Purple}Check if sudo is installed${NC}"
 SUDO_INSTALLED="${Green}Sudo has been installed${NC}"
 SUDO_NOT_INSTALLED="${Red}Sudo is not installed.${NC}"
@@ -74,7 +74,7 @@ SUDO_IS_ALREADY_INSTALLED="${Green}Sudo is already installed.${NC}"
 SUDO_INSTALLING="${Yellow}Installing sudo...${NC}"
 #--------------------------------------------------------------------------
 
-# Check if curl is installed, if nor install it.
+# Check if curl is installed, if not install it.
 CHECK_CURL="${Purple}Check if curl is installed${NC}"
 CURL_INSTALLED="${Green}Curl has been installed${NC}"
 CURL_NOT_INSTALLED="${Red}Curl is not installed.${NC}"
