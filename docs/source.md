@@ -2,6 +2,8 @@
 
 Get a better understanding of the source code by reading below.
 
+![Alt text](img/folder-structure.png)
+
 ## System.
 
 ??? abstract "Setup.sh"
