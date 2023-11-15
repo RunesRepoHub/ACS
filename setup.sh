@@ -11,6 +11,9 @@
 #sleep 2
 #chmod +x ~/Core.sh
 #source ~/Core.sh
+
+
+
 ##########################################################################
 # Start clean
 clear 
@@ -46,13 +49,6 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-# Install needed tools for installation script to work
-echo -e "$SETTING_UP_AUTO"
-echo -e "$RUN_UPDATE"
-apt-get update > /dev/null 2>&1
-echo -e "$RUN_UPGRADE"
-apt-get upgrade -y > /dev/null 2>&1
-
 # Check if sudo is installed
 echo -e "$CHECK_SUDO${NC}"
 if ! command -v sudo &> /dev/null; then
@@ -74,6 +70,19 @@ if ! command -v curl &> /dev/null; then
 else
     echo -e "$CURL_IS_ALREADY_INSTALLED"
 fi
+
+#############
+### TO-DO ###
+#############
+### Make this into a setup script for ACSF or any other new system
+
+
+# Install needed tools for installation script to work
+echo -e "$SETTING_UP_AUTO"
+echo -e "$RUN_UPDATE"
+apt-get update > /dev/null 2>&1
+echo -e "$RUN_UPGRADE"
+apt-get upgrade -y > /dev/null 2>&1
 
 # Check if docker images are downloaded
 echo -e "$DOWNLOADING_DOCKER_IMAGES"
@@ -227,10 +236,6 @@ echo 'alias remove-all="bash '$ROOT_FOLDER'/'$STOP_REMOVE'"' >> ~/.bashrc
 # Add the cronjob
 echo "$CRON_TIMER root bash $ROOT_FOLDER/$AUTOMATED_CHECK" | sudo tee -a /etc/crontab >/dev/null
 echo -e "$CRON_COMPLETED"
-
-sleep 2 
-# Remove files
-rm $ROOT_FOLDER/$SETUP_PLEX
 
 echo 
 echo -e "$INSTALL_COMPLETED"
