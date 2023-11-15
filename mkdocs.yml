@@ -1,8 +1,8 @@
 site_name: ACS Wiki
 site_url: https://runesrepohub.github.io/ACS/
 repo_name: ACS
-repo_url: https://github.com/orgs/runesrepohub/ACS
-edit_uri: https://github.com/orgs/runesrepohub/ACS/edit/Dev/docs/
+repo_url: https://github.com/RunesRepoHub/ACS
+edit_uri: https://github.com/RunesRepoHub/ACS/edit/Dev/docs/
 use_directory_urls: false
 nav:
     - ACS Documentation:
