@@ -1,11 +1,26 @@
 #!/bin/bash
-curl -s -o ~/Core.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/Core.sh > /dev/null
-sleep 2
-chmod +x ~/Core.sh
-source ~/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### Use git clone instead and download the whole repo
+### source ~/Auto-YT-DL/Scripts/Core.sh
+
+#curl -s -o ~/Core.sh https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/Scripts/Core.sh > /dev/null
+#sleep 2
+#chmod +x ~/Core.sh
+#source ~/Core.sh
 ##########################################################################
 # Start clean
 clear 
+
+
+#############
+### TO-DO ###
+#############
+### Check paths
+
 
 # Check if user is root, if not then exit script
 if [ "$(id -u)" -ne 0 ]; then
@@ -73,86 +88,94 @@ for image in "${images[@]}"; do
     fi
 done
 
-sleep 2
+#############
+### TO-DO ###
+#############
+### Remove code below due to the whole repo already being downloaded above
+#   sleep 2
+#   
+#   # Make the folder
+#   echo -e "$MAKE_ROOT_FOLDER"
+#   mkdir -p $ROOT_FOLDER
+#   mv ~/Core.sh $ROOT_FOLDER
+#   echo -e "$FOLDER_CREATED"
 
-# Make the folder
-echo -e "$MAKE_ROOT_FOLDER"
-mkdir -p $ROOT_FOLDER
-mv ~/Core.sh $ROOT_FOLDER
-echo -e "$FOLDER_CREATED"
-
-# Download files
-echo -e "$REMOVING_OLD_SYSTEM_FILES"
-
-if [ -e $ROOT_FOLDER/$AUTOMATED_CHECK ]; then
-    rm $ROOT_FOLDER/$AUTOMATED_CHECK
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$AUTOMATED_CHECK $GIHUB_LINK/$GITHUB_FOLDER/$AUTOMATED_CHECK > /dev/null
-
-if [ -e $ROOT_FOLDER/$SETUP_PLEX ]; then
-    rm $ROOT_FOLDER/$SETUP_PLEX
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$SETUP_PLEX $GIHUB_LINK/$GITHUB_FOLDER/$SETUP_PLEX > /dev/null
-
-if [ -e $ROOT_FOLDER/$DOWNLOAD ]; then
-    rm $ROOT_FOLDER/$DOWNLOAD
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$DOWNLOAD > /dev/null
-
-if [ -e $ROOT_FOLDER/$DOCKER_STOP ]; then
-    rm $ROOT_FOLDER/$DOCKER_STOP
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$DOCKER_STOP $GIHUB_LINK/$GITHUB_FOLDER/$DOCKER_STOP > /dev/null
-
-if [ -e $ROOT_FOLDER/$STOP ]; then
-    rm $ROOT_FOLDER/$STOP
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$STOP $GIHUB_LINK/$GITHUB_FOLDER/$STOP > /dev/null
-
-if [ -e $ROOT_FOLDER/$UNINSTALL ]; then
-    rm $ROOT_FOLDER/$UNINSTALL
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$UNINSTALL $GIHUB_LINK/$GITHUB_FOLDER/$UNINSTALL > /dev/null
-
-if [ -e $ROOT_FOLDER/$STOP_REMOVE ]; then
-    rm $ROOT_FOLDER/$STOP_REMOVE
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$STOP_REMOVE $GIHUB_LINK/$GITHUB_FOLDER/$STOP_REMOVE > /dev/null
-
-if [ -e $ROOT_FOLDER/$UPDATE ]; then
-    rm $ROOT_FOLDER/$UPDATE
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$UPDATE $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE > /dev/null
-
-if [ -e $ROOT_FOLDER/$ADD_URL_LIST ]; then
-    rm $ROOT_FOLDER/$ADD_URL_LIST
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$ADD_URL_LIST $GIHUB_LINK/$GITHUB_FOLDER/$ADD_URL_LIST > /dev/null
-
-if [ -e $ROOT_FOLDER/$UPDATE_DOWNLOAD ]; then
-    rm $ROOT_FOLDER/$UPDATE_DOWNLOAD
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE_DOWNLOAD > /dev/null
-
-if [ -e $ROOT_FOLDER/$START ]; then
-    rm $ROOT_FOLDER/$START
-fi
-sleep 1
-curl -s -o $ROOT_FOLDER/$START $GIHUB_LINK/$GITHUB_FOLDER/$START > /dev/null
-
-echo -e "$DOWNLOADING_NEW_FILES"
-
-sleep 2
+#############
+### TO-DO ###
+#############
+### Remove code below due to the whole repo already being downloaded above
+#   # Download files
+#   echo -e "$REMOVING_OLD_SYSTEM_FILES"
+#
+#   if [ -e $ROOT_FOLDER/$AUTOMATED_CHECK ]; then
+#       rm $ROOT_FOLDER/$AUTOMATED_CHECK
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$AUTOMATED_CHECK $GIHUB_LINK/$GITHUB_FOLDER/$AUTOMATED_CHECK > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$SETUP_PLEX ]; then
+#       rm $ROOT_FOLDER/$SETUP_PLEX
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$SETUP_PLEX $GIHUB_LINK/$GITHUB_FOLDER/$SETUP_PLEX > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$DOWNLOAD ]; then
+#       rm $ROOT_FOLDER/$DOWNLOAD
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$DOWNLOAD > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$DOCKER_STOP ]; then
+#       rm $ROOT_FOLDER/$DOCKER_STOP
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$DOCKER_STOP $GIHUB_LINK/$GITHUB_FOLDER/$DOCKER_STOP > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$STOP ]; then
+#       rm $ROOT_FOLDER/$STOP
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$STOP $GIHUB_LINK/$GITHUB_FOLDER/$STOP > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$UNINSTALL ]; then
+#       rm $ROOT_FOLDER/$UNINSTALL
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$UNINSTALL $GIHUB_LINK/$GITHUB_FOLDER/$UNINSTALL > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$STOP_REMOVE ]; then
+#       rm $ROOT_FOLDER/$STOP_REMOVE
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$STOP_REMOVE $GIHUB_LINK/$GITHUB_FOLDER/$STOP_REMOVE > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$UPDATE ]; then
+#       rm $ROOT_FOLDER/$UPDATE
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$UPDATE $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$ADD_URL_LIST ]; then
+#       rm $ROOT_FOLDER/$ADD_URL_LIST
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$ADD_URL_LIST $GIHUB_LINK/$GITHUB_FOLDER/$ADD_URL_LIST > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$UPDATE_DOWNLOAD ]; then
+#       rm $ROOT_FOLDER/$UPDATE_DOWNLOAD
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$UPDATE_DOWNLOAD $GIHUB_LINK/$GITHUB_FOLDER/$UPDATE_DOWNLOAD > /dev/null
+#   
+#   if [ -e $ROOT_FOLDER/$START ]; then
+#       rm $ROOT_FOLDER/$START
+#   fi
+#   sleep 1
+#   curl -s -o $ROOT_FOLDER/$START $GIHUB_LINK/$GITHUB_FOLDER/$START > /dev/null
+#
+#   echo -e "$DOWNLOADING_NEW_FILES"
+#
+#   sleep 2
 
 # Check if ~/plex/media, ~/plex/transcode, and ~/plex/plex/database exist
 echo -e "$MAKE_PLEX_FOLDERS"

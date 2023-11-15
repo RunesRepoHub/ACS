@@ -1,3 +1,13 @@
+#############
+### TO-DO ###
+#############
+### Update all paths to new repo name
+### Modify text where needed
+### Check all variables for errors and fix as needed and check if there is 2 of them, if there is delete one of them. But update all 
+### scripts to the new variable.
+
+
+
 ##########################################################################
 #####  Set variables for YT-Plex  # Core.sh # Made for @runesrepohub #####
 ########################## Made for @rune004 #############################

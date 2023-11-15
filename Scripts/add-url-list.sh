@@ -1,10 +1,19 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
 
 echo -e "$ENTER_URL"
 # Prompt the user to enter the URLs
 read -p "Enter the URLs (separated by space): " input_urls
 
+#############
+### TO-DO ###
+#############
+### Check paths
 # Check if the file exists, and if not, create it
 if [ ! -f $MEDIA/$URL_FILE ]; then
     touch $MEDIA/$URL_FILE

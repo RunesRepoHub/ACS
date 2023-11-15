@@ -1,5 +1,20 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
+
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
+
+
+
+
+
+#############
+### TO-DO ###
+#############
+### Check paths
 
 # Define the maximum number of running containers
 max_containers=$(cat $CONTAINER_MAX_FILE)

@@ -1,9 +1,19 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
 
 # Set the IP address and time zone
 IP=$(hostname -I | awk '{print $1}')
 TZ=$(timedatectl show --property=Timezone --value)
+
+#############
+### TO-DO ###
+#############
+### Check paths
 
 # Check if the network already exists
 if docker network inspect my_plex_network >/dev/null 2>&1; then

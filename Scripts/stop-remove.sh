@@ -1,5 +1,10 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
 
 # Stop and remove any docker with the image mikenye/youtube-dl
 echo -e "$YOUTUBE_DL_STOP_REMOVE_TEXT"

@@ -1,6 +1,16 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
 
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
+
+
+#############
+### TO-DO ###
+#############
+### Check paths
 
 echo -e "$USER_TEXT_SAVE_PLEX"
 echo -e "$USER_ANSWER_SAVE_PLEX"

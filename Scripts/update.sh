@@ -1,5 +1,16 @@
 #!/bin/bash
-source ~/Auto-YT-DL/Scripts/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Change source to new repo name
+### source ~/Auto-YT-DL/Scripts/Core.sh
+
+#############
+### TO-DO ###
+#############
+### Check paths
+
 
 # Update update.sh
 echo -e "$UPDATE_AUTO_YT_DL"
