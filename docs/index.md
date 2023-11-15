@@ -8,7 +8,7 @@
 
     This software is still in development.
 
-    Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
+    Please report bugs to [Github](https://github.com/RunesRepoHub/ACS/issues)
 
 !!! important "ACSF (Automated Content System Full)"
     
