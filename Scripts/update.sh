@@ -10,7 +10,8 @@
 ### TO-DO ###
 #############
 ### Check paths
-
+### Changes download link and methode 
+### Download the whole repo and use git clone 
 
 # Update update.sh
 echo -e "$UPDATE_AUTO_YT_DL"
