@@ -2,12 +2,8 @@
 ### TO-DO ###
 #############
 ### Update all paths to new repo name
-### Modify text where needed
 ### Check all variables for errors and fix as needed and check if there is 2 of them, if there is delete one of them. But update all 
 ### scripts to the new variable.
-
-
-
 ##########################################################################
 #####  Set variables for YT-Plex  # Core.sh # Made for @runesrepohub #####
 ########################## Made for @rune004 #############################
@@ -30,17 +26,12 @@ LightCyan='\e[1;36m'
 LightGray='\e[0;37m'
 White='\e[1;37m'
 NC='\e[0m'  # Reset to default
-###################
-
-
+############################################################################
 ### Admin Stuff # Setup.sh ###
 #----------------------------#
 # Script folder path 
 ROOT_FOLDER=~/ACS/Scripts
 #----------------------------#
-
-
-
 ##########################################################################
 #########  Set variables  # For setup.sh # Made for @runesrepohub ########
 ##########################################################################
@@ -49,7 +40,6 @@ ROOT_FOLDER=~/ACS/Scripts
 # Reponses for user input
 # Install
 #--------------------------------------------------------------------------
-
 # All script names + file format
 AUTOMATED_CHECK="automated-check.sh"
 ADD_URL_LIST="add-url-list.sh"
@@ -63,7 +53,6 @@ SETUP_PLEX="setup-plex.sh"
 DOWNLOAD="download.sh"
 START="start.sh"
 #--------------------------------------------------------------------------
-
 # Make folders for ACS
 YOUTUBE=~/plex/media/youtube 
 TRANSCODE=~/plex/transcode 
@@ -79,28 +68,22 @@ DELUGE=~/ACS/deluge
 OMBI=~/ACS/ombi  
 DOWNLOAD_COMPLETED=~/plex/media/download/completed
 #--------------------------------------------------------------------------
-
 # Container max
 CONTAINER_MAX_FILE=~/ACS/.max_containers
 #--------------------------------------------------------------------------
-
 # Cronjob
 CRON_TIMER="0 0 30 * *"
 #--------------------------------------------------------------------------
-
 ##########################################################################
 #####  Set variables  # For add-url-list.sh # Made for @runesrepohub #####
 ##########################################################################
-
 # Folders and files
 MEDIA=~/plex/media
 URL_FILE="url_file.txt"
 ARCHIVE_URL_FILE="archive_url_file.txt"
-
 ##########################################################################
 ###### Set variables  # For setup-plex.sh # Made for @runesrepohub #######
 ##########################################################################
-
 DOCKER_ROOT_FOLDER=~/ACS
 DOCKER_CONFIG_FOLDER="config"
 DOCKER_PLEX_LIBRARY_FOLDER=$LIBRARY
@@ -121,6 +104,5 @@ DOCKER_HOST_SHOWS_FOLDER=$SHOWS
 DOCKER_SHOWS_FOLDER="shows"
 DOCKER_HOST_MOVIES_FOLDER=$MOVIES
 DOCKER_MOVIES_FOLDER="movies"
-
 DOCKER_RESTART_ALWAYS="always"
-
+##########################################################################
