@@ -17,8 +17,8 @@ TZ=$(timedatectl show --property=Timezone --value)
 
 # Check if the network already exists
 if docker network inspect my_plex_network >/dev/null 2>&1; then
-    echo -e "$DOCKER_NETWORK_ALREADY_EXIST"
-    echo -e "$INSTALL_MIGHT_FAIL"
+    echo -e "${Red}The network my_plex_network already exists${NC}"
+    echo -e "${Red}The installation might fail due to this error${NC}"
 else
     # Create the network
     docker network create my_plex_network
@@ -27,22 +27,22 @@ fi
 # Check if there is already a docker with the name plex running
 
 if docker ps -a --format '{{.Names}}' | grep -q "^plex$"; then
-    echo -e "$DOCKER_CLAIM_PLEX_ALREADY"
+    echo -e "${Green}Plex is already running skipping plex claim${NC}"
 else
-    echo -e "$DOCKER_CLAIM_PLEX_TEXT"
-    echo -e "$DOCKER_CLAIM_PLEX_URL"
+    echo -e "${Green}Claim the Plex server${NC}"
+    echo -e "${Green}https://www.plex.tv/claim/${NC}"
 
     # Prompt the user for the Plex claim
     read -p "Enter the Plex claim: " PLEX_CLAIM
 
     # Check if PLEX_CLAIM is empty
     if [ -z "$PLEX_CLAIM" ]; then
-        echo -e "$INVALID_ARGUMENTS"
+        echo -e "${Yellow}Error code: 1 (Invalid arguments)${NC}"
         exit 1
     fi
 
 
-    echo -e "$DOCKER_CLAIM_PLEX_HOSTNAME_TEXT"    
+    echo -e "${Green}Enter the hostname that you want for the plex server in the plex settings${NC}"    
     # Prompt the user for the hostname
     read -p "Hostname for Plex-Server: " PLEX_HOST
 

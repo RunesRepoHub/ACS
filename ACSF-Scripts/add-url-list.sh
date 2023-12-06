@@ -1,12 +1,8 @@
 #!/bin/bash
 
-#############
-### TO-DO ###
-#############
-### Change source to new repo name
-### source ~/Auto-YT-DL/Scripts/Core.sh
+source ~/ACS/Scripts/Core.sh
 
-echo -e "$ENTER_URL"
+echo -e "${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
 # Prompt the user to enter the URLs
 read -p "Enter the URLs (separated by space): " input_urls
 
@@ -30,7 +26,7 @@ existing_urls=$(cat $MEDIA/$URL_FILE)
 for url in $input_urls; do
     # Check if the URL already exists in the file
     if grep -Fxq "$url" $MEDIA/$URL_FILE; then
-        echo -e "$URL_ALREADY_EXISTS"
+        echo -e "${Yellow}URL $url already exists, input another link instead${NC}"
         bash $ROOT_FOLDER/$ADD_URL_LIST
     else
         # Append the new URL to the file
