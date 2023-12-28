@@ -31,19 +31,20 @@ start_time=$(date +%s)
 
 # Loop over each video URL
 while [ ${#video_urls[@]} -gt 0 ]; do
-    # Check if it's between 4:20 AM and 5:25 AM, and if so, wait until it's not
-    current_time=$(date +%H:%M)
-    if [[ "$current_time" > "04:20" ]] && [[ "$current_time" < "05:25" ]]; then
-        echo "It is between 4:20 AM and 5:25 AM. The script cannot continue during this time. Exiting."
+    # Check if the script has been running for more than 45 minutes (2700 seconds)
+    elapsed_time=$(( $(date +%s) - start_time ))
+    if [[ "$elapsed_time" -ge 2700 ]]; then
+        echo "The script has been running for more than 45 minutes. Exiting."
         exit
     fi
 
-    # Check if the script has been running for more than 10 hours (36000 seconds)
-    elapsed_time=$(( $(date +%s) - start_time ))
-    if [[ "$elapsed_time" -ge 36000 ]]; then
-        echo "The script has been running for more than 10 hours. Exiting."
-        exit
-    fi
+    # Calculate progress as a percentage of the 45-minute limit
+    progress=$((elapsed_time * 100 / 2700))
+
+    # Print a condensed progress bar
+    printf -v bar "[%-${progress}s]" ""
+    echo -ne "Progress: $progress% ${bar:0:10}\r"
+    echo
 
     # Set the video URL to download
     url="${video_urls[0]}"
