@@ -30,7 +30,7 @@ NC='\e[0m'  # Reset to default
 ### Admin Stuff # Setup.sh ###
 #----------------------------#
 # Script folder path 
-ROOT_FOLDER=~/ACS/Scripts
+ROOT_FOLDER=~/ACS/ACSF-Scripts
 #----------------------------#
 ##########################################################################
 #########  Set variables  # For setup.sh # Made for @runesrepohub ########
@@ -52,6 +52,8 @@ UPDATE_DOWNLOAD="download-update.sh"
 SETUP_PLEX="setup-plex.sh"
 DOWNLOAD="download.sh"
 START="start.sh"
+USAGE="usage.sh"
+CONVERT="converter.sh"
 #--------------------------------------------------------------------------
 # Make folders for ACS
 YOUTUBE=~/plex/media/youtube 
