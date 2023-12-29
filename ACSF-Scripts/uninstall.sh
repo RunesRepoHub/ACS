@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/ACS/Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 echo -e "${Purple}Do you want to save all the files in the plex media folder or delete them?${NC}"
 echo -e "${Green}y = Keep plex media folder${NC}"

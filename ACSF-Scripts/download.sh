@@ -1,15 +1,6 @@
 #!/bin/bash
 
-
-#############
-### TO-DO ###
-#############
-### Change source to new repo name
-### source ~/Auto-YT-DL/Scripts/Core.sh
-
-
-
-
+source ~/ACS/ACSF-Scripts/Core.sh
 
 #############
 ### TO-DO ###

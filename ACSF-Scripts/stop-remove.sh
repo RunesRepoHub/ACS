@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/ACS/Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 # Stop and remove any docker with the image mikenye/youtube-dl
 echo -e "${Red}Stopping any and all mikenye/youtube-dl dockers then delete them${NC}"

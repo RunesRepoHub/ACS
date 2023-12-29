@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/ACS/Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 echo -e "${Green}Enter the Youtube Playlist URLs to add to the list:${NC}"
 # Prompt the user to enter the URLs

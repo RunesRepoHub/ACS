@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/ACS/ACSF-Scripts/Core.sh
+
 # Usage: ./calculate_storage_usage.sh /path/to/directory
 
 # Check if du and cut are installed

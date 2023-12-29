@@ -1,10 +1,6 @@
 #!/bin/bash
 
-#############
-### TO-DO ###
-#############
-### Change source to new repo name
-### source ~/Auto-YT-DL/Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 # start any docker with the image mikenye/youtube-dl
 echo -e "${Purple}Starting any and all mikenye/youtube-dl dockers${NC}"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/ACS/Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 #############
 ### TO-DO ###

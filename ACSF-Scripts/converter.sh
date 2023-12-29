@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/ACS/ACSF-Scripts/Core.sh
+
 # Usage: ./convert-webm-to-mp4.sh /path/to/directory
 
 # Check for ffmpeg installation and install if not found
