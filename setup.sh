@@ -45,14 +45,6 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Check if folder ~/ACS/ACSF-Scripts exists
-if [ -d $ROOT_FOLDER ]; then
-    echo -e "${Red}Error code: 3 (File already exists)${NC}"
-    echo -e "${Red}Folder ~/ACS/ACSF-Scripts already exists.${NC}"
-    echo -e "${Red}Aborting installation.${NC}"        #### Find and fix this
-    exit 1
-fi
-
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
 if ! command -v docker &> /dev/null; then
     echo -e "${Red}Error code: 5 (Not installed)${NC}"
