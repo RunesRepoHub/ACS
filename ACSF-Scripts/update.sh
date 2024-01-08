@@ -3,7 +3,7 @@
 source ~/ACS/ACSF-Scripts/Core.sh
 
 # Update update.sh
-echo -e "${Purple}Updating download-update.sh...${NC}"
+echo -e "${Purple}Updating ACS...${NC}"
 cd ~/ACS
 git pull
 
@@ -14,5 +14,3 @@ echo -e "${Purple}Setup alias${NC}"
 bash $ROOT_FOLDER/$ALIASES
 
 echo -e "${Green}Aliases have been updated${NC}"
-
-echo -e "${Green}Download-update.sh has been updated${NC}"
