@@ -19,8 +19,9 @@ if ! command -v git &> /dev/null; then
 fi
 
 git clone https://github.com/RunesRepoHub/ACS.git
-source ~/ACS/Scripts/Core.sh
-chmod +x ~/ACS/Scripts/Core.sh
+chmod +x ~/ACS/ACSF-Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
+
 
 
 
@@ -43,10 +44,10 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Check if folder ~/Auto-YT-DL/Scripts exists
+# Check if folder ~/ACS/ACSF-Scripts exists
 if [ -d $ROOT_FOLDER ]; then
     echo -e "${Red}Error code: 3 (File already exists)${NC}"
-    echo -e "${Red}Folder ~/Auto-YT-DL/Scripts already exists.${NC}"
+    echo -e "${Red}Folder ~/ACS/ACSF-Scripts already exists.${NC}"
     echo -e "${Red}Aborting installation.${NC}"        #### Find and fix this
     exit 1
 fi
@@ -54,7 +55,7 @@ fi
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
 if ! command -v docker &> /dev/null; then
     echo -e "${Red}Error code: 5 (Not installed)${NC}"
-    echo -e "${Red}Install Docker and Docker-CLI before running Auto-YT-DL.${NC}"
+    echo -e "${Red}Install Docker and Docker-CLI before running ACS.${NC}"
     echo -e "${Red}Aborting installation.${NC}"
     exit 1
 fi
@@ -88,7 +89,7 @@ fi
 
 
 # Install needed tools for installation script to work
-echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
+echo -e "${Purple}Setting up ACS...${NC}"
 echo -e "${Yellow}Run apt-get update${NC}"
 apt-get update > /dev/null 2>&1
 echo -e "${Yellow}Run apt-get upgrade -y${NC}"
