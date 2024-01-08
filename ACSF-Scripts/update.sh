@@ -5,7 +5,9 @@ source ~/ACS/ACSF-Scripts/Core.sh
 # Update update.sh
 echo -e "${Purple}Updating ACS...${NC}"
 cd ~/ACS
-git pull
+
+read -p "Enter the branch you want to clone or pull: " branch
+git pull --branch "$branch"
 
 # Add alias
 echo -e "${Purple}Setup alias${NC}"
