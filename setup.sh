@@ -23,6 +23,13 @@ git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
 chmod +x ~/ACS/ACSF-Scripts/Core.sh
 source ~/ACS/ACSF-Scripts/Core.sh
 
+cd ~/ACS
+
+# Configure git to only allow fast-forward pulls
+git config --global pull.ff only
+
+cd ..
+
 # Start clean
 clear 
 
