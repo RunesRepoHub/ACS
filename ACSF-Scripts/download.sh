@@ -60,7 +60,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     playlist_name=${playlist_name:-no_playlist}
 
     # Set the video file path including the playlist name
-    video_folder="${output_path}/${playlist_name}/${video_id}"
+    video_folder="${output_path}/${playlist_name}/"
     video_file="${video_folder}/${video_id}.mp4"
 
     # Create the video folder if it doesn't exist

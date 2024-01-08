@@ -60,7 +60,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     playlist_name=${playlist_name:-no_playlist}
 
     # Set the video file path including the playlist name
-    video_folder="${output_path}/${playlist_name}/$(echo "${url}" | awk -F '=' '{print $2}')"
+    video_folder="${output_path}/${playlist_name}/"
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
 
     # Create the video folder if it doesn't exist
