@@ -7,7 +7,7 @@ echo -e "${Purple}Updating ACS...${NC}"
 cd ~/ACS
 
 read -p "Enter the branch you want to clone or pull: " branch
-git pull --branch "$branch"
+git pull
 
 # Add alias
 echo -e "${Purple}Setup alias${NC}"
