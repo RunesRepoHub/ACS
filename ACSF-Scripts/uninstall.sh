@@ -33,11 +33,11 @@ if [[ $answer == "y" ]]; then
     echo -e "${Green}The network my_plex_network has been removed${NC}"
 
     # remove all folders and files
-    rm -rf ~/Auto-YT-DL 
+    rm -rf ~/ACS 
     echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
 
     # Remove the line from the crontab file
-    sudo sed -i '/Auto-YT-DL\/Scripts\/automated-check.sh/d' /etc/crontab
+    sudo sed -i '/ACS\/ACSF-Scripts\/automated-check.sh/d' /etc/crontab
     
 elif [[ $answer == "n" ]]; then
     # User answered "no"
@@ -63,11 +63,11 @@ elif [[ $answer == "n" ]]; then
 
     # remove all folders and files
     echo -e "${Purple}Cleanup all folders and files...${NC}"
-    rm -rf ~/Auto-YT-DL  ~/plex
+    rm -rf ~/ACS  ~/plex
     echo -e "${Green}All folders and files has been removed except the plex media folder, all dockers has been stopped${NC}"
 
     # Remove the line from the crontab file
-    sudo sed -i '/Auto-YT-DL\/Scripts\/automated-check.sh/d' /etc/crontab
+    sudo sed -i '/ACS\/ACSF-Scripts\/automated-check.sh/d' /etc/crontab
 else
     # User entered an invalid response
     echo -e "${Red}Error code: 400${NC}"

@@ -18,7 +18,8 @@ if ! command -v git &> /dev/null; then
     echo "Git installation completed."
 fi
 
-git clone https://github.com/RunesRepoHub/ACS.git
+read -p "Enter the branch you want to clone: " branch
+git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
 chmod +x ~/ACS/ACSF-Scripts/Core.sh
 source ~/ACS/ACSF-Scripts/Core.sh
 

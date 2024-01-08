@@ -6,11 +6,6 @@ source ~/ACS/ACSF-Scripts/Core.sh
 IP=$(hostname -I | awk '{print $1}')
 TZ=$(timedatectl show --property=Timezone --value)
 
-#############
-### TO-DO ###
-#############
-### Check paths
-
 # Check if the network already exists
 if docker network inspect my_plex_network >/dev/null 2>&1; then
     echo -e "${Red}The network my_plex_network already exists${NC}"
