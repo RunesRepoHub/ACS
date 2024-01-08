@@ -52,15 +52,17 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Extract the video ID from the URL
     video_id=$(echo "${url}" | awk -F '[=&]' '{print $2}')
 
-    # Set the video folder and file path
+    # Get the channel name using youtube-dl --get-filename
+    channel_name=$(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s" "$url" | head -n 1)
+    
     # Get the playlist name using youtube-dl --get-filename
     playlist_name=$(docker run --rm mikenye/youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
-
+    
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
-
-    # Set the video file path including the playlist name
-    video_folder="${output_path}/${playlist_name}/"
+    
+    # Create the video folder if it doesn't exist
+    video_folder="${output_path}/${channel_name}/${playlist_name}/"
     video_file="${video_folder}/${video_id}.mp4"
 
     # Create the video folder if it doesn't exist
