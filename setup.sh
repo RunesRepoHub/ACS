@@ -120,17 +120,8 @@ fi
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
 # Add aliases to the shell configuration file
-echo 'alias add-url="bash '$ROOT_FOLDER'/'$ADD_URL_LIST'"' >> ~/.bashrc
-echo 'alias get-overview="docker ps --filter '\''ancestor=mikenye/youtube-dl'\''"' >> ~/.bashrc
-echo 'alias start-download="bash '$ROOT_FOLDER'/'$AUTOMATED_CHECK'"' >> ~/.bashrc
-echo 'alias stop-download="bash '$ROOT_FOLDER'/'$DOCKER_STOP'"' >> ~/.bashrc
-echo 'alias stop-all="bash '$ROOT_FOLDER'/'$STOP'"' >> ~/.bashrc
-echo 'alias start-all="bash '$ROOT_FOLDER'/'$START'"' >> ~/.bashrc
-echo 'alias yt-uninstall="bash '$ROOT_FOLDER'/'$UNINSTALL'"' >> ~/.bashrc
-echo 'alias yt-update="bash '$ROOT_FOLDER'/'$UPDATE'"' >> ~/.bashrc
-echo 'alias remove-all="bash '$ROOT_FOLDER'/'$STOP_REMOVE'"' >> ~/.bashrc
-echo 'alias acs-usage="bash '$ROOT_FOLDER'/'$USAGE'"' >> ~/.bashrc
-echo 'alias acs-convert="bash '$ROOT_FOLDER'/'$CONVERT'"' >> ~/.bashrc
+
+bash $ROOT_FOLDER/$ALIASES
 
 # Add the cronjob
 echo "$CRON_TIMER root bash $ROOT_FOLDER/$AUTOMATED_CHECK" | sudo tee -a /etc/crontab >/dev/null

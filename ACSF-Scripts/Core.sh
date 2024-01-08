@@ -54,6 +54,8 @@ DOWNLOAD="download.sh"
 START="start.sh"
 USAGE="usage.sh"
 CONVERT="converter.sh"
+SINGLE_DOWNLOAD="single-download.sh"
+ALIASES="Aliases.sh"
 #--------------------------------------------------------------------------
 # Make folders for ACS
 YOUTUBE=~/plex/media/youtube 
