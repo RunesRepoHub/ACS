@@ -134,7 +134,7 @@ sleep 2
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
 if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
-    bash ~/Auto-YT-DL/Scripts/setup-plex.sh
+    bash ~/ACS/Scripts/setup-plex.sh
     echo -e "${Green}Setup plex completed${NC}"
 else
     echo -e "${Green}Plex docker is already running${NC}"
