@@ -1,3 +1,5 @@
+source ~/ACS/ACSF-Scripts/Core.sh
+
 # Check if alias is already in .bashrc before adding
 add_if_not_exists() {
     local alias_name="$1"
