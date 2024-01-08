@@ -53,7 +53,20 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     video_id=$(echo "${url}" | awk -F '[=&]' '{print $2}')
 
     # Set the video folder and file path
-    video_folder="${output_path}/${video_id}"
+    # Get the playlist name using youtube-dl --get-filename
+    playlist_name=$(youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
+
+    # If the playlist name is not available, default to 'no_playlist'
+    playlist_name=${playlist_name:-no_playlist}
+
+    # Set the video file path including the playlist name
+    video_folder="${output_path}/${playlist_name}/$(echo "${url}" | awk -F '=' '{print $2}')"
+    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
+
+    # Create the video folder if it doesn't exist
+    if [ ! -d "${video_folder}" ]; then
+        mkdir -p "${video_folder}"
+    fi
     video_file="${video_folder}/${video_id}.mp4"
 
     # Check if the container with the same video ID is already running

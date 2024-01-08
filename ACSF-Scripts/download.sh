@@ -1,21 +1,15 @@
 #!/bin/bash
-
 source ~/ACS/ACSF-Scripts/Core.sh
 
-#############
-### TO-DO ###
-#############
-### Check paths
-
 # Define the maximum number of running containers
-max_containers=$(cat $CONTAINER_MAX_FILE)
+max_containers=$(cat "$CONTAINER_MAX_FILE")
 
 output_path="$YOUTUBE"
 
 # Read the URLs from the txt file
-input_urls=$(cat $MEDIA/$URL_FILE)
+input_urls=$(cat "$MEDIA/$ARCHIVE_URL_FILE")
 
-total_lines=$(wc -l < $MEDIA/$URL_FILE)
+total_lines=$(wc -l < "$MEDIA/$ARCHIVE_URL_FILE")
 
 # Declare an array to store the video URLs
 declare -a video_urls
@@ -27,37 +21,61 @@ done <<< "$input_urls"
 
 # Function to wait until the number of running containers is less than the maximum
 wait_for_available_container() {
-    while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
+    while [ "$(docker ps | grep 'mikenye/youtube-dl' | wc -l)" -ge "$max_containers" ]; do
         sleep 60
     done
 }
 
+# Record the start time of the script
+start_time=$(date +%s)
+
 # Loop over each video URL
 while [ ${#video_urls[@]} -gt 0 ]; do
+    # Check if the script has been running for more than 45 minutes (2700 seconds)
+    elapsed_time=$(( $(date +%s) - start_time ))
+    if [[ "$elapsed_time" -ge 2700 ]]; then
+        echo "The script has been running for more than 45 minutes. Exiting."
+        exit
+    fi
+
+    # Calculate progress as a percentage of the 45-minute limit
+    progress=$((elapsed_time * 100 / 2700))
+
+    # Print a condensed progress bar
+    printf -v bar "[%-${progress}s]"
+    echo -ne "Progress: $progress% ${bar:0:10}\r"
+    echo
+
     # Set the video URL to download
     url="${video_urls[0]}"
 
-    # Set the video file path
-    video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
-    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
+    # Extract the video ID from the URL
+    video_id=$(echo "${url}" | awk -F '[=&]' '{print $2}')
+
+    # Set the video folder and file path
+    # Get the playlist name using youtube-dl --get-filename
+    playlist_name=$(youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
+
+    # If the playlist name is not available, default to 'no_playlist'
+    playlist_name=${playlist_name:-no_playlist}
+
+    # Set the video file path including the playlist name
+    video_folder="${output_path}/${playlist_name}/${video_id}"
+    video_file="${video_folder}/${video_id}.mp4"
 
     # Create the video folder if it doesn't exist
-    if [ -d "${video_folder}" ]; then
-        exit
+    if [ ! -d "${video_folder}" ]; then
+        mkdir -p "${video_folder}"
     fi
-    mkdir -p "${video_folder}"
 
-    # Get the hostname from the URL
-    hostname=$(echo "${url}" | awk -F '=' '{print $2}')
-
-    # Check if the container with the same hostname is already running
-    if [ "$(docker ps --filter "name=${hostname}" --format '{{.Names}}')" ]; then
+    # Check if the container with the same video ID is already running
+    if docker ps --filter "name=${video_id}" --format '{{.Names}}' | grep -q "${video_id}"; then
         # Remove the processed URL from the array
         video_urls=("${video_urls[@]:1}")
         continue
     fi
 
-    if [ $total_lines -eq 0 ]; then
+    if [ "$total_lines" -eq 0 ]; then
         exit
     fi
 
@@ -67,8 +85,8 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Wait for available containers
     wait_for_available_container
 
-    # Generate a unique container name based on the URL 
-    container_name="$(echo "${url}" | awk -F '=' '{print $2}')"
+    # Generate a unique container name based on the video ID 
+    container_name="${video_id}"
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
@@ -88,13 +106,14 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --embed-subs \
         --convert-subs srt \
         --write-auto-sub \
-        --download-archive download-archive.txt \
+        --download-archive "download-archive.txt" \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
-    
-    # Subtract 1 from the value of the variable total_lines
+
+    # Subtract 1 from the value of the total_lines
     total_lines=$((total_lines - 1))
-    
+
     # Remove the processed URL from the array
     video_urls=("${video_urls[@]:1}")
 done
+
