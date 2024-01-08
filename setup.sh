@@ -82,11 +82,6 @@ else
     echo -e "${Green}Curl is already installed.${NC}"
 fi
 
-#############
-### TO-DO ###
-#############
-### Make this into a setup script for ACSF or any other new system
-
 
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up ACS...${NC}"
