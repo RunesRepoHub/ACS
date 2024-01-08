@@ -54,7 +54,7 @@ DOWNLOAD="download.sh"
 START="start.sh"
 USAGE="usage.sh"
 CONVERT="converter.sh"
-SINGLE_DOWNLOAD="single-download.sh"
+SINGLE_DOWNLOAD="download-single.sh"
 ALIASES="Aliases.sh"
 #--------------------------------------------------------------------------
 # Make folders for ACS
