@@ -54,7 +54,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
 
     # Set the video folder and file path
     # Get the playlist name using youtube-dl --get-filename
-    playlist_name=$(youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
+    playlist_name=$(docker run --rm mikenye/youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
 
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
