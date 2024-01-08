@@ -23,19 +23,8 @@ git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
 chmod +x ~/ACS/ACSF-Scripts/Core.sh
 source ~/ACS/ACSF-Scripts/Core.sh
 
-
-
-
-##########################################################################
 # Start clean
 clear 
-
-
-#############
-### TO-DO ###
-#############
-### Check paths
-
 
 # Check if user is root, if not then exit script
 if [ "$(id -u)" -ne 0 ]; then
@@ -74,7 +63,6 @@ if ! command -v curl &> /dev/null; then
 else
     echo -e "${Green}Curl is already installed.${NC}"
 fi
-
 
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up ACS...${NC}"
