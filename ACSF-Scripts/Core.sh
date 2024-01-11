@@ -56,6 +56,7 @@ USAGE="usage.sh"
 CONVERT="converter.sh"
 SINGLE_DOWNLOAD="download-single.sh"
 ALIASES="Aliases.sh"
+UPDATE_DOCKERS="Docker-Update.sh"
 #--------------------------------------------------------------------------
 # Make folders for ACS
 YOUTUBE=~/plex/media/youtube 
