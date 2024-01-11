@@ -49,6 +49,8 @@ fi
 
 
 # Start all docker containers defined in the docker-compose files within the Dockers folder
+# and remove any orphan containers that are no longer defined in the docker-compose files
 for compose_file in ~/ACS/Dockers/*.yml; do
     docker compose -f "$compose_file" up -d
 done
+
