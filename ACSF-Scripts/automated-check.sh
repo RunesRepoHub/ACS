@@ -52,11 +52,15 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Extract the video ID from the URL
     video_id=$(echo "${url}" | awk -F '[=&]' '{print $2}')
 
-    # Get the channel name using youtube-dl --get-filename
-    channel_name=$(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s" "$url" | head -n 1)
-    
-    # Get the playlist name using youtube-dl --get-filename
-    playlist_name=$(docker run --rm mikenye/youtube-dl --get-filename -o "%(playlist)s" "$url" | head -n 1)
+    # Function to get channel and playlist name using youtube-dl --get-filename
+    get_youtube_details() {
+    local url=$1
+    local details=($(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1))
+    echo "${details[@]}"
+    }
+
+    # Call get_youtube_details function and read results into respective variables
+    read channel_name playlist_name <<< $(get_youtube_details "$url")
     
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
@@ -70,6 +74,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         mkdir -p "${video_folder}"
     fi
     video_file="${video_folder}/${video_id}.mp4"
+
 
     # Check if the container with the same video ID is already running
     if docker ps --filter "name=${video_id}" --format '{{.Names}}' | grep -q "${video_id}"; then

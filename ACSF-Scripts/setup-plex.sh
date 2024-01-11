@@ -36,75 +36,7 @@ else
     echo -e "${Green}Enter the hostname that you want for the plex server in the plex settings${NC}"    
     # Prompt the user for the hostname
     read -p "Hostname for Plex-Server: " PLEX_HOST
-
-    # Run the plex service
-    docker run \
-        -d \
-        --name plex \
-        --network my_plex_network \
-        --memory 4g \
-        -p 32400:32400/tcp \
-        -p 3005:3005/tcp \
-        -p 8324:8324/tcp \
-        -p 32469:32469/tcp \
-        -p 1900:1900/udp \
-        -p 32410:32410/udp \
-        -p 32412:32412/udp \
-        -p 32413:32413/udp \
-        -p 32414:32414/udp \
-        -e TZ="$TZ" \
-        -e PLEX_CLAIM="$PLEX_CLAIM" \
-        -e ADVERTISE_IP="http://$IP:32400/" \
-        -h "$PLEX_HOST" \
-        -v "$DOCKER_PLEX_LIBRARY_FOLDER:/$DOCKER_CONFIG_FOLDER" \
-        -v "$DOCKER_TRANSCODE_FOLDER:/$DOCKER_TRANSCODE_MOUNT" \
-        -v "$DOCKER_PLEX_MEDIA:/$DOCKER_PLEX_DATA" \
-        --restart $DOCKER_RESTART_ALWAYS \
-        plexinc/pms-docker
 fi
-
-# Run the jackett service
-docker run -d \
-  --name jackett \
-  --network my_plex_network \
-  --memory 2g \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ="$TZ" \
-  -e AUTO_UPDATE=true \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_JACKETT_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
-  -p 9117:9117 \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/jackett:latest
-
-# Run the radarr service
-docker run -d \
-  --name radarr \
-  --network my_plex_network \
-  --memory 2g \
-  -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ="$TZ" \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_RADARR_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -v $DOCKER_HOST_MOVIES_FOLDER:/$DOCKER_MOVIES_FOLDER \
-  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
-  -p 7878:7878 \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/radarr:latest
-
-# Run the sonarr service
-docker run -d \
-  --name sonarr \
-  --network my_plex_network \
-  --memory 2g \
-  -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ="$TZ" \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_SONARR_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -v $DOCKER_HOST_SHOWS_FOLDER:/$DOCKER_SHOWS_FOLDER \
-  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
-  -p 8989:8989 \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/sonarr:latest
 
 # Run the tautulli service
 docker run -d \
