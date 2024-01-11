@@ -32,8 +32,8 @@ archive_file="$MEDIA/downloaded_urls.txt"
 # Ensure the archive file exists
 touch "$archive_file"
 
-# Read the URLs from the txt file and filter out those already downloaded
-input_urls=$(grep -Fxv -f "$archive_file" "$MEDIA/$ARCHIVE_URL_FILE")
+# Read a maximum of 5 URLs from the txt file and filter out those already downloaded
+input_urls=$(grep -Fxv -f "$archive_file" "$MEDIA/$ARCHIVE_URL_FILE" | shuf -n 5)
 
 total_lines=$(wc -l <<< "$input_urls")
 
@@ -81,25 +81,12 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Function to get channel and playlist name using youtube-dl --get-filename
     get_youtube_details() {
     local url=$1
-    local container_name="youtube_details_$(date +%s)"
-    docker run --name "${container_name}" --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1 &
-
-    # Set a timeout for the container
-    local timeout=90 # 1.5 minutes
-    { sleep "${timeout}"; docker kill "${container_name}"; } &
-
-    # Wait for the docker process to finish and get the details
-    wait -n
-    local details=($(docker logs "${container_name}"))
-    docker rm -f "${container_name}" &> /dev/null
+    local details=($(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1))
     echo "${details[@]}"
     }
     
     # Call get_youtube_details function and read results into respective variables
     read channel_name playlist_name < <(get_youtube_details "$url" | head -n 1)
-
-    # Kill the Docker container after reading the first line
-    docker kill "${container_name}"
     
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
