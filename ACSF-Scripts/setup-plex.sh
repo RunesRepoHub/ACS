@@ -48,11 +48,11 @@ fi
 } >> ~/ACS/Dockers/.env
 
 
-# Find all docker-compose files in the current directory and its subdirectories
+# Find all docker-compose files in the Dockers directory and its subdirectories
 docker_compose_files=$(find ~/ACS/Dockers -name 'docker-compose.yml')
 
-# Loop through each docker-compose file and run them one by one
+# Loop through each docker-compose file and run them
 for file in $docker_compose_files; do
     echo -e "${Green}Running docker-compose file: $file${NC}"
-    docker-compose -f "$file" up -d
+    docker compose -f "$file" up -d
 done
