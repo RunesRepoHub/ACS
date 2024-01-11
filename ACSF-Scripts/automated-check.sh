@@ -81,7 +81,11 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Function to get channel and playlist name using youtube-dl --get-filename
     get_youtube_details() {
     local url=$1
-    local details=($(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1))
+    local details=()
+while IFS= read -r line; do
+    details+=("$line")
+    break # Exit after the first line is read
+done < <(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url")
     echo "${details[@]}"
     }
 
