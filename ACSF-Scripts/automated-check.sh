@@ -80,33 +80,20 @@ while [ ${#video_urls[@]} -gt 0 ]; do
 
     # Function to get channel and playlist name using youtube-dl --get-filename
     get_youtube_details() {
-        local url=$1
-        local timeout_duration=90 # Timeout duration set to 1.5 minutes (90 seconds)
-        local details=()
-        # Start a subshell with a timeout
-        ( 
-            while IFS= read -r line; do
-                details+=("$line")
-                break # Exit after the first line is read
-            done < <(timeout --preserve-status $timeout_duration docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url")
-        )
-        local exit_status=$?
-        if [ $exit_status -eq 124 ]; then
-            echo "The docker command timed out after $timeout_duration seconds" >&2
-            return 1
-        elif [ $exit_status -ne 0 ]; then
-            echo "The docker command failed with exit status $exit_status" >&2
-            return $exit_status
-        fi
-        echo "${details[@]}"
+    local url=$1
+    local details=()
+        while IFS= read -r line; do
+            details+=("$line")
+        break # Exit after the first line is read
+    done < <(docker run --name youtube-dl-filename --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url")
+    echo "${details[@]}"
     }
 
     # Call get_youtube_details function and read results into respective variables
-    if ! read channel_name playlist_name <<< $(get_youtube_details "$url"); then
-        echo "Failed to get YouTube details within the specified timeout." >&2
-        # Handle error scenario here, e.g., skip the URL, retry, etc.
-    fi
+    read channel_name playlist_name <<< $(get_youtube_details "$url")
     
+    docker stop youtube-dl-filename
+
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
     
