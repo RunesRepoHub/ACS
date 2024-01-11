@@ -1,3 +1,25 @@
+
+LOG_DIR="$HOME/ACS/logs"
+LOG_FILE="$LOG_DIR/aliases_setup.log"
+
+increment_log_file_name() {
+  local log_file_base_name="aliases_setup_run_"
+  local log_file_extension=".log"
+  local log_file_counter=1
+
+  while [[ -f "$LOG_DIR/${log_file_base_name}${log_file_counter}${log_file_extension}" ]]; do
+    ((log_file_counter++))
+  done
+
+  LOG_FILE="$LOG_DIR/${log_file_base_name}${log_file_counter}${log_file_extension}"
+  echo "Log file will be saved as $LOG_FILE"
+}
+
+mkdir -p "$LOG_DIR"
+increment_log_file_name
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+
 source ~/ACS/ACSF-Scripts/Core.sh
 
 # Check if alias is already in .bashrc before adding
