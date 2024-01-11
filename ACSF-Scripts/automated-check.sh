@@ -86,9 +86,12 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     local details=($(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1))
     echo "${details[@]}"
     }
-
+    
     # Call get_youtube_details function and read results into respective variables
-    read channel_name playlist_name <<< $(get_youtube_details "$url")
+    read channel_name playlist_name < <(get_youtube_details "$url" | head -n 1)
+
+    # Kill the Docker container after reading the first line
+    docker kill "${container_name}"
     
     # If the playlist name is not available, default to 'no_playlist'
     playlist_name=${playlist_name:-no_playlist}
