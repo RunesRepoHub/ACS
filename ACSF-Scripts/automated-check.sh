@@ -27,10 +27,15 @@ max_containers=$(cat "$CONTAINER_MAX_FILE")
 
 output_path="$YOUTUBE"
 
-# Read the URLs from the txt file
-input_urls=$(cat "$MEDIA/$ARCHIVE_URL_FILE")
+archive_file="$MEDIA/downloaded_urls.txt"
 
-total_lines=$(wc -l < "$MEDIA/$ARCHIVE_URL_FILE")
+# Ensure the archive file exists
+touch "$archive_file"
+
+# Read the URLs from the txt file and filter out those already downloaded
+input_urls=$(grep -Fxv -f "$archive_file" "$MEDIA/$ARCHIVE_URL_FILE")
+
+total_lines=$(wc -l <<< "$input_urls")
 
 # Declare an array to store the video URLs
 declare -a video_urls
@@ -139,10 +144,14 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
 
+    # Upon successful download, move the URL to the archive file
+    if [ $? -eq 0 ]; then
+        echo "$url" >> "$archive_file"
+    fi
+
     # Subtract 1 from the value of the total_lines
     total_lines=$((total_lines - 1))
 
     # Remove the processed URL from the array
     video_urls=("${video_urls[@]:1}")
 done
-
