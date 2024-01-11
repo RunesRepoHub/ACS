@@ -85,7 +85,7 @@ while [ ${#video_urls[@]} -gt 0 ]; do
         while IFS= read -r line; do
             details+=("$line")
         break # Exit after the first line is read
-    done < <(docker run --name youtube-dl-filename --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url")
+    done < <(docker run --rm --name youtube-dl-filename mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url")
     echo "${details[@]}"
     }
 
