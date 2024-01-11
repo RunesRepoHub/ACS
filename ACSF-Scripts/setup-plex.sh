@@ -49,7 +49,7 @@ fi
 
 
 # Find all docker-compose files in the current directory and its subdirectories
-docker_compose_files=$(find . -name 'docker-compose.yml')
+docker_compose_files=$(find ~/ACS/Dockers -name 'docker-compose.yml')
 
 # Loop through each docker-compose file and run them one by one
 for file in $docker_compose_files; do
