@@ -78,12 +78,20 @@ while [ ${#video_urls[@]} -gt 0 ]; do
     # Extract the video ID from the URL
     video_id=$(echo "${url}" | awk -F '[=&]' '{print $2}')
 
-    wait_for_available_container
-
     # Function to get channel and playlist name using youtube-dl --get-filename
     get_youtube_details() {
     local url=$1
-    local details=($(docker run --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1))
+    local container_name="youtube_details_$(date +%s)"
+    docker run --name "${container_name}" --rm mikenye/youtube-dl --get-filename -o "%(channel)s %(playlist)s" "$url" | head -n 1 &
+
+    # Set a timeout for the container
+    local timeout=90 # 1.5 minutes
+    { sleep "${timeout}"; docker kill "${container_name}"; } &
+
+    # Wait for the docker process to finish and get the details
+    wait -n
+    local details=($(docker logs "${container_name}"))
+    docker rm -f "${container_name}" &> /dev/null
     echo "${details[@]}"
     }
     
