@@ -38,44 +38,21 @@ else
     read -p "Hostname for Plex-Server: " PLEX_HOST
 fi
 
-# Run the tautulli service
-docker run -d \
-  --name tautulli \
-  --network my_plex_network \
-  --memory 1g \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ="$TZ" \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_TAUTULLI_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -p 8181:8181 \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/tautulli:latest
 
-# Run the deluge service
-docker run -d \
-  --name deluge \
-  --network my_plex_network \
-  --memory 2g \
-  -e PUID=222 -e PGID=321 -e UMASK=002 \
-  -e TZ="$TZ" \
-  -e DELUGE_LOGLEVEL=error \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_DELUGE_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -v $DOCKER_DOWNLOAD_FOLDER:/$DOCKER_MOUNT_DOWNLOAD_FOLDER \
-  -p 8112:8112 \
-  -p 6881:6881 \
-  -p 6881:6881/udp \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/deluge:latest
+# Append environment variables to the ~/ACS/Dockers/.env file
+{
+    echo "IP=$IP"
+    echo "TZ=$TZ"
+    echo "PLEX_CLAIM=$PLEX_CLAIM"
+    echo "PLEX_HOST=$PLEX_HOST"
+} >> ~/ACS/Dockers/.env
 
-# Run the ombi service
-docker run -d \
-  --name ombi \
-  --network my_plex_network \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ="$TZ" \
-  -v $DOCKER_ROOT_FOLDER/$DOCKER_OMBI_FOLDER:/$DOCKER_CONFIG_FOLDER \
-  -p 3579:3579 \
-  --restart $DOCKER_RESTART_ALWAYS \
-  lscr.io/linuxserver/ombi:latest
 
+# Find all docker-compose files in the current directory and its subdirectories
+docker_compose_files=$(find . -name 'docker-compose.yml')
+
+# Loop through each docker-compose file and run them one by one
+for file in $docker_compose_files; do
+    echo -e "${Green}Running docker-compose file: $file${NC}"
+    docker-compose -f "$file" up -d
+done
