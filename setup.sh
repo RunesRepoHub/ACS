@@ -131,7 +131,28 @@ echo -e "${Purple}Setup cronjob and alias${NC}"
 bash $ROOT_FOLDER/$ALIASES
 
 # Add the cronjob
-echo "$CRON_TIMER root bash $ROOT_FOLDER/$AUTOMATED_CHECK" | sudo tee -a /etc/crontab >/dev/null
+cron_job_exists() {
+    local cron_command="$1"
+    grep -qF "$cron_command" /etc/crontab
+}
+
+add_cron_job() {
+    local cron_command="$1"
+    echo "$cron_command" | sudo tee -a /etc/crontab >/dev/null
+    echo "Cron job added: $cron_command"
+}
+
+# Check if cron jobs have already been added, if not, add them
+automated_check_job="$CRON_TIMER root bash $ROOT_FOLDER/$AUTOMATED_CHECK"
+reboot_job="45 4 * * * root /sbin/reboot"
+
+if ! cron_job_exists "$automated_check_job"; then
+    add_cron_job "$automated_check_job"
+fi
+
+if ! cron_job_exists "$reboot_job"; then
+    add_cron_job "$reboot_job"
+fi
 echo -e "${Green}Cron job completed${NC}"
 
 echo 
