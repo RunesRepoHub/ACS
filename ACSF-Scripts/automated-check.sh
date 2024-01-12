@@ -57,15 +57,15 @@ start_time=$(date +%s)
 
 # Loop over each video URL
 while [ ${#video_urls[@]} -gt 0 ]; do
-    # Check if the script has been running for more than 45 minutes (2700 seconds)
+    # Check if the script has been running for more than 45 minutes (5400 seconds)
     elapsed_time=$(( $(date +%s) - start_time ))
-    if [[ "$elapsed_time" -ge 2700 ]]; then
+    if [[ "$elapsed_time" -ge 5400 ]]; then
         echo "The script has been running for more than 45 minutes. Exiting."
         exit
     fi
 
     # Calculate progress as a percentage of the 45-minute limit
-    progress=$((elapsed_time * 100 / 2700))
+    progress=$((elapsed_time * 100 / 5400))
 
     # Print a condensed progress bar
     printf -v bar "[%-${progress}s]" ""
