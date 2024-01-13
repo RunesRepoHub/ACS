@@ -1,4 +1,6 @@
-# YT-plex Installation
+# ACSF Installation
+
+***Automated Content System Full***
 
 ## Important Information
 
@@ -14,7 +16,7 @@
 
     This software is still in development.
 
-    Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
+    Please report bugs to [Github](https://github.com/RunesRepoHub/ACS/issues)
 
 ??? danger "Docker is required"
 
@@ -47,16 +49,16 @@
     * Can cause a bit of slow down on plex itself if configured to update library on every change dectected in the folder.
 
 
-!!! success "Install YT-Plex"
+!!! success "Install ACSF"
 
-    ### Install YT-Plex
+    ### Install ACSF
 
-    [See the requirements](https://runesrepohub.github.io/YT-Plex/requirement.html)
+    [See the requirements](https://runesrepohub.github.io/ACS/requirement.html)
 
     Use this command
 
     ```
-    bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/YT-Plex/Production/setup.sh)
+    bash <(wget -qO- https://raw.githubusercontent.com/RunesRepoHub/ACS/Production/setup.sh)
     ```
     
     After the install has finished you can use these commands for quick access and control

@@ -1,18 +1,18 @@
-site_name: YT-Plex Wiki
-site_url: https://runesrepohub.github.io/YT-Plex/
-repo_name: Github/runesrepohub
-repo_url: https://github.com/orgs/runesrepohub/repositories
-edit_uri: https://github.com/orgs/runesrepohub/YT-Plex/edit/Dev/docs/
+site_name: ACS Wiki
+site_url: https://runesrepohub.github.io/ACS/
+repo_name: ACS
+repo_url: https://github.com/RunesRepoHub/ACS
+edit_uri: https://github.com/RunesRepoHub/ACS/edit/Dev/docs/
 use_directory_urls: false
 nav:
-    - YT-Plex Documentation:
-      - Getting Started With YT-Plex:
-        - What is YT-Plex?: 'index.md'
-        - Requirements YT-Plex: 'requirement.md'
-        - How to Install YT-Plex: 'install.md'
+    - ACS Documentation:
+      - Getting Started With ACSF:
+        - What is ACSF?: 'index.md'
+        - Requirements ACSF: 'requirement.md'
+        - How to Install ACSF: 'install.md'
         - Easy Commands: 'commands.md'
       - Understand The Source Code:
-        - Description of Source Code: 'source.md'
+        - Description of Source Code ACSF: 'source.md'
         - Error Codes: 'errorcode.md'
     - RP-Helpdesk Docs: 'https://runesrepohub.github.io/RPH-Docs/index.html'
 theme:

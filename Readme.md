@@ -1,5 +1,3 @@
-# Auto-YT-DL
+# Automated Content System
 
-#### Check out the [GitHub Pages](https://runesrepohub.github.io/YT-Plex/) for documentation.
-
-Testing owner settings
+#### Check out the [GitHub Pages](https://runesrepohub.github.io/ACS/) for documentation.

@@ -1,4 +1,4 @@
-# Auto-YT-DL
+# ACS (Automated Content System)
 
 ## Introduction
 
@@ -8,9 +8,9 @@
 
     This software is still in development.
 
-    Please report bugs to [Github](https://github.com/RunesRepoHub/YT-Plex/issues)
+    Please report bugs to [Github](https://github.com/RunesRepoHub/ACS/issues)
 
-!!! important "Auto-YT-DL"
+!!! important "ACSF (Automated Content System Full)"
     
     Redefining media server management, our user-friendly software combines a sleek interface with powerful automation. Ideal for users with robust servers, it effortlessly downloads movies, shows, and YouTube videos, while intuitively configuring and maintaining Plex, Ombi, Jackett, Sonarr, Radarr, Deluge, Tautulli, and Mikenye/YouTube-dl Docker containers. 
 
