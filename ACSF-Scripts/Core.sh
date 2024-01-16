@@ -59,7 +59,8 @@ ALIASES="Aliases.sh"
 UPDATE_DOCKERS="Docker-Update.sh"
 #--------------------------------------------------------------------------
 # Make folders for ACS
-YOUTUBE=~/plex/media/youtube 
+YOUTUBE=~/plex/media/youtube
+YOUTUBE_AUDIO=~/plex/media/youtube_audio 
 TRANSCODE=~/plex/transcode 
 LIBRARY=~/plex/library 
 JACKETT=~/ACS/jackett 
