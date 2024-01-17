@@ -3,10 +3,10 @@
 # Check if the folder already exists
 set -e
 if [ -d ~/ACS ]; then
-    echo "Folder already exists. Aborting script."
-    exit 1
+    echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
+    git pull 
 else
-    echo "Folder does not exist. Continuing the script."
+    echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
 fi
 
 # Check if git is installed
@@ -18,10 +18,14 @@ if ! command -v git &> /dev/null; then
     echo "Git installation completed."
 fi
 
-read -p "Enter the branch you want to clone: " branch
-git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
-chmod +x ~/ACS/ACSF-Scripts/Core.sh
-source ~/ACS/ACSF-Scripts/Core.sh
+if [ -d ~/ACS ]; then
+    echo -e "${Yellow}ACS has been updated${NC}"
+else
+    read -p "Enter the branch you want to clone: " branch
+    git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
+    chmod +x ~/ACS/ACSF-Scripts/Core.sh
+    source ~/ACS/ACSF-Scripts/Core.sh
+fi
 
 cd ~/ACS
 
