@@ -70,9 +70,9 @@ fi
 # Install needed tools for installation script to work
 echo -e "${Purple}Setting up ACS...${NC}"
 echo -e "${Yellow}Run apt-get update${NC}"
-apt-get update > /dev/null 2>&1
+sudo apt-get update > /dev/null 2>&1
 echo -e "${Yellow}Run apt-get upgrade -y${NC}"
-apt-get upgrade -y > /dev/null 2>&1
+sudo apt-get upgrade -y > /dev/null 2>&1
 
 # Check if docker images are downloaded
 echo -e "${Purple}Downloading docker images${NC}"
@@ -80,7 +80,7 @@ images=("mikenye/youtube-dl" "plexinc/pms-docker" "lscr.io/linuxserver/jackett:l
 for image in "${images[@]}"; do
     if ! docker image inspect "$image" &> /dev/null; then
         echo -e "${Yellow}Downloading${NC} ${Blue}$image...${NC}"
-        docker pull "$image" > /dev/null 2>&1
+        sudo docker pull "$image" > /dev/null 2>&1
         echo -e "${Blue}$image${NC} ${Green}has been downloaded.${NC}"
     else
         echo -e "${LightBlue}$image${NC} ${Green}is already downloaded.${NC}"
@@ -98,10 +98,10 @@ else
 fi
 echo -e "${Green}Folders created${NC}"
 
-chmod 777 $MOVIES
-chmod 777 $SHOWS
-chmod 777 $MEDIA_DOWNLOAD
-chmod 777 $DOWNLOAD_COMPLETED
+sudo chmod 777 $MOVIES
+sudo chmod 777 $SHOWS
+sudo chmod 777 $MEDIA_DOWNLOAD
+sudo chmod 777 $DOWNLOAD_COMPLETED
 
 # Take user input and save it to a file
 echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
@@ -113,7 +113,7 @@ sleep 2
 
 # Setup plex
 echo -e "${Purple}Setting up plex...${NC}"
-if ! docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
+if ! sudo docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
     bash ~/ACS/ACSF-Scripts/setup-plex.sh
     echo -e "${Green}Setup plex completed${NC}"
 else
