@@ -23,9 +23,10 @@ if [ -d ~/ACS ]; then
 else
     read -p "Enter the branch you want to clone: " branch
     git clone --branch "$branch" https://github.com/RunesRepoHub/ACS.git
-    chmod +x ~/ACS/ACSF-Scripts/Core.sh
-    source ~/ACS/ACSF-Scripts/Core.sh
 fi
+
+chmod +x ~/ACS/ACSF-Scripts/Core.sh
+source ~/ACS/ACSF-Scripts/Core.sh
 
 cd ~/ACS
 
@@ -98,11 +99,16 @@ else
 fi
 echo -e "${Green}Folders created${NC}"
 
+sudo chmod 777 $MOVIES
+sudo chmod 777 $SHOWS
+sudo chmod 777 $MEDIA_DOWNLOAD
+sudo chmod 777 $DOWNLOAD_COMPLETED
+
 # Take user input and save it to a file
 echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
 echo -e "${Yellow}These containers are used to download videos${NC}"
 read -p "Max Containers: " userInput
-echo "$userInput" >> $CONTAINER_MAX_FILE
+echo "$userInput" > $CONTAINER_MAX_FILE
 
 sleep 2
 
