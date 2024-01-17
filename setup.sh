@@ -33,14 +33,6 @@ cd ..
 # Start clean
 clear 
 
-# Check if user is root, if not then exit script
-if [ "$(id -u)" -ne 0 ]; then
-    echo -e "${Red}Error code: 4 (Permission denied)${NC}"
-    echo -e "${Red}Must be root to run this.${NC}"
-    echo -e "${Red}Aborting installation.${NC}"
-    exit 1
-fi
-
 # Check if docker, docker cli, containerd.io, and docker-buildx-plugin are installed
 if ! command -v docker &> /dev/null; then
     echo -e "${Red}Error code: 5 (Not installed)${NC}"
