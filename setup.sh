@@ -102,7 +102,7 @@ echo -e "${Green}Folders created${NC}"
 echo -e "${Purple}Enter the maximum number of containers to run for the youtube downloader${NC}"
 echo -e "${Yellow}These containers are used to download videos${NC}"
 read -p "Max Containers: " userInput
-echo "$userInput" > $CONTAINER_MAX_FILE
+echo "$userInput" >> $CONTAINER_MAX_FILE
 
 sleep 2
 
