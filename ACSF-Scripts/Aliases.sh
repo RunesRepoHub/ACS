@@ -34,7 +34,7 @@ add_if_not_exists() {
 }
 
 add_if_not_exists 'add-url' "bash '$ROOT_FOLDER'/'$ADD_URL_LIST'"
-add_if_not_exists 'get-overview' "docker ps --filter 'ancestor=mikenye/youtube-dl'"
+add_if_not_exists 'get-overview' "sudo docker ps --filter 'ancestor=mikenye/youtube-dl'"
 add_if_not_exists 'start-download' "bash '$ROOT_FOLDER'/'$AUTOMATED_CHECK'"
 add_if_not_exists 'stop-download' "bash '$ROOT_FOLDER'/'$DOCKER_STOP'"
 add_if_not_exists 'stop-all' "bash '$ROOT_FOLDER'/'$STOP'"
