@@ -41,8 +41,8 @@ ROOT_FOLDER=~/ACS/ACSF-Scripts
 # Install
 #--------------------------------------------------------------------------
 # All script names + file format
-AUTOMATED_CHECK="automated-check.sh"
-ADD_URL_LIST="add-url-list.sh"
+AUTOMATED_CHECK="Youtube-Channel-Auto.sh"
+ADD_URL_LIST="Youtube-Channel-Download.sh"
 DOCKER_STOP="docker-stop.sh"
 STOP="stop.sh"
 STOP_REMOVE="stop-remove.sh"
@@ -50,11 +50,11 @@ UNINSTALL="uninstall.sh"
 UPDATE="update.sh"
 UPDATE_DOWNLOAD="download-update.sh"
 SETUP_PLEX="setup-plex.sh"
-DOWNLOAD="download.sh"
+DOWNLOAD_AUDIO="Youtube-Audio-Playlist.sh"
 START="start.sh"
 USAGE="usage.sh"
 CONVERT="converter.sh"
-SINGLE_DOWNLOAD="download-single.sh"
+SINGLE_DOWNLOAD="Youtube-Download.sh"
 ALIASES="Aliases.sh"
 UPDATE_DOCKERS="Docker-Update.sh"
 #--------------------------------------------------------------------------

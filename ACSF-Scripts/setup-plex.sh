@@ -35,17 +35,17 @@ IP=$(hostname -I | awk '{print $1}')
 TZ=$(timedatectl show --property=Timezone --value)
 
 # Check if the network already exists
-if docker network inspect my_plex_network >/dev/null 2>&1; then
+if sudo docker network inspect my_plex_network >/dev/null 2>&1; then
     echo -e "${Red}The network my_plex_network already exists${NC}"
     echo -e "${Red}The installation might fail due to this error${NC}"
 else
     # Create the network
-    docker network create my_plex_network
+    sudo docker network create my_plex_network
 fi
 
 # Check if there is already a docker with the name plex running
 
-if docker ps -a --format '{{.Names}}' | grep -q "^plex$"; then
+if sudo docker ps -a --format '{{.Names}}' | grep -q "^plex$"; then
     echo -e "${Green}Plex is already running skipping plex claim${NC}"
 else
     echo -e "${Green}Claim the Plex server${NC}"
@@ -79,6 +79,6 @@ fi
 # Start all docker containers defined in the docker-compose files within the Dockers folder
 # and remove any orphan containers that are no longer defined in the docker-compose files
 for compose_file in ~/ACS/Dockers/*.yml; do
-    docker compose -f "$compose_file" up -d
+    sudo docker compose -f "$compose_file" up -d
 done
 
