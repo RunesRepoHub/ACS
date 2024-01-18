@@ -121,7 +121,12 @@ read -p "Enter your choice (1 or 2): " deployment_choice
 case $deployment_choice in
     1)
         echo -e "${Purple}Setting up Plex only...${NC}"
-        # Include the full system deployment commands here
+        if ! sudo docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
+            bash ~/ACS/ACSF-Scripts/setup-only-plex.sh
+            echo -e "${Green}Plex setup completed${NC}"
+        else
+            echo -e "${Green}Plex docker is already running${NC}"
+        fi
 
         ;;
     2)
