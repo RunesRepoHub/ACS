@@ -112,14 +112,33 @@ echo "$userInput" > $CONTAINER_MAX_FILE
 
 sleep 2
 
-# Setup plex
-echo -e "${Purple}Setting up plex...${NC}"
-if ! sudo docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
-    bash ~/ACS/ACSF-Scripts/setup-plex.sh
-    echo -e "${Green}Setup plex completed${NC}"
-else
-    echo -e "${Green}Plex docker is already running${NC}"
-fi
+
+echo -e "${Purple}Please choose an option:${NC}"
+echo -e "1) Deploy only Plex"
+echo -e "2) Deploy full system"
+read -p "Enter your choice (1 or 2): " deployment_choice
+
+case $deployment_choice in
+    1)
+        echo -e "${Purple}Setting up Plex only...${NC}"
+        # Include the full system deployment commands here
+
+        ;;
+    2)
+        echo -e "${Purple}Setting up full system...${NC}"
+        if ! sudo docker ps --filter "name=plex" --format '{{.Names}}' | grep -q "plex"; then
+            bash ~/ACS/ACSF-Scripts/setup-plex.sh
+            echo -e "${Green}Plex setup completed${NC}"
+        else
+            echo -e "${Green}Plex docker is already running${NC}"
+        fi
+        ;;
+    *)
+        echo -e "${Red}Invalid option selected. Please enter 1 or 2.${NC}"
+        ;;
+esac
+
+
 
 # Add alias
 echo -e "${Purple}Setup cronjob and alias${NC}"
