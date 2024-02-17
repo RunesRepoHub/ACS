@@ -41,7 +41,7 @@ ROOT_FOLDER=~/ACS/ACSF-Scripts
 # Install
 #--------------------------------------------------------------------------
 # All script names + file format
-AUTOMATED_CHECK="Youtube-Channel-Auto.sh"
+AUTOMATED_CHECK="Youtube-Channel-Rescan.sh"
 ADD_URL_LIST="Youtube-Channel-Download.sh"
 DOCKER_STOP="docker-stop.sh"
 STOP="stop.sh"
