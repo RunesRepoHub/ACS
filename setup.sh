@@ -67,6 +67,7 @@ fi
 set -e
 if [ -d ~/ACS ]; then
     echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
+    cd ~/ACS
     git pull 
 else
     echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
