@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Check if the folder already exists
-set -e
-if [ -d ~/ACS ]; then
-    echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
-    git pull 
-else
-    echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
-fi
-
 # Check if git is installed
 if ! command -v git &> /dev/null; then
     # Install git
@@ -16,6 +7,15 @@ if ! command -v git &> /dev/null; then
     sudo apt-get update
     sudo apt-get install -y git
     echo "Git installation completed."
+fi
+
+# Check if the folder already exists
+set -e
+if [ -d ~/ACS ]; then
+    echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
+    git pull 
+else
+    echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
 fi
 
 if [ -d ~/ACS ]; then
