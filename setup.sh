@@ -1,5 +1,27 @@
 #!/bin/bash
 
+# Check if sudo is installed
+echo -e "${Purple}Check if sudo is installed${NC}"
+if ! command -v sudo &> /dev/null; then
+    echo -e "${Red}Sudo is not installed.${NC}"
+    echo -e "${Yellow}Installing sudo...${NC}"
+    apt-get install sudo -y > /dev/null 2>&1
+    echo -e "${Green}Sudo has been installed${NC}"
+else
+    echo -e "${Green}Sudo is already installed.${NC}"
+fi 
+
+# Check if curl is installed
+echo -e "${Purple}Check if curl is installed${NC}"
+if ! command -v curl &> /dev/null; then
+    echo -e "${Red}Curl is not installed.${NC}"
+    echo -e "${Yellow}Installing curl...${NC}"
+    sudo apt-get install curl -y > /dev/null 2>&1
+    echo -e "${Green}Curl has been installed${NC}"
+else
+    echo -e "${Green}Curl is already installed.${NC}"
+fi
+
 # Check if git is installed
 if ! command -v git &> /dev/null; then
     # Install git
@@ -76,28 +98,6 @@ if ! command -v docker &> /dev/null; then
     echo -e "${Red}Install Docker and Docker-CLI before running ACS.${NC}"
     echo -e "${Red}Aborting installation.${NC}"
     exit 1
-fi
-
-# Check if sudo is installed
-echo -e "${Purple}Check if sudo is installed${NC}"
-if ! command -v sudo &> /dev/null; then
-    echo -e "${Red}Sudo is not installed.${NC}"
-    echo -e "${Yellow}Installing sudo...${NC}"
-    apt-get install sudo -y > /dev/null 2>&1
-    echo -e "${Green}Sudo has been installed${NC}"
-else
-    echo -e "${Green}Sudo is already installed.${NC}"
-fi 
-
-# Check if curl is installed
-echo -e "${Purple}Check if curl is installed${NC}"
-if ! command -v curl &> /dev/null; then
-    echo -e "${Red}Curl is not installed.${NC}"
-    echo -e "${Yellow}Installing curl...${NC}"
-    sudo apt-get install curl -y > /dev/null 2>&1
-    echo -e "${Green}Curl has been installed${NC}"
-else
-    echo -e "${Green}Curl is already installed.${NC}"
 fi
 
 # Install needed tools for installation script to work
