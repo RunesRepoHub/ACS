@@ -63,15 +63,15 @@ YOUTUBE=~/plex/media/youtube
 YOUTUBE_AUDIO=~/plex/media/youtube_audio 
 TRANSCODE=~/plex/transcode 
 LIBRARY=~/plex/library 
-JACKETT=~/ACS/jackett 
-RADARR=~/ACS/radarr 
+JACKETT=~/ACS-Dockers/jackett 
+RADARR=~/ACS-Dockers/radarr 
 MOVIES=~/plex/media/movies 
-SONARR=~/ACS/sonarr 
+SONARR=~/ACS-Dockers/sonarr 
 SHOWS=~/plex/media/Shows 
 MEDIA_DOWNLOAD=~/plex/media/download 
-TAUTALLI=~/ACS/tautalli 
-DELUGE=~/ACS/deluge 
-OMBI=~/ACS/ombi  
+TAUTALLI=~/ACS-Dockers/tautalli 
+DELUGE=~/ACS-Dockers/deluge 
+OMBI=~/ACS-Dockers/ombi  
 DOWNLOAD_COMPLETED=~/plex/media/download/completed
 #--------------------------------------------------------------------------
 # Container max
