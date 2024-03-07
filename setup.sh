@@ -1,12 +1,25 @@
 #!/bin/bash
 
-# Check if the folder already exists
-set -e
-if [ -d ~/ACS ]; then
-    echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
-    git pull 
+# Check if sudo is installed
+echo -e "${Purple}Check if sudo is installed${NC}"
+if ! command -v sudo &> /dev/null; then
+    echo -e "${Red}Sudo is not installed.${NC}"
+    echo -e "${Yellow}Installing sudo...${NC}"
+    apt-get install sudo -y > /dev/null 2>&1
+    echo -e "${Green}Sudo has been installed${NC}"
 else
-    echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
+    echo -e "${Green}Sudo is already installed.${NC}"
+fi 
+
+# Check if curl is installed
+echo -e "${Purple}Check if curl is installed${NC}"
+if ! command -v curl &> /dev/null; then
+    echo -e "${Red}Curl is not installed.${NC}"
+    echo -e "${Yellow}Installing curl...${NC}"
+    sudo apt-get install curl -y > /dev/null 2>&1
+    echo -e "${Green}Curl has been installed${NC}"
+else
+    echo -e "${Green}Curl is already installed.${NC}"
 fi
 
 # Check if git is installed
@@ -16,6 +29,48 @@ if ! command -v git &> /dev/null; then
     sudo apt-get update
     sudo apt-get install -y git
     echo "Git installation completed."
+fi
+
+# Detect the distribution name from /etc/os-release
+OS_DISTRO=$(grep '^NAME=' /etc/os-release | cut -d '=' -f 2 | tr -d '"')
+
+# Kali Linux specific Docker CE installation
+if [ "$OS_DISTRO" = "Kali GNU/Linux" ]; then
+    echo "Detected Kali Linux. Installing Docker CE..."
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian buster stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo systemctl enable docker --now
+    echo "Docker CE has been installed and started on Kali Linux."
+fi
+
+if [ "$OS_DISTRO" != "Kali GNU/Linux" ]; then
+    # Check if Docker is installed and install it if not
+    if ! command -v docker &> /dev/null; then
+        echo "Docker is not installed. Attempting to install Docker..."
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+        if ! command -v docker &> /dev/null; then
+            echo "Failed to install Docker. Aborting script."
+            exit 1
+        fi
+        echo "Docker has been successfully installed."
+    fi
+fi
+
+
+
+# Check if the folder already exists
+set -e
+if [ -d ~/ACS ]; then
+    echo -e "${Yellow}ACS folder already exists. Pulling latest changes...${NC}"
+    cd ~/ACS
+    git pull 
+else
+    echo "${Yellow}Folder does not exist. Continuing the script.${NC}"
 fi
 
 if [ -d ~/ACS ]; then
@@ -44,28 +99,6 @@ if ! command -v docker &> /dev/null; then
     echo -e "${Red}Install Docker and Docker-CLI before running ACS.${NC}"
     echo -e "${Red}Aborting installation.${NC}"
     exit 1
-fi
-
-# Check if sudo is installed
-echo -e "${Purple}Check if sudo is installed${NC}"
-if ! command -v sudo &> /dev/null; then
-    echo -e "${Red}Sudo is not installed.${NC}"
-    echo -e "${Yellow}Installing sudo...${NC}"
-    apt-get install sudo -y > /dev/null 2>&1
-    echo -e "${Green}Sudo has been installed${NC}"
-else
-    echo -e "${Green}Sudo is already installed.${NC}"
-fi 
-
-# Check if curl is installed
-echo -e "${Purple}Check if curl is installed${NC}"
-if ! command -v curl &> /dev/null; then
-    echo -e "${Red}Curl is not installed.${NC}"
-    echo -e "${Yellow}Installing curl...${NC}"
-    sudo apt-get install curl -y > /dev/null 2>&1
-    echo -e "${Green}Curl has been installed${NC}"
-else
-    echo -e "${Green}Curl is already installed.${NC}"
 fi
 
 # Install needed tools for installation script to work
