@@ -1,3 +1,3 @@
 # Automated Content System
-
-#### Check out the [GitHub Pages](https://runesrepohub.github.io/ACS/) for documentation.
+## DEPRECATED
+#### Check out the [GitHub Pages](https://runesrepohub.github.io/RRHQD/) for documentation.
